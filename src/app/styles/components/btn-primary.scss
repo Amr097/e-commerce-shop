@@ -1,0 +1,38 @@
+.btn-primary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 4rem;
+  right: 0;
+  left: 0;
+  width: 60%;
+  margin: auto;
+  border: none;
+  border-radius: 5px;
+  padding: 1.5rem 0.7rem 1.2rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transition: 0.1s all linear;
+  color: $gray-dark-2;
+  background-color: $color-primary;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+
+  .btn__text {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .btn__arrow {
+    display: flex;
+    align-items: flex-end;
+    font-size: 1.3rem;
+  }
+}

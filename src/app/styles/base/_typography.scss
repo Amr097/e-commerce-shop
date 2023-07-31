@@ -1,0 +1,40 @@
+.heading-primary {
+  color: $black;
+  font-size: 2.3rem;
+}
+
+.product-text {
+  color: $gray-dark-2;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  font-weight: bold;
+
+  &:hover {
+    color: $gray-dark-1;
+  }
+}
+
+.product-price {
+  color: $black-light;
+  font-size: 1.9rem;
+  font-weight: bolder;
+  display: inline-block;
+  position: relative;
+}
+
+.sale-price {
+  color: $red-2;
+  font-size: 1.7rem;
+  font-weight: bold;
+
+  &:hover {
+    color: $red-1;
+  }
+}
+
+.save-text {
+  color: $red-2;
+  &:hover {
+    color: $red-1;
+  }
+}

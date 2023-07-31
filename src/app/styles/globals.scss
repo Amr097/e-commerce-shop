@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Merriweather:wght@400;700&family=Open+Sans:wght@400;500;600;700;800&display=swap");
+@import "abstracts/variables";
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/utils";
+
+@import "components/btn-primary";
+
+@import "base/base";
+@import "base/animations";
+@import "base/typography";
+@import "base/queries";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: "Merriweather", serif;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  //  height: 100%;
+}
+
+body {
+  background-color: $color-primary;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+main {
+  width: 93.5%;
+  margin: 0 auto;
+}

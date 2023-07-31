@@ -1,0 +1,58 @@
+@import "../../../../app/styles/globals";
+
+.navbar__container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-secondary;
+    margin: 0 auto;
+
+    &__list {
+      list-style: none;
+      font-size: 1.6rem;
+      gap: 3.5rem;
+      display: flex;
+      justify-content: flex-end;
+      align-self: stretch;
+
+      .container {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      border-radius: 5px 5px 0px 0;
+      position: relative;
+
+      &:not(.navbar__item:first-child)::before {
+        content: "";
+        display: block;
+        height: 2px;
+        width: 0%;
+        border-radius: 0 5px 5px 0;
+        background-color: black;
+        position: absolute;
+        bottom: 0;
+        transition: all 0.2s ease-in-out;
+      }
+
+      &:not(.navbar__item:first-child):hover:before {
+        width: 70%;
+      }
+
+      @include navDropdown;
+    }
+  }
+
+  @media screen and (width<=71.875em) {
+    display: none;
+  }
+}

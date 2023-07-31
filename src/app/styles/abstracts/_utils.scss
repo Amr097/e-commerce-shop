@@ -1,0 +1,20 @@
+.line {
+  &::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    inset: 0;
+    margin: auto;
+    background-color: $black;
+    width: 4rem;
+    height: 1.3px;
+  }
+}
+
+.u-margin-left-micro {
+  margin-left: 0.7rem;
+}
+
+.u-margin-top-micro {
+  margin-top: 0.5rem;
+}

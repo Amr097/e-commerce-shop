@@ -1,0 +1,37 @@
+@import "../../app/styles/globals";
+
+@include firstChild;
+
+.header {
+  width: 93.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 3rem auto;
+
+  &__services {
+    @include nav-services;
+
+    a {
+      &:hover .services-icon {
+        transform: translateY(-2px);
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.341));
+      }
+    }
+    .services-btn {
+      &:hover {
+        background-color: $gray-light-2;
+      }
+    }
+  }
+
+  @media screen and (width<=71.875em) {
+    display: none;
+  }
+}
+
+.logo {
+  font-size: 3rem;
+  font-weight: bold;
+  color: inherit;
+}

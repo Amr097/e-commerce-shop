@@ -1,0 +1,75 @@
+@import "../../app/styles/globals";
+
+.footer {
+  width: 95%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, calc(100% / 5)));
+  grid-template-rows: repeat(auto-fit, minmax(8rem, 1fr));
+  justify-items: center;
+  background-color: #e5e7eb;
+
+  grid-row-gap: 3rem;
+  padding: 3rem 8rem;
+  font-size: 1.5rem;
+  border-radius: 0 0 1rem 1rem;
+  margin: 0 auto;
+
+  color: $black;
+
+  &__list {
+    list-style: none;
+    margin: 1rem 0 1.5rem;
+  }
+
+  &__item {
+    margin-bottom: 1rem;
+    color: $gray-dark-1;
+    text-transform: capitalize;
+
+    a {
+      transition: all 0.2s;
+      display: inline-block;
+      &:hover {
+        color: #404040;
+        scale: 1.02;
+      }
+    }
+
+    &:first-child {
+      color: $black;
+      text-transform: uppercase;
+      font-size: 1.7rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    &:last-child {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      img {
+        object-fit: contain;
+        width: 4.5rem;
+        height: 4.5rem;
+
+        &:last-child {
+          width: 7rem;
+          height: 7rem;
+        }
+      }
+    }
+  }
+  &__copyright {
+    grid-column: 1 / -1;
+    width: 100%;
+    text-align: center;
+    color: $gray-dark-1;
+    padding: 2.5rem 0 0;
+    border-top: solid 2px $gray-light-2;
+  }
+
+  &__item--payment {
+    margin-bottom: 0.5rem !important;
+    text-align: center;
+  }
+}

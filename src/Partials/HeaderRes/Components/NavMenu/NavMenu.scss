@@ -1,0 +1,179 @@
+@import "../../../../app/styles/globals";
+
+.menu {
+  position: relative;
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.1px solid $gray-light-2;
+    height: 4.7rem;
+    width: 5rem;
+    position: relative;
+    z-index: 400;
+    box-shadow: 0 0.5rem 8rem rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 3rem;
+    height: 0.2rem;
+    background-color: black;
+    display: flex;
+    align-items: center;
+
+    &::after,
+    &::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      width: 3rem;
+      height: 0.2rem;
+      background-color: black;
+      transition: 0.2s ease-in-out;
+    }
+
+    &::after {
+      transform: translateY(0.9rem);
+    }
+
+    &::before {
+      transform: translateY(-0.9rem);
+    }
+  }
+
+  &__checkbox {
+    position: absolute;
+    z-index: -9999999;
+    transform: translate(1.5rem, 1.5rem);
+    visibility: hidden;
+
+    &:checked + .menu__btn .menu__icon::before {
+      transform: rotate(135deg);
+    }
+    &:checked + .menu__btn .menu__icon {
+      background-color: transparent;
+    }
+    &:checked + .menu__btn .menu__icon::after {
+      transform: rotate(-135deg);
+    }
+    &:checked + .menu__btn {
+      border: none;
+      box-shadow: none;
+    }
+    &:checked ~ .menu__list {
+      left: 0rem;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    position: fixed;
+    top: 0;
+    left: -200rem;
+    width: 50vw;
+    height: 100vh;
+    background-color: $gray-light-1;
+    border: 2px solid $gray-light-2;
+    z-index: 5;
+    display: grid;
+    grid-template-rows: 12rem repeat(6, min-content);
+    transition: all 0.4s ease-in-out;
+
+    li {
+      padding: 1rem 2.8rem 1.5rem;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      position: relative;
+      z-index: 1;
+
+      @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+          grid-row: #{$i + 1}/ span 1;
+        }
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        width: 1rem;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: solid 2px $gray-light-2;
+        border-right: none;
+        transform: scaleY(0);
+        transition: transform 0.3s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.3s;
+        z-index: 1;
+      }
+
+      &:hover::before {
+        transform: scaleY(1);
+        width: 100%;
+      }
+
+      &:active::before {
+        border: solid 2px $gray-light-2;
+        border-right: none;
+      }
+      &:hover ~ &:last-child::before {
+        transform: scaleY(0);
+        width: 0;
+      }
+
+      a {
+        position: relative;
+        z-index: 2;
+
+        &:hover {
+          color: $brown-light-1;
+        }
+      }
+    }
+  }
+
+  &__shop {
+    padding-right: 3rem;
+    cursor: pointer;
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 1.4px;
+      height: 1.2rem;
+      background-color: black;
+      position: absolute;
+      right: 0.5rem;
+      top: 8px;
+      transform: rotate(50deg);
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 1.4px;
+      height: 1.2rem;
+      background-color: black;
+      position: absolute;
+      right: 0.5rem;
+      top: 0.5px;
+      transform: rotate(-50deg);
+    }
+
+    &:hover::before {
+      background-color: $brown-light-1;
+    }
+    &:hover::after {
+      background-color: $brown-light-1;
+    }
+  }
+
+  @media screen and (width>71.875em) {
+    display: none;
+  }
+}

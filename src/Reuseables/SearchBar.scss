@@ -1,0 +1,89 @@
+@import "../app/styles/globals";
+
+.search {
+  display: flex;
+  justify-content: center;
+
+  &__input {
+    width: 90%;
+    background-color: $gray-light-1;
+    border: solid 1px $gray-light-2;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    transition: all 0.25s ease-in-out;
+    margin-right: -3rem;
+    font-size: inherit;
+    font-size: 1.5rem;
+
+    @media screen and (width<=71.875em) {
+      background-color: transparent;
+      border: none;
+    }
+
+    &:focus {
+      width: 100%;
+      outline: none;
+    }
+
+    &:focus + .search__button {
+      transform: translateX(-1.6rem);
+    }
+
+    &:focus ~ .search__exit {
+      scale: 1;
+    }
+
+    &::placeholder {
+      font-weight: 100;
+      font-size: 1.2rem;
+      color: $gray-dark-1;
+    }
+  }
+  &__button,
+  &__exit {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    transition: 0.2s linear;
+
+    &:focus {
+      outline: none;
+      transform: translateY(1px) scale(0.98);
+    }
+  }
+
+  &__button {
+    svg {
+      fill: $gray-dark-1;
+      width: 1.3rem;
+      height: 1.3rem;
+
+      @media screen and (width<=71.875em) {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+    }
+  }
+
+  &__exit {
+    scale: 0;
+    transform: translate(-0.8rem, 0.1rem);
+
+    svg {
+      fill: $gray-dark-1;
+      width: 1.7rem;
+      height: 1.7rem;
+
+      @media screen and (width<=71.875em) {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+  }
+
+  @media screen and (width<=71.875em) {
+    width: 100vw;
+    background-color: $gray-light-1;
+    border: solid 0.5px $gray-light-2;
+  }
+}
