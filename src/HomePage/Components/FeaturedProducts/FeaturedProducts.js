@@ -1,24 +1,21 @@
 "use client";
-import { React, useEffect } from "react";
+import { React, useEffect, useState } from "react";
 import { featuredProducts } from "@/data";
 import "./FeaturedProducts.scss";
 import { v4 as uuidv4 } from "uuid";
-import { FiShoppingCart } from "react-icons/fi";
+import FeaturedItem from "./Components/FeaturedItem";
+import { changeArrowColor } from "./Functions/ChangeArrowColor";
+import { checkRadioBtn } from "./Functions/checkRadioBtn";
 
 const FeaturedProducts = () => {
+  const [arrowLeft, setArrowLeft] = useState(false);
+  const [arrowRight, setArrowRight] = useState(false);
   useEffect(() => {
-    let arrowLeft = document.querySelector(".arrow__left");
     let swipeLeft = document.querySelector("#swipeLeft");
-    arrowLeft.checked = true;
+    setArrowLeft(true);
     swipeLeft.checked = true;
   }, []);
 
-  const checkRadioBtn = (type) => {
-    let swipeLeft = document.querySelector("#swipeLeft");
-    let swipeRight = document.querySelector("#swipeRight");
-    if (type === "right") swipeRight.checked = true;
-    else swipeLeft.checked = true;
-  };
   return (
     <div className="featured">
       <h2 className="heading-primary">Featured products</h2>
@@ -28,16 +25,23 @@ const FeaturedProducts = () => {
         name="swipe"
         className="arrow__right"
         onClick={() => {
-          checkRadioBtn("right");
+          checkRadioBtn("right-arrow");
+          setArrowLeft(false);
         }}
+        style={
+          arrowRight ? { pointerEvents: "none" } : { pointerEvents: "all" }
+        }
       ></input>
+
       <input
         type="radio"
         name="swipe"
         className="arrow__left"
         onClick={() => {
-          checkRadioBtn("left");
+          checkRadioBtn("left-arrow");
+          setArrowRight(false);
         }}
+        style={arrowLeft ? { pointerEvents: "none" } : { pointerEvents: "all" }}
       ></input>
 
       <input type="radio" name="swipe-page" id="swipeLeft"></input>
@@ -46,50 +50,23 @@ const FeaturedProducts = () => {
 
       <ul className="featured__list">
         {featuredProducts.map((item) => (
-          <li className="featured__item" key={uuidv4()}>
-            <span className="featured__sale">Sale</span>
-            <img
-              src={item.image}
-              alt={item.category + item.type}
-              className="featured__img"
-            />
-            <div className="featured__price">
-              <div className="left">
-                <a className="product-text">{item.type}</a>
-                <div className="container">
-                  <a
-                    className={
-                      item.sale ? "product-price line" : "product-price"
-                    }
-                  >
-                    {item.price}$
-                  </a>
-                  {item.sale && (
-                    <a className="sale-price u-margin-left-micro">
-                      {(item.price * item.sale) / 100}$
-                    </a>
-                  )}
-                </div>
-                {item.sale && (
-                  <p className="featured__save save-text u-margin-top-micro">
-                    (save {item.sale}%)
-                  </p>
-                )}
-              </div>
-              <div className="right">
-                <FiShoppingCart
-                  style={{ stroke: "white", width: "1.9rem", height: "1.9rem" }}
-                />
-              </div>
-            </div>
-          </li>
+          <FeaturedItem item={item} key={uuidv4()} />
         ))}
       </ul>
 
-      <label className="featured__pagination--left" htmlFor="swipeLeft"></label>
+      <label
+        className="featured__pagination--left"
+        htmlFor="swipeLeft"
+        onClick={() => {
+          changeArrowColor("left", setArrowLeft, setArrowRight);
+        }}
+      ></label>
       <label
         className="featured__pagination--right"
         htmlFor="swipeRight"
+        onClick={() => {
+          changeArrowColor("right", setArrowLeft, setArrowRight);
+        }}
       ></label>
     </div>
   );
