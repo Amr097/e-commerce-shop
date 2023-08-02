@@ -131,6 +131,10 @@
         transition: all 0.4s ease-in-out;
       }
 
+      &:checked {
+        cursor: auto;
+      }
+
       // &:checked ~ .arrow__left::before {
       //   // background-color: $black;
       // }
@@ -173,6 +177,11 @@
       }
 
       right: 6rem;
+
+      &:checked {
+        cursor: auto;
+      }
+
       &:checked ~ .featured__list {
         margin-left: 0;
       }
@@ -201,7 +210,7 @@
     bottom: 10%;
     left: 25%;
 
-    //width: 4rem;
+    // width: 4rem;
     // height: 4rem;
   }
 

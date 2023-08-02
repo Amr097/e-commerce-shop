@@ -1,8 +1,10 @@
 .home {
   display: flex;
   flex-direction: column;
-
-  width: 82%;
-  margin: 0 auto;
   position: relative;
+
+  @media screen and (width> 50em) {
+    width: 82%;
+    margin: 0 auto;
+  }
 }

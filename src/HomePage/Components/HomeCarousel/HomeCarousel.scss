@@ -4,14 +4,16 @@
   width: 100%;
   height: fit-content;
   margin-top: 4rem;
+  position: relative;
+  overflow-x: hidden;
 
   &__list {
     list-style: none;
     display: flex;
-    gap: 25rem;
     width: 100%;
-    overflow-x: hidden;
+
     position: relative;
+    transition: all 0.2s ease-in-out;
   }
   &__item {
     width: 100%;
@@ -19,6 +21,26 @@
     aspect-ratio: 10/4;
     border-radius: 7px;
     position: relative;
+
+    @media screen and (width < 50em) {
+      border-radius: 0;
+    }
+
+    &:first-child {
+      .carousel__arrow {
+        &--left {
+          pointer-events: none;
+        }
+      }
+    }
+
+    &:last-child {
+      .carousel__arrow {
+        &--right {
+          pointer-events: none;
+        }
+      }
+    }
 
     &::after {
       content: "";
@@ -31,6 +53,10 @@
       width: 100%;
       height: 100%;
       z-index: 1;
+
+      @media screen and (width < 50em) {
+        border-radius: 0;
+      }
     }
   }
   &__image {
@@ -41,6 +67,10 @@
     border-radius: 7px;
     position: relative;
     z-index: 0;
+
+    @media screen and (width < 50em) {
+      border-radius: 0;
+    }
   }
 
   &__title {
@@ -51,6 +81,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
+
+    @media screen and (width<109.375em) {
+      font-size: 5.5rem !important;
+    }
+
+    @media screen and (width<93.75em) {
+      font-size: 4.5rem !important;
+      top: 46%;
+    }
+
+    @media screen and (width<50em) {
+      font-size: 3rem !important;
+    }
   }
 
   a.carousel__btn {
@@ -63,6 +106,10 @@
     bottom: 30%;
     z-index: 2;
 
+    @media screen and (width<93.75em) {
+      bottom: 20%;
+    }
+
     span {
       margin-left: 1.4rem;
       font-size: 1.6rem;
@@ -74,42 +121,70 @@
     display: flex;
     gap: 0.3rem;
     position: absolute;
-    bottom: 15%;
+    bottom: 13%;
     left: 50%;
     transform: translateX(-50%);
-    color: $gray-light-1;
+    color: $gray-dark-1;
     z-index: 2;
     span {
-      font-size: 3.3rem;
+      font-size: 5rem;
+      cursor: pointer;
+    }
+
+    &--active {
+      color: $gray-light-1;
+    }
+
+    @media screen and (width<93.75em) {
+      bottom: 2.5%;
     }
   }
 
-  .arrow {
+  &__arrow {
     width: 12rem;
     height: 5rem;
     background-color: $gray-light-1;
     position: absolute;
-    top: 3rem;
-    right: 3rem;
+    top: 3.6rem;
+    right: 3.6rem;
     border-radius: 7px;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.133);
-    z-index: 2;
+    z-index: 12;
 
-    &__right,
-    &__left {
+    @media screen and (width< 75em) {
+      top: 2.4rem;
+      right: 2.4rem;
+    }
+
+    @media screen and (width < 50em) {
+      width: 8rem;
+      height: 4rem;
+      border-radius: 4px;
+      top: 1.9rem;
+      right: 1.9rem;
+    }
+
+    &--right,
+    &--left {
       width: 50%;
       height: 100%;
       display: inline-block;
+      cursor: pointer;
     }
 
-    &__right {
+    &--right {
       border-left: solid 2px $gray-light-3;
       position: relative;
 
       &::after,
       &::before {
         content: "";
-        background-color: $gray-dark-1;
+        background-color: var(--custom-black-c);
+
+        @media screen and (width < 50em) {
+          width: 1.2px !important;
+          height: 1rem !important;
+        }
       }
 
       &::before {
@@ -118,7 +193,7 @@
         height: 1.3rem;
 
         position: absolute;
-        top: 30%;
+        top: 31%;
         left: 50%;
         transform: rotate(-45deg);
       }
@@ -133,14 +208,32 @@
         left: 50%;
         transform: rotate(45deg);
       }
+
+      &:checked::before {
+        animation-name: rotateArrowRight--before;
+        animation-timing-function: ease-in-out;
+        animation-duration: 0.4s;
+      }
+
+      &:checked::after {
+        animation-name: rotateArrowRight--after;
+        animation-timing-function: ease-in-out;
+        animation-duration: 0.4s;
+      }
     }
-    &__left {
+    &--left {
       position: relative;
+      pointer-events: none;
 
       &::after,
       &::before {
         content: "";
-        background-color: $gray-dark-1;
+        background-color: var(--custom-gray-c);
+
+        @media screen and (width < 50em) {
+          width: 1.2px !important;
+          height: 1rem !important;
+        }
       }
 
       &::before {
@@ -149,7 +242,7 @@
         height: 1.3rem;
 
         position: absolute;
-        top: 30%;
+        top: 31%;
         left: 50%;
         transform: rotate(-135deg);
       }
@@ -164,6 +257,25 @@
         left: 50%;
         transform: rotate(135deg);
       }
+
+      &:checked::before {
+        transform: rotate(225deg);
+
+        transition: all 0.4s ease-in-out;
+      }
+
+      &:checked::after {
+        transform: rotate(-225deg);
+
+        transition: all 0.4s ease-in-out;
+      }
     }
   }
+}
+
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
 }

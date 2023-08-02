@@ -10,6 +10,11 @@
     list-style: none;
     gap: 3rem;
     padding: 2rem 0;
+
+    @media screen and (width < 50em) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
   &__item {
     @include product-item;

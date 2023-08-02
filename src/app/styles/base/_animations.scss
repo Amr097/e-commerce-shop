@@ -1,0 +1,11 @@
+@keyframes rotateArrowRight--before {
+  to {
+    transform: rotate(320deg);
+  }
+}
+
+@keyframes rotateArrowRight--after {
+  to {
+    transform: rotate(-320deg);
+  }
+}

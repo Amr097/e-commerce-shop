@@ -1,7 +1,7 @@
 export function checkRadioBtn(type) {
   let swipeLeft = document.querySelector("#swipeLeft");
   let swipeRight = document.querySelector("#swipeRight");
-  console.log("works");
+  // console.log("works");
   if (type === "right-arrow") {
     swipeRight.checked = true;
     document.documentElement.style.setProperty("--custom-black", "#a3a3a3");

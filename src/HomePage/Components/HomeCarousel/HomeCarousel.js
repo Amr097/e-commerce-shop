@@ -1,38 +1,53 @@
-import React from "react";
+"use client";
+import { React, useState } from "react";
 import "./HomeCarousel.scss";
 import { products } from "@/data";
 import { v4 as uuidv4 } from "uuid";
-import { FaArrowRight } from "react-icons/fa";
+import CarouselSlide from "./Components/CarouselSlide";
+import { validateAndSlide } from "./Functions/slideCarousel";
 
 const HomeCarousel = () => {
+  const [index, setIndex] = useState(0);
   return (
     <div className="carousel">
+      <div className="carousel__arrow">
+        <input
+          type="radio"
+          name="arrow"
+          className="carousel__arrow--left"
+          onClick={() => validateAndSlide("left", index, setIndex)}
+        ></input>
+        <input
+          name="arrow"
+          type="radio"
+          className="carousel__arrow--right"
+          onClick={() => validateAndSlide("right", index, setIndex)}
+        ></input>
+      </div>
       <ul className="carousel__list">
         {products.map((product) => (
-          <li className="carousel__item" key={uuidv4()}>
-            <img className="carousel__image" src={product.image} alt="" />
-            <div className="arrow">
-              <span className="arrow__left"></span>
-              <span className="arrow__right"></span>
-            </div>
-            <h1 className="carousel__title heading-huge">
-              Level up your style with our summer collections
-            </h1>
-            <a className="carousel__btn btn-primary">
-              Shop now{" "}
-              <span className="btn__arrow">
-                {" "}
-                <FaArrowRight />
-              </span>
-            </a>
-            <div className="carousel__dots">
-              {products.map((product) => (
-                <span key={uuidv4()}>•</span>
-              ))}
-            </div>
-          </li>
+          <CarouselSlide
+            product={product}
+            products={products}
+            index={index}
+            setIndex={setIndex}
+            key={uuidv4()}
+          />
         ))}
       </ul>
+      <div className="carousel__dots">
+        {products.map((dot, dotIndex) => (
+          <span
+            key={uuidv4()}
+            className={index === dotIndex ? "carousel__dots--active" : ""}
+            onClick={() => {
+              validateAndSlide("dot", index, setIndex, dotIndex);
+            }}
+          >
+            •
+          </span>
+        ))}
+      </div>
     </div>
   );
 };
