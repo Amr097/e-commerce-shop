@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "mongodb": "^5.7.0",
+    "mongoose": "^7.4.1",
     "next": "13.4.6",
     "postcss": "^8.4.24",
     "postcss-cli": "^10.1.0",

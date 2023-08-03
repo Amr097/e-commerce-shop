@@ -48,11 +48,7 @@ html {
 body {
   background-color: $color-primary;
   height: 100%;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
+  -webkit-font-smoothing: antialiased;
 }
 
 main {
@@ -62,4 +58,35 @@ main {
   @media screen and (width< 50em) {
     width: 100%;
   }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  border: none;
+  outline: none;
 }
