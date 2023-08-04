@@ -2,12 +2,10 @@
 import { React, lazy, Suspense } from "react";
 
 import Header from "@/Partials/Header/Header";
-import HeaderRes from "@/Partials/HeaderRes/HeaderRes";
+import HeaderRes from "@/Partials/HeaderResponsive/HeaderRes";
 import HomePage from "@/HomePage/HomePage";
 
 const Footer = lazy(() => import("@/Partials/Footer/Footer"));
-
-//const HeaderRes = lazy(() => import("@/Partials/HeaderRes/HeaderRes"));
 
 export default function Home() {
   return (

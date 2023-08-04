@@ -8,9 +8,7 @@ const NavBar = () => {
       <ul className="navbar__list">
         <li className="navbar__item">
           {" "}
-          <a className="navbar__link" href="">
-            Shop
-          </a>
+          <a className="navbar__link">Shop</a>
           <div className="navbar__item--dropdown">
             <ul>
               {["Men", "Women", "Children"].map((item) => (

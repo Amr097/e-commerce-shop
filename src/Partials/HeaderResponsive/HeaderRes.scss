@@ -26,13 +26,10 @@
 
   &__services {
     @include nav-services;
+    @include nav-services--dropdown;
     gap: 0rem;
     a {
       font-size: 2rem;
-
-      &:hover .services-icon {
-        transform: translateY(-2px);
-      }
     }
   }
 }

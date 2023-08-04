@@ -12,17 +12,7 @@
   &__services {
     @include nav-services;
 
-    a {
-      &:hover .services-icon {
-        transform: translateY(-2px);
-        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.341));
-      }
-    }
-    .services-btn {
-      &:hover {
-        background-color: $gray-light-2;
-      }
-    }
+    @include nav-services--dropdown;
   }
 
   @media screen and (width<=71.875em) {
