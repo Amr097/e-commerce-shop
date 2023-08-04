@@ -20,6 +20,10 @@
       justify-content: flex-end;
       align-self: stretch;
 
+      @media screen and (width< 79em) {
+        font-size: 2rem;
+      }
+
       .container {
         display: flex;
         align-items: center;

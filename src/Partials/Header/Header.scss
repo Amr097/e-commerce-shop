@@ -10,6 +10,12 @@
   margin: 3rem auto;
 
   &__services {
+    font-size: 1.6rem;
+
+    @media screen and (width< 79em) {
+      font-size: 2rem;
+    }
+
     @include nav-services;
 
     @include nav-services--dropdown;
@@ -24,4 +30,13 @@
   font-size: 3rem;
   font-weight: bold;
   color: inherit;
+  align-self: flex-start;
+
+  @media screen and (width< 79em) {
+    align-self: center;
+  }
+
+  @media screen and (width< 48.43em) {
+    display: none;
+  }
 }

@@ -83,7 +83,7 @@
   align-items: center;
   a,
   .services-btn {
-    font-size: 1.6rem;
+    font-size: inherit;
     align-self: stretch;
     display: flex;
     align-items: center;
@@ -95,11 +95,16 @@
       width: 2rem;
       height: 2rem;
       transition: all 0.2s ease-in-out;
+
+      @media screen and (width< 79em) {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
     }
 
     img {
-      width: 2rem;
-      height: 2rem;
+      width: 2.5rem;
+      height: 2.5rem;
       border-radius: 50%;
     }
   }
@@ -142,7 +147,8 @@
       }
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $gray-light-2;
     }
 

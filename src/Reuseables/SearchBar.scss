@@ -13,7 +13,6 @@
     transition: all 0.25s ease-in-out;
     margin-right: -3rem;
     font-size: inherit;
-    font-size: 1.5rem;
 
     @media screen and (width<=71.875em) {
       background-color: transparent;
@@ -35,7 +34,7 @@
 
     &::placeholder {
       font-weight: 100;
-      font-size: 1.2rem;
+      font-size: inherit;
       color: $gray-dark-1;
     }
   }
@@ -59,8 +58,8 @@
       height: 1.3rem;
 
       @media screen and (width<=71.875em) {
-        width: 1.6rem;
-        height: 1.6rem;
+        width: 2rem;
+        height: 2rem;
       }
     }
   }
@@ -75,8 +74,8 @@
       height: 1.7rem;
 
       @media screen and (width<=71.875em) {
-        width: 2rem;
-        height: 2rem;
+        width: 2.4rem;
+        height: 2.4rem;
       }
     }
   }

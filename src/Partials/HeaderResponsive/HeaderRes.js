@@ -17,15 +17,6 @@ const HeaderRes = () => {
         </div>
 
         <div className="res__services">
-          <a href="/cart">
-            {" "}
-            <FiShoppingCart className="services-icon " /> &nbsp;
-          </a>
-
-          <a href="/cart">
-            {" "}
-            <FiHeart className="services-icon " /> &nbsp;
-          </a>
           {loggedIn ? (
             <AccountMenu />
           ) : (
@@ -33,6 +24,16 @@ const HeaderRes = () => {
               <FiUser className="services-icon " />
             </a>
           )}
+
+          <a href="/cart">
+            {" "}
+            <FiHeart className="services-icon " /> &nbsp;
+          </a>
+
+          <a href="/cart">
+            {" "}
+            <FiShoppingCart className="services-icon " /> &nbsp;
+          </a>
         </div>
       </div>
 

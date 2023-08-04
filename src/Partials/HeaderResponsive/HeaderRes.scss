@@ -3,6 +3,7 @@
 .res {
   &__header {
     margin: 3rem auto;
+    font-size: 2.2rem;
 
     @media screen and (width>71.875em) {
       display: none;
@@ -27,7 +28,7 @@
   &__services {
     @include nav-services;
     @include nav-services--dropdown;
-    gap: 0rem;
+    gap: 0.3rem;
     a {
       font-size: 2rem;
     }
