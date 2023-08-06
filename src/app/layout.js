@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import store from "../../store";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
+import { SessionProvider } from "next-auth/react";
 
 let persistor = persistStore(store);
 
@@ -17,11 +18,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       {" "}
       <body>
-        <Provider store={store}>
-          <PersistGate loading={null} persistor={persistor}>
-            {children}
-          </PersistGate>
-        </Provider>
+        <SessionProvider>
+          <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+              {children}
+            </PersistGate>
+          </Provider>
+        </SessionProvider>
       </body>
     </html>
   );

@@ -16,9 +16,17 @@ const NavMenu = () => {
       </label>
       <ul tabIndex="0" id="hamMenu" className="menu__list">
         <li key={uuidv4()} className="menu__item">
-          <a className="menu__shop" onClick={unCheckMenu}>
-            Shop
-          </a>
+          {" "}
+          <button className="menu__shop">Shop</button>
+          <ul className="menu__shop--list">
+            {["Men", "Women", "Children"].map((item) => (
+              <li key={uuidv4()} className="menu__shop--item">
+                <a className="" href={`#${item}`} onClick={unCheckMenu}>
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
         </li>
         {["Best sellers", "New arrivals", "Trending"].map((item) => (
           <li key={uuidv4()} className="menu__item">

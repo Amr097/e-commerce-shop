@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="footer">
       <ul className="footer__list">
         <li className="footer__item"> Proshop</li>
-        <li className="footer__item">
+        <li className="footer__item footer__text">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit.
         </li>
       </ul>

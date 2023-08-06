@@ -7,7 +7,7 @@ import "./HeaderRes.scss";
 import AccountMenu from "../../Reuseables/AccountMenu";
 
 const HeaderRes = () => {
-  const [loggedIn, setloggedIn] = useState(true);
+  const [loggedIn, setloggedIn] = useState(false);
   return (
     <div className="res__header">
       <div className="res__nav">

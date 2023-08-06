@@ -1,36 +1,17 @@
-"use client";
-import { React, lazy, Suspense } from "react";
+import { React } from "react";
+import axios from "axios";
 
-import Header from "@/Partials/Header/Header";
-import HeaderRes from "@/Partials/HeaderResponsive/HeaderRes";
-import HomePage from "@/HomePage/HomePage";
+import MyApp from "@/MyApp/MyApp";
 
-const Footer = lazy(() => import("@/Partials/Footer/Footer"));
+// const getGeoData = async () => {
+//   let data = await axios.get(process.env.NEXT_PUBLIC_IP_REGISTRY_URL);
 
-export default function Home() {
-  return (
-    <div
-      className="container"
-      onClick={(e) => {
-        e.target !== document.querySelector(".menu") &&
-        e.target !== document.querySelector("#nav-toggle") &&
-        e.target !== document.querySelector("#hamMenu") &&
-        e.target.parentNode !== document.querySelector("#hamMenu") &&
-        e.target !== document.querySelector(".menu__btn") &&
-        e.target !== document.querySelector(".menu__icon")
-          ? (document.querySelector("#nav-toggle").checked = false)
-          : "";
-      }}
-    >
-      {/* <Suspense fallback={<h1>Loading...</h1>}></Suspense> */}
-      <Header />
-      <HeaderRes />
-      <main>
-        <HomePage />
-      </main>
-      <Suspense>
-        <Footer />
-      </Suspense>
-    </div>
-  );
+//   return data;
+// };
+
+export default async function Home() {
+  // const geo = await getGeoData();
+  // console.log(geo.data.location.country);
+
+  return <MyApp />;
 }

@@ -25,11 +25,13 @@
     }
 
     &:focus + .search__button {
-      transform: translateX(-1.6rem);
+      transform: translateX(-2rem);
+      border-radius: 0;
     }
 
     &:focus ~ .search__exit {
       scale: 1;
+      transform: translate(-2rem);
     }
 
     &::placeholder {
@@ -42,36 +44,42 @@
   &__exit {
     border: none;
     cursor: pointer;
-    background-color: transparent;
+    background-color: $gray-light-1;
+    border: solid 1px $gray-light-2;
+    border-radius: 0 1rem 1rem 0;
+    padding: 0 0.5rem;
     transition: 0.2s linear;
 
     &:focus {
       outline: none;
-      transform: translateY(1px) scale(0.98);
+      transform: scale(0.98);
     }
   }
 
   &__button {
     svg {
       fill: $gray-dark-1;
-      width: 1.3rem;
-      height: 1.3rem;
+      width: 2rem;
+      height: 2rem;
 
       @media screen and (width<=71.875em) {
-        width: 2rem;
-        height: 2rem;
+        width: 2.4rem;
+        height: 2.4rem;
       }
     }
   }
 
   &__exit {
     scale: 0;
-    transform: translate(-0.8rem, 0.1rem);
+    pointer-events: none;
+    transform: translate(-9rem);
+    border: solid 1px $gray-light-2;
+    border-left: 0;
 
     svg {
       fill: $gray-dark-1;
-      width: 1.7rem;
-      height: 1.7rem;
+      width: 2rem;
+      height: 2rem;
 
       @media screen and (width<=71.875em) {
         width: 2.4rem;
@@ -81,7 +89,7 @@
   }
 
   @media screen and (width<=71.875em) {
-    width: 100vw;
+    width: 100dvw;
     background-color: $gray-light-1;
     border: solid 0.5px $gray-light-2;
   }
