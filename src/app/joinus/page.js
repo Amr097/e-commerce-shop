@@ -1,18 +1,13 @@
 "use client";
-import { React, lazy, Suspense } from "react";
+import React from "react";
 import Header from "@/Partials/Header/Header";
+import Footer from "@/Partials/Footer/Footer";
 import HeaderRes from "@/Partials/HeaderResponsive/HeaderRes";
-import HomePage from "@/HomePage/HomePage";
-import { useSession, signIn } from "next-auth/react";
+import JoinUsPage from "@/SignInPage/JoinUsPage";
 
-const Footer = lazy(() => import("@/Partials/Footer/Footer"));
-
-const MyApp = () => {
-  const { data: session } = useSession();
-
+const page = () => {
   return (
     <div
-      className="container"
       onClick={(e) => {
         e.target !== document.querySelector(".menu") &&
         e.target !== document.querySelector("#nav-toggle") &&
@@ -26,17 +21,12 @@ const MyApp = () => {
           : "";
       }}
     >
-      {/* <Suspense fallback={<h1>Loading...</h1>}></Suspense> */}
-      <Header session={session} signIn={signIn} />
-      <HeaderRes session={session} signIn={signIn} />
-      <main>
-        <HomePage />
-      </main>
-      <Suspense>
-        <Footer />
-      </Suspense>
+      <Header />
+      <HeaderRes />
+      <JoinUsPage />
+      <Footer />
     </div>
   );
 };
 
-export default MyApp;
+export default page;

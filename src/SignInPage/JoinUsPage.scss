@@ -1,0 +1,118 @@
+@import "../app/styles/globals";
+
+.joinus {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, max-content);
+  width: 80%;
+  margin: 0 auto;
+  padding: 7rem;
+
+  &__back {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    grid-column: 1 / -1;
+    grid-row: 1 / span 1;
+
+    .arrow-in-circle {
+      &:hover {
+        background-color: $black;
+        cursor: pointer;
+        svg {
+          fill: $gray-light-1;
+        }
+      }
+    }
+
+    a {
+      margin-left: 0.5rem;
+      border-bottom: 1px solid blue;
+      color: blue;
+    }
+  }
+
+  &__text {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    color: $gray-dark-2;
+    font-size: 1.3rem;
+  }
+
+  &__input--container {
+    padding: 1.5rem;
+    background-color: $gray-light-3;
+    border-radius: 5555555px;
+    width: 60%;
+    gap: 2rem;
+    margin: 1.5rem 0;
+
+    svg {
+      width: 2.5rem;
+      height: 2.5rem;
+      fill: $gray-dark-1;
+    }
+  }
+
+  &__input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 1.5rem;
+    width: 100%;
+
+    &::placeholder {
+      color: $gray-dark-1;
+    }
+  }
+
+  &__btn {
+    width: 35%;
+    color: $gray-light-1;
+    background-color: $black;
+    border-radius: 555555555555px;
+    padding: 0.5rem 0 0.5rem 2rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    p {
+      margin: 0 auto;
+    }
+    .arrow-in-circle {
+      background-color: $gray-light-1;
+      width: 4rem;
+      height: 4rem;
+      margin-right: 0.5rem;
+
+      svg {
+        fill: black;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+
+  &__socials {
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 1;
+    background-color: rgb(96, 40, 40);
+    height: 50rem;
+    width: 50rem;
+  }
+}
+
+.sign-in {
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
+}
+
+.sign-up {
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+}

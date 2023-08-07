@@ -1,0 +1,11 @@
+.arrow-in-circle {
+  display: inline-flex;
+  border: solid 1px $gray-dark-1;
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+  transition: all 0.2s;
+}

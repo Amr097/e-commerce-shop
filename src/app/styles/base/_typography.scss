@@ -10,6 +10,14 @@
   font-weight: bolder;
 }
 
+.heading-medium {
+  &--black {
+    font-size: 4.5rem;
+    font-weight: bolder;
+    color: $black;
+  }
+}
+
 .product-text {
   color: $gray-dark-2;
   font-size: 1.5rem;

@@ -6,6 +6,7 @@ import { BiLogOut } from "react-icons/bi";
 import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 
 const AccountMenu = () => {
   const { data: session } = useSession();
@@ -22,17 +23,12 @@ const AccountMenu = () => {
       icon: BsBalloonHeart,
       link: "/profile/wishlist",
     },
-    {
-      name: "Logout",
-      icon: BiLogOut,
-      link: "/logout",
-    },
   ];
   return (
     <button className="services-btn">
       {" "}
       <img
-        src={session.user ? session.user.image : "/images/pngwing.com (2).png"}
+        src={session ? session.user.image : "/images/pngwing.com (2).png"}
         alt=""
       />{" "}
       &nbsp;
@@ -46,6 +42,10 @@ const AccountMenu = () => {
               <Link href={item.link}>{item.name}</Link>
             </li>
           ))}
+          <li className="flex">
+            <BiLogOut />
+            <a onClick={signOut}>Sign Out</a>
+          </li>
         </ul>
       </div>
     </button>
