@@ -42,7 +42,7 @@ const JoinUsForm = ({ type, initialValues, inputs }) => {
     <>
       <div className="joinus__heading">
         <h1 className="heading-medium--black">{type}</h1>
-        <p className="joinus__text">
+        <p className="joinus__text joinus__text--heading">
           Get access to one of the best e-shopping services in the world.
         </p>
       </div>
