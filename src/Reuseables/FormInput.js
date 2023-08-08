@@ -1,6 +1,5 @@
 import { useField } from "formik";
 import React from "react";
-import { FaArrowRight } from "react-icons/fa";
 import { SiMinutemailer } from "react-icons/si";
 import { LiaKeySolid } from "react-icons/lia";
 import { AiOutlineUser, AiOutlineEye } from "react-icons/ai";
@@ -37,13 +36,7 @@ const FormInput = ({ icon, placeholder, id, ...props }) => {
       {icon === "email" && <SiMinutemailer />}
       {icon === "password" && <LiaKeySolid />}
       {icon === "user" && <AiOutlineUser />}
-      <Field
-        placeholder={placeholder}
-        id={id}
-        {...props}
-        {...field}
-        {...meta}
-      />
+      <Field placeholder={placeholder} id={id} {...props} {...field} />
       {icon === "password" && (
         <span className="show-icon" onClick={(e) => showPassword(e, id)}>
           {" "}

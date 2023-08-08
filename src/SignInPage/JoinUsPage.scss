@@ -29,8 +29,11 @@
 
     a {
       margin-left: 0.5rem;
-      border-bottom: 1px solid blue;
       color: blue;
+
+      &:hover {
+        border-bottom: 1px solid blue;
+      }
     }
   }
 
@@ -109,6 +112,20 @@
     }
     &:active {
       transform: translateY(2px);
+    }
+  }
+
+  &__toggle {
+    font-size: 1.4rem;
+
+    span {
+      color: blue;
+      cursor: pointer;
+
+      &:hover {
+        border-bottom: solid 1px blue;
+        padding-bottom: 0.2rem;
+      }
     }
   }
 

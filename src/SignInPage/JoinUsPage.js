@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import SignIn from "./Components/SingIn";
 import SignUp from "./Components/SignUp";
 import { FaArrowLeft } from "react-icons/fa";
@@ -7,6 +7,7 @@ import Link from "next/link";
 import "./JoinUsPage.scss";
 
 const JoinUsPage = () => {
+  const [signIn, setSignIn] = useState(true);
   return (
     <div className="joinus">
       <p className="joinus__back">
@@ -17,10 +18,17 @@ const JoinUsPage = () => {
         We'd be happy if you join us !<Link href="">Go Store</Link>
       </p>
 
-      {/* <SignIn /> */}
-      <SignUp />
-      <p className="not-joined">
-        Not a member? <span>Create Account.</span>
+      {signIn ? <SignIn /> : <SignUp />}
+      <p className="joinus__toggle">
+        {signIn ? "Not a member?" : "Already have an account?"} &nbsp;{" "}
+        <span
+          onClick={() => {
+            setSignIn((prev) => !prev);
+          }}
+        >
+          {signIn ? "Create Account" : "Log in"}
+        </span>
+        .
       </p>
       {/* <div className="joinus__socials">Socials</div> */}
     </div>

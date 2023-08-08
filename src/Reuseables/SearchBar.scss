@@ -27,11 +27,13 @@
     &:focus + .search__button {
       transform: translateX(-2rem);
       border-radius: 0;
+      transition-delay: 0;
     }
 
     &:focus ~ .search__exit {
       scale: 1;
       transform: translate(-2rem);
+      transition-delay: 0.3s;
     }
 
     &::placeholder {
@@ -57,6 +59,7 @@
   }
 
   &__button {
+    transition-delay: 0.2s;
     svg {
       fill: $gray-dark-1;
       width: 2rem;
@@ -75,6 +78,7 @@
     transform: translate(-9rem);
     border: solid 1px $gray-light-2;
     border-left: 0;
+    cursor: pointer;
 
     svg {
       fill: $gray-dark-1;
