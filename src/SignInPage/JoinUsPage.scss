@@ -74,6 +74,7 @@
     padding: 0.5rem 0 0.5rem 2rem;
     justify-content: center;
     margin-bottom: 1.5rem;
+    font-size: 1.5rem;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     p {
@@ -115,4 +116,8 @@
 .sign-up {
   grid-column: 2 / span 1;
   grid-row: 2 / span 1;
+}
+
+.show-icon {
+  cursor: pointer;
 }
