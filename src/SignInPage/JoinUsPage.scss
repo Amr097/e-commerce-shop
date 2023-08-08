@@ -2,11 +2,12 @@
 
 .joinus {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  // grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, max-content);
+  justify-items: center;
   width: 80%;
   margin: 0 auto;
-  padding: 7rem;
+  padding: 3rem;
 
   &__back {
     font-size: 1.3rem;
@@ -14,6 +15,7 @@
     margin-bottom: 3rem;
     grid-column: 1 / -1;
     grid-row: 1 / span 1;
+    justify-self: flex-start;
 
     .arrow-in-circle {
       &:hover {
@@ -33,19 +35,25 @@
   }
 
   &__text {
+    display: flex;
     margin-top: 1rem;
-    margin-bottom: 3rem;
     color: $gray-dark-2;
     font-size: 1.3rem;
+    width: fit-content;
+    margin-left: auto;
   }
 
   &__input--container {
     padding: 1.5rem;
     background-color: $gray-light-3;
     border-radius: 5555555px;
-    width: 60%;
+    width: 100%;
     gap: 2rem;
     margin: 1.5rem 0;
+
+    &:last-of-type {
+      margin-bottom: 2rem;
+    }
 
     svg {
       width: 2.5rem;
@@ -67,7 +75,7 @@
   }
 
   &__btn {
-    width: 35%;
+    width: 50%;
     color: $gray-light-1;
     background-color: $black;
     border-radius: 555555555555px;
@@ -77,6 +85,11 @@
     font-size: 1.5rem;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+
+    &:disabled {
+      opacity: 0.35;
+    }
+
     p {
       margin: 0 auto;
     }
@@ -119,5 +132,21 @@
 }
 
 .show-icon {
+  position: relative;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    content: "";
+    width: 140%;
+    height: 2px;
+    background-color: $gray-dark-1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(53deg);
+    transition: all 0.2s;
+  }
 }

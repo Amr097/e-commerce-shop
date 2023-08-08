@@ -29,3 +29,31 @@
     color: $black;
   }
 }
+
+.input-error {
+  transition: 0.2s all linear;
+  margin-top: 5rem !important;
+  background-color: $red-1 !important;
+
+  svg {
+    fill: white !important;
+  }
+
+  span {
+    &::before {
+      background-color: white !important;
+    }
+  }
+
+  input {
+    &::placeholder {
+      color: white !important;
+    }
+  }
+}
+
+.reset-width {
+  &::before {
+    width: 0 !important;
+  }
+}

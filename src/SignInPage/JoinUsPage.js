@@ -17,9 +17,12 @@ const JoinUsPage = () => {
         We'd be happy if you join us !<Link href="">Go Store</Link>
       </p>
 
-      <SignIn />
+      {/* <SignIn /> */}
       <SignUp />
-      <div className="joinus__socials">Socials</div>
+      <p className="not-joined">
+        Not a member? <span>Create Account.</span>
+      </p>
+      {/* <div className="joinus__socials">Socials</div> */}
     </div>
   );
 };

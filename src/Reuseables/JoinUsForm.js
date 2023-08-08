@@ -1,56 +1,42 @@
-import React from "react";
+import { React, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
-import { SiMinutemailer } from "react-icons/si";
-import { LiaKeySolid } from "react-icons/lia";
-import { AiOutlineUser, AiOutlineEye } from "react-icons/ai";
-import { useFormik, Formik, Form } from "formik";
+
+import { v4 as uuidv4 } from "uuid";
+
+import { Formik, Form } from "formik";
+import Link from "next/link";
 import * as Yup from "yup";
 import { ref } from "yup";
+import YupPassword from "yup-password";
+import FormInput from "./FormInput";
 
-const JoinUsForm = ({
-  type,
-  passwordId,
-  emailId,
-  initialValues,
-  name,
-  password,
-  confirmPassword,
-}) => {
-  const getCharacterValidationError = (str) => {
-    return `Your password must have at least 1 ${str} character`;
-  };
+const JoinUsForm = ({ type, initialValues, inputs }) => {
+  YupPassword(Yup);
+
   const validationSchema = Yup.object({
-    [name]: Yup.string().required("Name is required"),
-    [emailId]: Yup.string()
+    username: Yup.string()
+      .min(2, "Name cannot be shorter than 2 characters.")
+      .required("Name is required"),
+    SignInEmail: Yup.string()
+      .required("Email is required")
+      .email("Please enter a valid email address."),
+    SignUpEmail: Yup.string()
       .required("Email is required")
       .email("Please enter a valid email address."),
 
-    [password]: Yup.string()
-      .required("Please enter a password")
-      .min(8, "Password must have at least 8 characters")
-      .matches(/[0-9]/, getCharacterValidationError("digit"))
-      .matches(/[a-z]/, getCharacterValidationError("lowercase"))
-      .matches(/[A-Z]/, getCharacterValidationError("uppercase")),
+    SignUpPassword: Yup.string()
+      .matches(/^\S*$/, "Whitespace is not allowed")
+      .min(8, "password must contain 8 or more characters")
+      .minLowercase(1, "password must contain at least 1 lower case letter")
+      .minUppercase(1, "password must contain at least 1 upper case letter")
+      .minNumbers(1, "password must contain at least 1 number")
+      .minSymbols(1, "password must contain at least 1 special character")
+      .required("password is required"),
 
-    [confirmPassword]: Yup.string()
+    ConfirmPassword: Yup.string()
       .required("Please re-type your password")
-      .oneOf([ref("signUpPassword")], "Passwords does not match"),
+      .oneOf([ref("SignUpPassword")], "Passwords does not match"),
   });
-
-  const { values, errors, handleChange, handleBlur, handleSubmit } = useFormik({
-    initialValues,
-    validationSchema: validationSchema,
-  });
-
-  const showPassword = (inputId) => {
-    const passwordInput = document.getElementById(inputId);
-
-    passwordInput.type === "password"
-      ? (passwordInput.type = "text")
-      : (passwordInput.type = "password");
-  };
-
-  console.log(errors);
 
   return (
     <>
@@ -63,86 +49,31 @@ const JoinUsForm = ({
 
       <Formik
         enableReinitialize
-        initialValues={{
-          name: "",
-          signUpEmail: "",
-          signInEmail: "",
-          signUpPassword: "",
-          signInPassword: "",
-          confirmPassword: "",
-        }}
+        initialValues={initialValues}
+        validationSchema={validationSchema}
       >
-        <Form className="joinus__form" onSubmit={handleSubmit}>
-          {type === "Sign up" ? (
-            <div className="joinus__input--container flex">
-              <AiOutlineUser />
-              <input
-                id="name"
-                type="text"
-                className="joinus__input"
-                placeholder="Full Name"
-                autoComplete="on"
-                onChange={handleChange}
-                value={values.name}
-                onBlur={handleBlur}
-              />
-            </div>
-          ) : null}
-          <div className="joinus__input--container flex">
-            <SiMinutemailer />
-            <input
-              id={emailId}
-              type="email"
+        <Form className="joinus__form">
+          {inputs.map((item) => (
+            <FormInput
+              key={uuidv4()}
+              icon={item.icon}
+              id={`${item.name}${type}`}
+              name={item.name}
+              type={item.type}
               className="joinus__input"
-              placeholder="Email Address"
+              placeholder={item.placeholder}
               autoComplete="on"
-              onChange={handleChange}
-              value={
-                emailId === "signInEmail"
-                  ? values.signInEmail
-                  : values.signUpEmail
-              }
-              onBlur={handleBlur}
             />
-          </div>
-          <div className="joinus__input--container flex">
-            <LiaKeySolid />
-            <input
-              id={passwordId}
-              type="password"
-              className="joinus__input"
-              placeholder="Password"
-              autoComplete="on"
-              onChange={handleChange}
-              value={values.password}
-              onBlur={handleBlur}
-            />
-            <AiOutlineEye
-              className="show-icon"
-              onClick={() => showPassword(passwordId)}
-            />
-          </div>
-          {type === "Sign up" ? (
-            <div className="joinus__input--container flex">
-              <LiaKeySolid />
-              <input
-                id="confirmPassword"
-                type="password"
-                className="joinus__input"
-                placeholder="Confirm Password"
-                autoComplete="on"
-                onChange={handleChange}
-                value={values.confirmPassword}
-                onBlur={handleBlur}
-              />
-              <AiOutlineEye
-                id="repeatPassword"
-                className="show-icon"
-                onClick={() => showPassword("confirmPassword")}
-              />
-            </div>
-          ) : null}
-          <button type="submit" className="joinus__btn flex">
+          ))}
+
+          <Link href="" className="joinus__text hover-grey">
+            Forgot password?
+          </Link>
+          <button
+            // disabled={isSubmitting}
+            type="submit"
+            className="joinus__btn flex"
+          >
             <p>{type}</p>{" "}
             <span className="arrow-in-circle">
               {" "}

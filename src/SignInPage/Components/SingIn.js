@@ -1,29 +1,31 @@
 import React from "react";
 import JoinUsForm from "@/Reuseables/JoinUsForm";
-import Link from "next/link";
 
-const type = "Sign in";
+const type = "Signin";
 const initialValues = {
-  signInEmail: "",
-  signInPassword: "",
-  confirmPassword: "",
+  SignInEmail: "",
+  SignInPassword: "",
 };
+
+const inputs = [
+  {
+    name: "SignInEmail",
+    placeholder: "Enter your email.",
+    type: "text",
+    icon: "email",
+  },
+  {
+    name: "SignInPassword",
+    placeholder: "Enter your password.",
+    type: "password",
+    icon: "password",
+  },
+];
 
 const SignIn = () => {
   return (
     <div className="sign-in">
-      <JoinUsForm
-        type={type}
-        passwordId="signInPassword"
-        emailId="signInEmail"
-        initialValues={initialValues}
-        name=""
-        password=""
-        confirmPassword=""
-      />
-      <Link href="" className="joinus__text hover-grey">
-        Forgot password?
-      </Link>
+      <JoinUsForm type={type} initialValues={initialValues} inputs={inputs} />
     </div>
   );
 };
