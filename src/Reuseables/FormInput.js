@@ -7,7 +7,7 @@ import { Field } from "formik";
 import { ShowPassword } from "@/Helpers/ShowPassword";
 
 const FormInput = ({ icon, placeholder, id, ...props }) => {
-  const [field, meta, helpers] = useField(props);
+  const [field, meta] = useField(props);
   const { error, touched } = meta;
 
   return (

@@ -8,6 +8,7 @@ import JoinUsPage from "@/SignInPage/JoinUsPage";
 const page = () => {
   return (
     <div
+      className="joinus-page-container"
       onClick={(e) => {
         e.target !== document.querySelector(".menu") &&
         e.target !== document.querySelector("#nav-toggle") &&

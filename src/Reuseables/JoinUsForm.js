@@ -1,5 +1,4 @@
-import { React, useState } from "react";
-import { FaArrowRight } from "react-icons/fa";
+import { React } from "react";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -9,6 +8,7 @@ import * as Yup from "yup";
 import { ref } from "yup";
 import YupPassword from "yup-password";
 import FormInput from "./FormInput";
+import CircleIconBtn from "./CircleIconBtn";
 
 const JoinUsForm = ({ type, initialValues, inputs }) => {
   YupPassword(Yup);
@@ -66,20 +66,13 @@ const JoinUsForm = ({ type, initialValues, inputs }) => {
             />
           ))}
 
-          <Link href="" className="joinus__text hover-grey">
+          <Link
+            href=""
+            className=" joinus__text joinus__text--forget hover-blue"
+          >
             Forgot password?
           </Link>
-          <button
-            // disabled={isSubmitting}
-            type="submit"
-            className="joinus__btn flex"
-          >
-            <p>{type}</p>{" "}
-            <span className="arrow-in-circle">
-              {" "}
-              <FaArrowRight />{" "}
-            </span>
-          </button>
+          <CircleIconBtn type={type} />
         </Form>
       </Formik>
     </>

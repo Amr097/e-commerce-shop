@@ -1,5 +1,5 @@
 "use client";
-import { React, useState, useEffect } from "react";
+import { React } from "react";
 import NavMenu from "./Components/NavMenu/NavMenu";
 import { FiHeart, FiShoppingCart, FiUser } from "react-icons/fi";
 import SearchBar from "@/Reuseables/SearchBar";

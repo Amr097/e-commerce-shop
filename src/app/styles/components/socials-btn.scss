@@ -1,0 +1,42 @@
+.socials {
+  &__list {
+    &--item {
+      width: 100%;
+      padding: 1.2rem 2.7rem;
+      border: solid 2px $gray-light-3;
+      border-radius: 500000px;
+      cursor: pointer;
+      &:not(:first-of-type) {
+        margin-top: 1.5rem;
+      }
+      &:hover .socials-btn svg {
+        transition: all 0.2s ease-in-out;
+        scale: 1.05;
+      }
+    }
+  }
+}
+
+.socials-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.5rem;
+  width: fit-content;
+  cursor: pointer;
+  width: 100%;
+
+  svg {
+    margin-right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  #google {
+    fill: #db3236;
+  }
+
+  #facebook {
+    fill: #3b5998;
+  }
+}

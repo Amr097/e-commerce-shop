@@ -1,9 +1,8 @@
 "use client";
-import { React, seState, useEffect } from "react";
+import { React } from "react";
 import Link from "next/link";
 import "./Header.scss";
 import { FiHeart, FiShoppingCart, FiUser } from "react-icons/fi";
-import { RiArrowDropDownFill } from "react-icons/ri";
 import SearchBar from "@/Reuseables/SearchBar";
 import NavBar from "./Components/NavBar/NavBar";
 import AccountMenu from "../../Reuseables/AccountMenu";
@@ -11,7 +10,9 @@ import AccountMenu from "../../Reuseables/AccountMenu";
 const Header = ({ session, signIn }) => {
   return (
     <header className="header">
-      <p className="logo">Proshop</p>
+      <a href="/" className="logo">
+        Proshop
+      </a>
       <div className="navbar__container">
         <NavBar />
 
@@ -23,7 +24,6 @@ const Header = ({ session, signIn }) => {
               {" "}
               <FiUser /> &nbsp;
               <p onClick={signIn}>Join us</p>
-              <RiArrowDropDownFill />
             </a>
           )}
 

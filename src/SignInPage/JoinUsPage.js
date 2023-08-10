@@ -1,13 +1,30 @@
-import { React, useState } from "react";
-import SignIn from "./Components/SingIn";
+import { React, useState, useEffect } from "react";
+import SignIn from "./Components/SignIn";
 import SignUp from "./Components/SignUp";
 import { FaArrowLeft } from "react-icons/fa";
-
 import Link from "next/link";
 import "./JoinUsPage.scss";
+import { getProviders } from "next-auth/react";
+import ContinueWith from "./Components/ContinueWith";
+
+export async function myproviders(context) {
+  const providers = await getProviders();
+  return providers;
+}
 
 const JoinUsPage = () => {
   const [signIn, setSignIn] = useState(true);
+  const [providers, setProviders] = useState([]);
+
+  useEffect(() => {
+    async function fetchProviders() {
+      const myProviders = await getProviders();
+      setProviders(Object.values(myProviders));
+    }
+
+    fetchProviders();
+  }, []);
+
   return (
     <div className="joinus">
       <p className="joinus__back">
@@ -30,7 +47,7 @@ const JoinUsPage = () => {
         </span>
         .
       </p>
-      {/* <div className="joinus__socials">Socials</div> */}
+      <ContinueWith btns={providers} />
     </div>
   );
 };

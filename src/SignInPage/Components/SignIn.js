@@ -1,7 +1,7 @@
 import React from "react";
 import JoinUsForm from "@/Reuseables/JoinUsForm";
 
-const type = "Signin";
+const type = "Sign in";
 const initialValues = {
   SignInEmail: "",
   SignInPassword: "",

@@ -30,24 +30,34 @@
   align-items: center;
 }
 
-.hover-grey {
+.hover-blue {
+  border-bottom: 1px solid transparent;
+  padding-bottom: 0.2rem;
   &:hover {
-    color: $black;
+    color: blue;
+    border-bottom: 1px solid blue;
   }
 }
 
 .reset-width {
   &::before {
-    width: 0 !important;
+    width: 140% !important;
   }
 }
 
 .input-error {
   transition: 0.2s all linear;
-  border: 2px solid $red-1;
+  background-color: $red-3 !important;
+  color: white !important;
+  opacity: 0.7;
 
   svg {
-    fill: $red-1 !important;
+    fill: white !important;
+  }
+  input {
+    &::placeholder {
+      color: white !important;
+    }
   }
 }
 
@@ -58,7 +68,7 @@
   color: white;
   font-size: 1.3rem;
   font-weight: bold;
-  background-color: $red-2;
+  background-color: $red-3;
   border-radius: 20px;
   display: grid;
   place-items: center;
@@ -69,7 +79,7 @@
     position: absolute;
     bottom: -1rem;
     left: 1rem;
-    border-top: 2rem solid $red-2;
+    border-top: 2rem solid $red-3;
     border-left: 2rem solid transparent;
     border-right: 2rem solid transparent;
   }

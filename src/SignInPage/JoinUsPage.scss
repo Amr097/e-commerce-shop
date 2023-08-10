@@ -1,10 +1,13 @@
 @import "../app/styles/globals";
 
 .joinus {
+  flex: 1;
   display: grid;
-  //grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, max-content);
-  justify-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: max-content repeat(2, max-content);
+  justify-items: flex-end;
+  grid-column-gap: 18rem;
+  grid-row-gap: 1rem;
   width: 80%;
   margin: 0 auto;
   padding: 3rem;
@@ -16,6 +19,7 @@
     grid-column: 1 / -1;
     grid-row: 1 / span 1;
     justify-self: flex-start;
+    align-self: flex-start;
 
     .arrow-in-circle {
       &:hover {
@@ -43,10 +47,11 @@
     color: $gray-dark-2;
     font-size: 1.3rem;
     width: fit-content;
-    margin-left: auto;
+    margin-bottom: 2rem;
 
-    &--heading {
-      margin-bottom: 2rem;
+    &--forget {
+      margin-top: 0;
+      margin-left: 1.5rem;
     }
   }
 
@@ -59,7 +64,7 @@
     margin: 1.5rem 0;
 
     &:last-of-type {
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
 
     svg {
@@ -82,46 +87,12 @@
     }
   }
 
-  &__btn {
-    width: 50%;
-    color: $gray-light-1;
-    background-color: $black;
-    border-radius: 555555555555px;
-    padding: 0.5rem 0 0.5rem 2rem;
-    justify-content: center;
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-
-    &:disabled {
-      opacity: 0.35;
-    }
-
-    p {
-      margin: 0 auto;
-    }
-    .arrow-in-circle {
-      background-color: $gray-light-1;
-      width: 4rem;
-      height: 4rem;
-      margin-right: 0.5rem;
-
-      svg {
-        fill: black;
-      }
-    }
-
-    &:hover {
-      transform: translateY(-2px);
-    }
-    &:active {
-      transform: translateY(2px);
-    }
-  }
-
   &__toggle {
     font-size: 1.4rem;
+    align-self: flex-start;
+    justify-self: center;
+    grid-column: 1 / -1;
+    margin-top: 2rem;
 
     span {
       color: blue;
@@ -135,11 +106,47 @@
   }
 
   &__socials {
-    grid-column: 1 / span 1;
-    grid-row: 3 / span 1;
-    background-color: rgb(96, 40, 40);
-    height: 50rem;
-    width: 50rem;
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+    align-self: flex-start;
+    justify-self: flex-start;
+    width: fit-content;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__continue {
+    display: flex;
+    margin-top: 1rem;
+    color: $gray-dark-2;
+    font-size: 1.3rem;
+    width: fit-content;
+    margin-bottom: 2rem;
+    position: relative;
+
+    &::before {
+      content: "";
+      height: 1px;
+      width: 120%;
+      background-color: $gray-light-2;
+      position: absolute;
+      left: -130%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &::after {
+      content: "";
+      height: 1px;
+      width: 120%;
+      background-color: $gray-light-2;
+      position: absolute;
+      right: -130%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
 }
 
@@ -162,9 +169,11 @@
 
   &::before {
     content: "";
-    width: 140%;
+    width: 0;
     height: 2px;
     background-color: $gray-dark-1;
+    border-bottom: 1px solid white;
+    border-radius: 555555px;
     position: absolute;
     left: 50%;
     top: 50%;

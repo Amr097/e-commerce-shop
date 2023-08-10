@@ -6,6 +6,8 @@
 
 @import "components/btn-primary";
 @import "components/arrow-in-circle";
+@import "components/circle-icon-btn";
+@import "components/socials-btn";
 
 @import "base/base";
 @import "base/animations";
@@ -91,4 +93,10 @@ button {
 
 a {
   cursor: pointer;
+}
+
+.joinus-page-container {
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
 }
