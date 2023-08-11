@@ -1,13 +1,9 @@
-import React from "react";
+import { React, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
-const CircleIconBtn = ({ type }) => {
+const CircleIconBtn = ({ type, isLoading }) => {
   return (
-    <button
-      // disabled={isSubmitting}
-      type="submit"
-      className="circle-icon-btn flex"
-    >
+    <button disabled={isLoading} type="submit" className="circle-icon-btn flex">
       <p>{type}</p>{" "}
       <span className="arrow-in-circle">
         {" "}

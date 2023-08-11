@@ -65,8 +65,13 @@ export async function POST(req) {
 
     sendEmail(email, url, "Activate your account");
 
+    disconnectDB();
+
     return NextResponse.json(
-      { message: "success" },
+      {
+        message:
+          "Successfully registered, a verification link has been sent to your account.",
+      },
       {
         status: 200,
       }
@@ -79,12 +84,4 @@ export async function POST(req) {
       }
     );
   }
-
-  disconnectDB();
-  return NextResponse.json(
-    { name: "John Doe" },
-    {
-      status: 200,
-    }
-  );
 }

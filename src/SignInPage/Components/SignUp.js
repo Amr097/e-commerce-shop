@@ -7,6 +7,7 @@ const initialValues = {
   SignUpEmail: "",
   SignUpPassword: "",
   ConfirmPassword: "",
+  message: "",
 };
 
 const inputs = [

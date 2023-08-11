@@ -7,7 +7,7 @@ import "./JoinUsPage.scss";
 import { getProviders } from "next-auth/react";
 import ContinueWith from "./Components/ContinueWith";
 
-export async function myproviders(context) {
+export async function myproviders() {
   const providers = await getProviders();
   return providers;
 }
