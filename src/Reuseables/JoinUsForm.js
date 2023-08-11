@@ -15,7 +15,9 @@ const JoinUsForm = ({ type, initialValues, inputs }) => {
 
   const validationSchema = Yup.object({
     username: Yup.string()
-      .min(2, "Name cannot be shorter than 2 characters.")
+      .min(2, "Username must be between 2 and 16 characters.")
+      .max(16, "Username must be between 2 and 16 characters.")
+      .matches(/^[A-Za-z]+$/, "Numbers and special characters are not allowed.")
       .required("Name is required"),
     SignInEmail: Yup.string()
       .required("Email is required")
