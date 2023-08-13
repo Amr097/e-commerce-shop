@@ -9,12 +9,12 @@ const ContinueWith = ({ btns }) => {
       <p className="joinus__continue"> Or continue with</p>
       <ul className="socials__list">
         {btns.map((btn) => {
-          return (
+          return btn.id !== "credentials" ? (
             <li
               className="socials__list--item"
               key={uuidv4()}
-              onClick={() => {
-                signIn(btn.id);
+              onClick={async () => {
+                const res = await signIn(btn.id, { callbackUrl: "/" });
               }}
             >
               {" "}
@@ -25,7 +25,7 @@ const ContinueWith = ({ btns }) => {
                 Sign in with {btn.name}
               </button>
             </li>
-          );
+          ) : null;
         })}
       </ul>
     </div>

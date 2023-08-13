@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
 const CircleIconBtn = ({ type, isLoading }) => {

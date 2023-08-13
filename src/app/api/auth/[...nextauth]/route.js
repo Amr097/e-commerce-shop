@@ -4,22 +4,57 @@ import clientPromise from "@/lib/mongodb";
 import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
 import FacebookProvider from "next-auth/providers/facebook";
+import CredentialsProvider from "next-auth/providers/credentials";
+import User from "../../../../../models/User";
+import bcrypt from "bcrypt";
+import { connectDB, disconnectDB } from "@/utils/mongo";
+import { NextResponse } from "next/server";
 
 export const authOptions = {
   // Configure one or more authentication providers
   adapter: MongoDBAdapter(clientPromise),
   providers: [
+    CredentialsProvider({
+      name: "Credentials",
+
+      credentials: {
+        username: { label: "Username", type: "text", placeholder: "username" },
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(credentials, req) {
+        connectDB();
+        const email = credentials.email;
+        const password = credentials.password;
+        const user = await User.findOne({ email });
+        console.log(user);
+
+        if (user) {
+          if (!user.emailVerified) {
+            throw new Error(
+              "Your email has not been verified, please check your inbox for verification link."
+            );
+          } else {
+            return SignInUser({ password, user });
+          }
+        } else {
+          throw new Error("False credentials.");
+        }
+      },
+    }),
     GithubProvider({
       clientId: process.env.NEXT_PUBLIC_GITHUB_AUTH_CLIENT_ID,
       clientSecret: process.env.NEXT_PUBLIC_GITHUB_AUTH_SECRET,
+      allowDangerousEmailAccountLinking: true,
     }),
     GoogleProvider({
       clientId: process.env.NEXT_PUBLIC_Google_AUTH_CLIENT_ID,
       clientSecret: process.env.NEXT_PUBLIC_Google_AUTH_SECRET,
+      allowDangerousEmailAccountLinking: true,
     }),
     FacebookProvider({
       clientId: process.env.NEXT_PUBLIC_Facebook_AUTH_CLIENT_ID,
       clientSecret: process.env.NEXT_PUBLIC_Facebook_AUTH_SECRET,
+      allowDangerousEmailAccountLinking: true,
     }),
 
     // ...add more providers here
@@ -34,5 +69,14 @@ export const authOptions = {
 };
 
 const handler = NextAuth(authOptions);
+
+const SignInUser = async ({ password, user }) => {
+  if (!password) throw new Error("Plase enter a valid password.");
+
+  const testPassword = await bcrypt.compare(password, user.password);
+  if (!testPassword) throw new Error("Wrong credentials.");
+  disconnectDB();
+  return user;
+};
 
 export { handler as GET, handler as POST };

@@ -57,9 +57,15 @@ export async function POST(req) {
     });
 
     const addUser = await newUser.save();
+
     const activationToken = createActivationToken({
       id: addUser._id.toString(),
     });
+
+    await User.updateOne(
+      { _id: addUser._id },
+      { $set: { verificationToken: activationToken } }
+    );
 
     const url = `${process.env.NEXT_PUBLIC_BASE_URL}/activate/${activationToken}`;
 

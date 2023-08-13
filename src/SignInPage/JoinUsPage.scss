@@ -161,16 +161,45 @@
       transform: translateY(-50%);
     }
   }
+
+  &__message--server {
+    display: inline-block;
+    font-size: 1.3rem;
+    border-radius: 12px;
+
+    color: white;
+    padding: 1.3rem 2.2rem;
+    transform: scaleX(0);
+    pointer-events: none;
+    position: absolute;
+    bottom: -2.5rem;
+    z-index: -99999999;
+
+    &-close {
+      position: absolute;
+      top: -3.3rem;
+      right: -0.5rem;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
 }
 
-.sign-in {
-  grid-column: 1 / span 1;
+.sign-in,
+.sign-up {
   grid-row: 2 / span 1;
+  position: relative;
+  display: grid;
 }
 
 .sign-up {
   grid-column: 2 / span 1;
-  grid-row: 2 / span 1;
+}
+
+.sign-in {
+  grid-column: 1 / span 1;
 }
 
 .show-icon {

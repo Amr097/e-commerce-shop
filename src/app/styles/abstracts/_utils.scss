@@ -84,3 +84,89 @@
     border-right: 2rem solid transparent;
   }
 }
+
+.utils-display-none {
+  display: none;
+}
+
+.utils-show-error-server,
+.utils-show-success-server {
+  transform: scaleX(1) !important;
+  pointer-events: all !important;
+  position: static !important;
+  z-index: 1 !important;
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+  max-width: 35rem;
+  margin-left: auto;
+}
+
+.utils-show-success-server {
+  background-color: $green-1;
+
+  .joinus__message--server-close {
+    border: solid 2px $green-1 !important;
+    fill: $green-1 !important;
+  }
+}
+
+.utils-show-error-server {
+  background-color: $red-1;
+
+  .joinus__message--server-close {
+    border: solid 2px $red-3 !important;
+    fill: $red-3 !important;
+  }
+}
+
+.utils-server-success-message {
+  padding: 1.7rem 2.4rem;
+  width: max-content;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: bold;
+  background-color: $green-1;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  margin-top: 2rem !important;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  transform: scaleX(0);
+  animation: loading-message 0.25s ease-in-out;
+  animation-fill-mode: forwards;
+
+  svg {
+    width: 2.3rem;
+    height: 2.3rem;
+    fill: white !important;
+    stroke: white;
+    scale: 0;
+    transform: rotate(-1400deg);
+    animation: loading-icon 0.25s linear 0.2s;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes loading-icon {
+  to {
+    scale: 1;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes loading-icon {
+  to {
+    scale: 1;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes loading-message {
+  to {
+    transform: scaleX(1);
+  }
+}

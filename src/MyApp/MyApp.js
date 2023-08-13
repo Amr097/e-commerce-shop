@@ -8,7 +8,7 @@ import { useSession, signIn } from "next-auth/react";
 const Footer = lazy(() => import("@/Partials/Footer/Footer"));
 
 const MyApp = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   return (
     <div

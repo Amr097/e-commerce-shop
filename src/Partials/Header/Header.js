@@ -6,8 +6,11 @@ import { FiHeart, FiShoppingCart, FiUser } from "react-icons/fi";
 import SearchBar from "@/Reuseables/SearchBar";
 import NavBar from "./Components/NavBar/NavBar";
 import AccountMenu from "../../Reuseables/AccountMenu";
+import { useSession } from "next-auth/react";
 
-const Header = ({ session, signIn }) => {
+const Header = ({ signIn }) => {
+  const { data: session, status } = useSession();
+
   return (
     <header className="header">
       <a href="/" className="logo">

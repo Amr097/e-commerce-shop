@@ -1,5 +1,4 @@
 import { React, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { Formik, Form } from "formik";
 import Link from "next/link";
 import * as Yup from "yup";
@@ -7,29 +6,71 @@ import { ref } from "yup";
 import YupPassword from "yup-password";
 import axios from "axios";
 import FormInput from "./FormInput";
+import Loader from "./Loader";
 import CircleIconBtn from "./CircleIconBtn";
+import { IoIosClose } from "react-icons/io";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const JoinUsForm = ({ type, initialValues, inputs }) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+
+  const [isLoading, setIsLoading] = useState({ state: false, message: "" });
+  const [serverMessage, setServerMessage] = useState({
+    type: null,
+    message: "",
+  });
   const submitHandler = async (e, props) => {
+    setServerMessage({ type: null, message: "" });
     e.preventDefault();
     try {
-      setIsLoading(true);
+      setIsLoading({ state: true });
       if (type === "Sign up") {
         const { username, SignUpEmail, SignUpPassword } = props.values;
-        await axios.post("/api/auth/signup", {
+        const res = await axios.post("/api/auth/signup", {
           name: username,
           email: SignUpEmail,
           password: SignUpPassword,
         });
-        console.log(initialValues.username);
-        console.log(props);
+
+        setIsLoading({ state: true, message: res.data.message });
+        setTimeout(() => {
+          setIsLoading({ state: false, message: "" });
+        }, 1250);
+        setServerMessage({
+          type: "success",
+          message: res.data.message,
+        });
       }
-      setIsLoading(false);
+      if (type === "Sign in") {
+        console.log(props.values);
+        const { SignInEmail, SignInPassword } = props.values;
+        let options = {
+          redirect: false,
+          email: SignInEmail,
+          password: SignInPassword,
+        };
+        const res = await signIn("credentials", options);
+        if (res.error) {
+          setServerMessage({
+            type: "error",
+            message: res.error,
+          });
+          setIsLoading({ state: false, message: "" });
+        } else {
+          setIsLoading({ state: true, message: "Successfully signed in." });
+          setTimeout(() => {
+            setIsLoading({ state: false, message: "" });
+            router.push("/");
+          }, 1250);
+        }
+      }
     } catch (err) {
-      setIsLoading(false);
-      props.values.message = err.data.response.message;
-      console.log(err);
+      const errorMessage = err.response.data.message
+        ? err.response.data.message
+        : "An error occured.";
+      setIsLoading({ state: false, message: "" });
+      setServerMessage({ type: "error", errorMessage });
     }
   };
 
@@ -67,6 +108,7 @@ const JoinUsForm = ({ type, initialValues, inputs }) => {
 
   return (
     <>
+      {isLoading.state && <Loader loading={isLoading} />}
       <div className="joinus__heading">
         <h1 className="heading-medium--black">{type}</h1>
         <p className="joinus__text joinus__text--heading">
@@ -105,10 +147,28 @@ const JoinUsForm = ({ type, initialValues, inputs }) => {
             >
               Forgot password?
             </Link>
-            <CircleIconBtn type={type} isLoading={isLoading} />
+            <CircleIconBtn type={type} isLoading={isLoading.state} />
           </Form>
         )}
       </Formik>
+
+      {serverMessage.type && (
+        <span
+          className={
+            serverMessage.type === "error"
+              ? "joinus__message--server  utils-show-error-server"
+              : "joinus__message--server utils-show-success-server"
+          }
+        >
+          {serverMessage.message}
+          <IoIosClose
+            className={"joinus__message--server-close"}
+            onClick={() => {
+              setServerMessage({ type: null, message: "" });
+            }}
+          />
+        </span>
+      )}
     </>
   );
 };

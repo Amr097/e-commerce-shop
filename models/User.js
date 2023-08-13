@@ -29,6 +29,10 @@ let userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    verificationToken: {
+      type: String,
+      default: "",
+    },
     address: [
       {
         firstName: {
@@ -54,12 +58,13 @@ let userSchema = new mongoose.Schema(
         },
       },
     ],
-    active: {
-      type: Boolean,
-      default: false,
-    },
   },
   { timestamps: true }
+);
+
+userSchema.index(
+  { verificationToken: 1 },
+  { expireAfterSeconds: 48 * 60 * 60 }
 );
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);
