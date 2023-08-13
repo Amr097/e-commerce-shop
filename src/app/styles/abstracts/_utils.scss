@@ -95,10 +95,10 @@
   pointer-events: all !important;
   position: static !important;
   z-index: 1 !important;
-  transition: transform 0.3s ease-in-out;
   width: 100%;
   max-width: 35rem;
   margin-left: auto;
+  transition: 0.2s ease-in-out;
 }
 
 .utils-show-success-server {
@@ -111,7 +111,7 @@
 }
 
 .utils-show-error-server {
-  background-color: $red-1;
+  background-color: $red-3;
 
   .joinus__message--server-close {
     border: solid 2px $red-3 !important;
@@ -119,13 +119,13 @@
   }
 }
 
-.utils-server-success-message {
+.utils-server-success-message,
+.utils-server-error-message {
   padding: 1.7rem 2.4rem;
   width: max-content;
   color: white;
   font-size: 1.6rem;
   font-weight: bold;
-  background-color: $green-1;
   border-radius: 12px;
   display: grid;
   place-items: center;
@@ -149,6 +149,14 @@
     animation: loading-icon 0.25s linear 0.2s;
     animation-fill-mode: forwards;
   }
+}
+
+.utils-server-success-message {
+  background-color: $green-1;
+}
+
+.utils-server-error-message {
+  background-color: $red-3;
 }
 
 @keyframes loading-icon {

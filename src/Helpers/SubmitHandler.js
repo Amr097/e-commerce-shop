@@ -1,6 +1,5 @@
 import { signIn } from "next-auth/react";
 import axios from "axios";
-import { object } from "yup";
 
 const submitHandler = async (
   e,
@@ -14,32 +13,35 @@ const submitHandler = async (
   e.preventDefault();
   try {
     setIsLoading({ state: true });
-    if (type === "SignUp") {
+
+    if (
+      Object.keys(props.errors).length > 0 ||
+      Object.values(props.values).includes("")
+    ) {
+      console.log(props.errors, props.values);
+      setIsLoading({ state: false });
+      setServerMessage({
+        type: "error",
+        message: "Please correctly fill all the required fields.",
+      });
+      setIsLoading({ state: false });
+    } else if (type === "SignUp") {
       const { username, SignUpEmail, SignUpPassword } = props.values;
-      console.log(Object.keys(props.errors));
-      if (Object.keys(props.errors).length === 0) {
-        const res = await axios.post("/api/auth/signup", {
-          name: username,
-          email: SignUpEmail,
-          password: SignUpPassword,
-        });
-        setIsLoading({ state: true, message: res.data.message });
-        setTimeout(() => {
-          setIsLoading({ state: false, message: "" });
-        }, 1250);
-        setServerMessage({
-          type: "success",
-          message: res.data.message,
-        });
-      } else {
-        setIsLoading({ state: false });
-        setServerMessage({
-          type: "error",
-          message: "Please correctly fill all the required fields.",
-        });
-      }
-    }
-    if (type === "SignIn") {
+
+      const res = await axios.post("/api/auth/signup", {
+        name: username,
+        email: SignUpEmail,
+        password: SignUpPassword,
+      });
+      setIsLoading({ state: true, message: res.data.message });
+      setTimeout(() => {
+        setIsLoading({ state: false, message: "" });
+      }, 1250);
+      setServerMessage({
+        type: "success",
+        message: res.data.message,
+      });
+    } else if (type === "SignIn") {
       const { SignInEmail, SignInPassword } = props.values;
       let options = {
         redirect: false,

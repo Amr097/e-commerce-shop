@@ -1,13 +1,13 @@
-export function ShowPassword(e, inputId) {
+export function ShowPassword(e, inputId, setInputType) {
   const passwordInput = document.getElementById(inputId);
 
   if (passwordInput.type === "password") {
-    passwordInput.type = "text";
+    setInputType("text");
     passwordInput.value !== ""
       ? e.currentTarget.classList.toggle("reset-width")
       : null;
   } else {
-    passwordInput.type = "password";
+    setInputType("password");
     passwordInput.value !== ""
       ? e.currentTarget.classList.toggle("reset-width")
       : null;

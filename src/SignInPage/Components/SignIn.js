@@ -1,5 +1,8 @@
 import React from "react";
 import JoinUsForm from "@/Reuseables/JoinUsForm";
+import * as Yup from "yup";
+
+const email = "Email";
 
 const type = "SignIn";
 const initialValues = {
@@ -23,9 +26,20 @@ const inputs = [
 ];
 
 const SignIn = () => {
+  const validationSchema = Yup.object({
+    [type + email]: Yup.string()
+      .required("Email is required")
+      .email("Please enter a valid email address."),
+  });
+
   return (
     <div className="sign-in">
-      <JoinUsForm type={type} initialValues={initialValues} inputs={inputs} />
+      <JoinUsForm
+        type={type}
+        initialValues={initialValues}
+        inputs={inputs}
+        validationSchema={validationSchema}
+      />
     </div>
   );
 };

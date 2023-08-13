@@ -5,10 +5,12 @@ import { LiaKeySolid } from "react-icons/lia";
 import { AiOutlineUser, AiOutlineEye } from "react-icons/ai";
 import { Field } from "formik";
 import { ShowPassword } from "@/Helpers/ShowPassword";
+import { useState } from "react";
 
-const FormInput = ({ icon, placeholder, id, ...props }) => {
+const FormInput = ({ icon, placeholder, id, type, ...props }) => {
   const [field, meta] = useField(props);
   const { error, touched } = meta;
+  const [inputType, setInputType] = useState(type);
 
   return (
     <>
@@ -28,13 +30,19 @@ const FormInput = ({ icon, placeholder, id, ...props }) => {
         {icon === "email" && <SiMinutemailer />}
         {icon === "password" && <LiaKeySolid />}
         {icon === "user" && <AiOutlineUser />}
-        <Field placeholder={placeholder} id={id} {...props} {...field} />
+        <Field
+          placeholder={placeholder}
+          id={id}
+          type={inputType}
+          {...props}
+          {...field}
+        />
         {icon === "password" && (
           <span
             className={
               error && touched ? "show-icon before-color-red" : "show-icon"
             }
-            onClick={(e) => ShowPassword(e, id)}
+            onClick={(e) => ShowPassword(e, id, setInputType)}
           >
             {" "}
             <AiOutlineEye id="repeatPassword" />
