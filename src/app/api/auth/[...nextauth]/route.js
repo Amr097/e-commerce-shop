@@ -6,9 +6,8 @@ import GithubProvider from "next-auth/providers/github";
 import FacebookProvider from "next-auth/providers/facebook";
 import CredentialsProvider from "next-auth/providers/credentials";
 import User from "../../../../../models/User";
-import bcrypt from "bcrypt";
+import { SignInUser } from "@/Helpers/SignInUser";
 import { connectDB, disconnectDB } from "@/utils/mongo";
-import { NextResponse } from "next/server";
 
 export const authOptions = {
   // Configure one or more authentication providers
@@ -34,7 +33,7 @@ export const authOptions = {
               "Your email has not been verified, please check your inbox for verification link."
             );
           } else {
-            return SignInUser({ password, user });
+            return SignInUser({ password, user }, disconnectDB);
           }
         } else {
           throw new Error("False credentials.");
@@ -69,14 +68,5 @@ export const authOptions = {
 };
 
 const handler = NextAuth(authOptions);
-
-const SignInUser = async ({ password, user }) => {
-  if (!password) throw new Error("Plase enter a valid password.");
-
-  const testPassword = await bcrypt.compare(password, user.password);
-  if (!testPassword) throw new Error("Wrong credentials.");
-  disconnectDB();
-  return user;
-};
 
 export { handler as GET, handler as POST };

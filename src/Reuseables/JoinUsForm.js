@@ -4,13 +4,12 @@ import Link from "next/link";
 import * as Yup from "yup";
 import { ref } from "yup";
 import YupPassword from "yup-password";
-import axios from "axios";
 import FormInput from "./FormInput";
 import Loader from "./Loader";
 import CircleIconBtn from "./CircleIconBtn";
 import { IoIosClose } from "react-icons/io";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import submitHandler from "@/Helpers/SubmitHandler";
 
 const JoinUsForm = ({ type, initialValues, inputs }) => {
   const router = useRouter();
@@ -20,59 +19,6 @@ const JoinUsForm = ({ type, initialValues, inputs }) => {
     type: null,
     message: "",
   });
-  const submitHandler = async (e, props) => {
-    setServerMessage({ type: null, message: "" });
-    e.preventDefault();
-    try {
-      setIsLoading({ state: true });
-      if (type === "Sign up") {
-        const { username, SignUpEmail, SignUpPassword } = props.values;
-        const res = await axios.post("/api/auth/signup", {
-          name: username,
-          email: SignUpEmail,
-          password: SignUpPassword,
-        });
-
-        setIsLoading({ state: true, message: res.data.message });
-        setTimeout(() => {
-          setIsLoading({ state: false, message: "" });
-        }, 1250);
-        setServerMessage({
-          type: "success",
-          message: res.data.message,
-        });
-      }
-      if (type === "Sign in") {
-        console.log(props.values);
-        const { SignInEmail, SignInPassword } = props.values;
-        let options = {
-          redirect: false,
-          email: SignInEmail,
-          password: SignInPassword,
-        };
-        const res = await signIn("credentials", options);
-        if (res.error) {
-          setServerMessage({
-            type: "error",
-            message: res.error,
-          });
-          setIsLoading({ state: false, message: "" });
-        } else {
-          setIsLoading({ state: true, message: "Successfully signed in." });
-          setTimeout(() => {
-            setIsLoading({ state: false, message: "" });
-            router.push("/");
-          }, 1250);
-        }
-      }
-    } catch (err) {
-      const errorMessage = err.response.data.message
-        ? err.response.data.message
-        : "An error occured.";
-      setIsLoading({ state: false, message: "" });
-      setServerMessage({ type: "error", errorMessage });
-    }
-  };
 
   YupPassword(Yup);
 
@@ -125,7 +71,14 @@ const JoinUsForm = ({ type, initialValues, inputs }) => {
           <Form
             className="joinus__form"
             onSubmit={(e) => {
-              submitHandler(e, props);
+              submitHandler(
+                e,
+                props,
+                setIsLoading,
+                setServerMessage,
+                type,
+                router
+              );
             }}
           >
             {inputs.map((item, index) => (
