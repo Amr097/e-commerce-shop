@@ -11,6 +11,8 @@ import { IoIosClose } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import submitHandler from "@/Helpers/SubmitHandler";
 
+const email = "Email";
+
 const JoinUsForm = ({ type, initialValues, inputs }) => {
   const router = useRouter();
 
@@ -31,10 +33,7 @@ const JoinUsForm = ({ type, initialValues, inputs }) => {
         "Spaces, Numbers and special characters are not allowed."
       )
       .required("Name is required"),
-    SignInEmail: Yup.string()
-      .required("Email is required")
-      .email("Please enter a valid email address."),
-    SignUpEmail: Yup.string()
+    [type + email]: Yup.string()
       .required("Email is required")
       .email("Please enter a valid email address."),
 

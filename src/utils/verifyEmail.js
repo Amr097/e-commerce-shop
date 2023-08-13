@@ -1,6 +1,5 @@
 import nodemailer from "nodemailer";
 import { google } from "googleapis";
-import confirmMail from "../../emails/confirmMailTemplate";
 
 const { OAuth2 } = google.auth;
 const OAUTH_PLAYGROUND = "https://developers.google.com/oauthplayground";
@@ -25,7 +24,7 @@ console.log(
   NEXT_PUBLIC_ACTIVATION_CLIENT_REFRESH_TOKEN
 );
 
-export const sendEmail = (to, url, subject) => {
+export const sendEmail = (to, url, subject, template, name) => {
   oAuth2Client.setCredentials({
     refresh_token: NEXT_PUBLIC_ACTIVATION_CLIENT_REFRESH_TOKEN,
   });
@@ -48,7 +47,7 @@ export const sendEmail = (to, url, subject) => {
     from: NEXT_PUBLIC_ACTIVATION_SENDER_EMAIL_ADDRESS,
     to: to,
     subject: subject,
-    html: confirmMail(to, url),
+    html: template(to, url, name),
   };
 
   smtpTransport.sendMail(mailOptions, (err, info) => {
