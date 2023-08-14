@@ -1,7 +1,7 @@
 import User from "../../../../models/User";
 import { connectDB, disconnectDB } from "@/utils/mongo";
 import { redirect } from "next/navigation";
-import { sendEmail } from "@/utils/verifyEmail";
+import { sendEmail } from "@/utils/handleEmail";
 import successfullyVerified from "../../../../emails/successfullyVerifiedTemplate";
 
 export async function GET(req, { params }) {
@@ -26,9 +26,6 @@ export async function GET(req, { params }) {
         successfullyVerified,
         user.name
       );
-      console.log(user);
-      console.log(user.email);
-      console.log("Successfully updated");
     }
 
     disconnectDB();

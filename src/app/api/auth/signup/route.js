@@ -3,7 +3,7 @@ import { validateEmail } from "@/utils/validateEmail";
 import User from "../../../../../models/User";
 import { createActivationToken } from "@/utils/tokens";
 import { connectDB, disconnectDB } from "@/utils/mongo";
-import { sendEmail } from "@/utils/verifyEmail";
+import { sendEmail } from "@/utils/handleEmail";
 import confirmMail from "../../../../../emails/confirmMailTemplate";
 
 const bcrypt = require("bcrypt");
@@ -68,9 +68,9 @@ export async function POST(req) {
       { $set: { verificationToken: activationToken } }
     );
 
-    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/activate/${activationToken}`;
+    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/verify/${activationToken}`;
 
-    sendEmail(email, url, "Activate your account", confirmMail);
+    sendEmail(email, url, "Verify your account", confirmMail);
 
     disconnectDB();
 

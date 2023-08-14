@@ -64,6 +64,11 @@ const submitHandler = async (
         }, 1250);
       }
     }
+
+    if (type === "ForgotPassword") {
+      const { ForgotPasswordEmail } = props.values;
+      setIsLoading({ state: false, message: "" });
+    }
   } catch (err) {
     const errorMessage = err.response.data.message
       ? err.response.data.message
