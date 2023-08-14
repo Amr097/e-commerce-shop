@@ -12,6 +12,7 @@ const submitHandler = async (
   setServerMessage({ type: null, message: "" });
   e.preventDefault();
   try {
+    console.log(props.values);
     setIsLoading({ state: true });
 
     if (

@@ -6,6 +6,13 @@ import YupPassword from "yup-password";
 
 const email = "Email";
 
+const info = {
+  heading: "Sign Up",
+  btnText: "Sign up",
+  headingText:
+    "Get access to one of the best e-shopping services in the world.",
+};
+
 const type = "SignUp";
 
 const initialValues = {
@@ -42,11 +49,11 @@ const inputs = [
   },
 ];
 
-const SignUp = () => {
+const SignUp = ({ forgotPasswordState }) => {
   YupPassword(Yup);
 
   const validationSchema = Yup.object({
-    [type + email]: Yup.string()
+    [type.replace(/ /g, "") + email]: Yup.string()
       .required("Email is required")
       .email("Please enter a valid email address."),
 
@@ -77,10 +84,12 @@ const SignUp = () => {
     <div className="sign-in">
       {" "}
       <JoinUsForm
-        type={type}
+        info={info}
         initialValues={initialValues}
         inputs={inputs}
         validationSchema={validationSchema}
+        forgotPasswordState={forgotPasswordState}
+        type={type}
       />
     </div>
   );

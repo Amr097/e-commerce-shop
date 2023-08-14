@@ -1,41 +1,34 @@
-import React from "react";
 import JoinUsForm from "@/Reuseables/JoinUsForm";
+import React from "react";
 import * as Yup from "yup";
 
 const email = "Email";
 
-const type = "SignIn";
+const type = "ForgotPassword";
 
 const info = {
-  heading: "Sign In",
-  btnText: "Sign in",
+  heading: "Forgot Password",
+  btnText: "Submit",
   headingText:
-    "Get access to one of the best e-shopping services in the world.",
+    "Enter the email associated with your account to change your password.",
 };
 
 const initialValues = {
-  SignInEmail: "",
-  SignInPassword: "",
+  ForgotPasswordEmail: "",
 };
 
 const inputs = [
   {
-    name: "SignInEmail",
+    name: "ForgotPasswordEmail",
     placeholder: "Enter your email.",
     type: "text",
     icon: "email",
   },
-  {
-    name: "SignInPassword",
-    placeholder: "Enter your password.",
-    type: "password",
-    icon: "password",
-  },
 ];
 
-const SignIn = ({ forgotPasswordState }) => {
+const ForgotPassword = ({ forgotPasswordState }) => {
   const validationSchema = Yup.object({
-    [type.replace(/ /g, "") + email]: Yup.string()
+    [type + email]: Yup.string()
       .required("Email is required")
       .email("Please enter a valid email address."),
   });
@@ -47,11 +40,11 @@ const SignIn = ({ forgotPasswordState }) => {
         initialValues={initialValues}
         inputs={inputs}
         validationSchema={validationSchema}
-        forgotPasswordState={forgotPasswordState}
         type={type}
+        forgotPasswordState={forgotPasswordState}
       />
     </div>
   );
 };
 
-export default SignIn;
+export default ForgotPassword;

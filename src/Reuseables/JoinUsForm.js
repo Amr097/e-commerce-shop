@@ -1,6 +1,5 @@
 import { React, useState } from "react";
 import { Formik, Form } from "formik";
-import Link from "next/link";
 import FormInput from "./FormInput";
 import Loader from "./Loader";
 import CircleIconBtn from "./CircleIconBtn";
@@ -8,8 +7,17 @@ import { IoIosClose } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import submitHandler from "@/Helpers/SubmitHandler";
 
-const JoinUsForm = ({ type, initialValues, inputs, validationSchema }) => {
+const JoinUsForm = ({
+  info,
+  initialValues,
+  inputs,
+  validationSchema,
+  forgotPasswordState,
+  type,
+}) => {
   const router = useRouter();
+
+  const { forgotPassword, setForgotPassword } = forgotPasswordState;
 
   const [isLoading, setIsLoading] = useState({ state: false, message: "" });
   const [serverMessage, setServerMessage] = useState({
@@ -21,10 +29,8 @@ const JoinUsForm = ({ type, initialValues, inputs, validationSchema }) => {
     <>
       {isLoading.state && <Loader loading={isLoading} />}
       <div className="joinus__heading">
-        <h1 className="heading-medium--black">{type}</h1>
-        <p className="joinus__text joinus__text--heading">
-          Get access to one of the best e-shopping services in the world.
-        </p>
+        <h1 className="heading-medium--black">{info.heading}</h1>
+        <p className="joinus__text joinus__text--heading">{info.headingText}</p>
       </div>
 
       <Formik
@@ -59,13 +65,17 @@ const JoinUsForm = ({ type, initialValues, inputs, validationSchema }) => {
               />
             ))}
 
-            <Link
-              href=""
-              className=" joinus__text joinus__text--forget hover-blue"
-            >
-              Forgot password?
-            </Link>
-            <CircleIconBtn type={type} isLoading={isLoading.state} />
+            {
+              <a
+                onClick={() => {
+                  setForgotPassword(true);
+                }}
+                className=" joinus__text joinus__text--forget hover-blue"
+              >
+                Forgot password?
+              </a>
+            }
+            <CircleIconBtn type={info.btnText} isLoading={isLoading.state} />
           </Form>
         )}
       </Formik>

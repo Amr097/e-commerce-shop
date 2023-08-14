@@ -4,14 +4,16 @@ import SignUp from "./Components/SignUp";
 import { FaArrowLeft } from "react-icons/fa";
 import Link from "next/link";
 import "./JoinUsPage.scss";
-import { getCsrfToken, getProviders, getSession } from "next-auth/react";
+import { getProviders } from "next-auth/react";
 import ContinueWith from "./Components/ContinueWith";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Loader from "@/Reuseables/Loader";
+import ForgotPassword from "./Components/ForgotPassword";
 
 const JoinUsPage = () => {
   const [signIn, setSignIn] = useState(true);
+  const [forgotPassword, setForgotPassword] = useState(false);
   const [providers, setProviders] = useState([]);
   const [loading, setLoading] = useState(false);
   const { data: session, status } = useSession();
@@ -39,7 +41,12 @@ const JoinUsPage = () => {
 
   return (
     <>
-      <Loader loading={{ loading, message: "Unauthorized", type: "error" }} />
+      {loading && (
+        <Loader
+          loading={{ state: loading, message: "Unauthorized", type: "error" }}
+        />
+      )}
+
       <div className="joinus">
         <p className="joinus__back">
           <span className="arrow-in-circle">
@@ -49,12 +56,26 @@ const JoinUsPage = () => {
           We'd be happy if you join us !<Link href="">Go Store</Link>
         </p>
 
-        {signIn ? <SignIn /> : <SignUp />}
+        {signIn && !forgotPassword && (
+          <SignIn forgotPasswordState={{ setForgotPassword, forgotPassword }} />
+        )}
+
+        {!signIn && !forgotPassword && (
+          <SignUp forgotPasswordState={{ setForgotPassword, forgotPassword }} />
+        )}
+
+        {forgotPassword && (
+          <ForgotPassword
+            forgotPasswordState={{ setForgotPassword, forgotPassword }}
+          />
+        )}
+
         <p className="joinus__toggle">
           {signIn ? "Not a member?" : "Already have an account?"} &nbsp;{" "}
           <span
             onClick={() => {
               setSignIn((prev) => !prev);
+              setForgotPassword(false);
             }}
           >
             {signIn ? "Create Account" : "Log in"}
@@ -68,23 +89,3 @@ const JoinUsPage = () => {
 };
 
 export default JoinUsPage;
-
-// export async function getServerSideProps(context) {
-//   const { req, query } = context;
-//   const session = await getSession({ req });
-//   const { callbackUrl } = query;
-
-//   if (session) {
-//     return {
-//       redirect: {
-//         destination: callbackUrl,
-//       },
-//     };
-//   }
-
-//   const csrfToken = await getCsrfToken(context);
-//   const providers = Object.values(await getProviders());
-//   return {
-//     props: { providers, csrfToken, callbackUrl },
-//   };
-// }
