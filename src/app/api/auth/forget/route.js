@@ -35,7 +35,8 @@ export async function POST(req) {
 
     return NextResponse.json(
       {
-        message: "Password reset link has been sent to your account.",
+        message:
+          "Successful request, Please check your email for password reset link.",
       },
       {
         status: 200,

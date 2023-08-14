@@ -11,6 +11,7 @@ const submitHandler = async (
 ) => {
   setServerMessage({ type: null, message: "" });
   e.preventDefault();
+
   try {
     console.log(props.values);
     setIsLoading({ state: true });
@@ -67,7 +68,18 @@ const submitHandler = async (
 
     if (type === "ForgotPassword") {
       const { ForgotPasswordEmail } = props.values;
-      setIsLoading({ state: false, message: "" });
+      console.log("works");
+      const res = await axios.post("/api/auth/forget", {
+        email: ForgotPasswordEmail,
+      });
+      setIsLoading({ state: true, message: "Success." });
+      setTimeout(() => {
+        setIsLoading({ state: false, message: "" });
+        setServerMessage({
+          type: "success",
+          message: res.data.message,
+        });
+      }, 1250);
     }
   } catch (err) {
     const errorMessage = err.response.data.message
