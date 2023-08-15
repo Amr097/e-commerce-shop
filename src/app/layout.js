@@ -9,7 +9,7 @@ import { SessionProvider } from "next-auth/react";
 let persistor = persistStore(store);
 
 export const metadata = {
-  title: "Nostra",
+  title: { default: "Nostra", template: "%s | Nostra" },
   description: "Online shopping service for all your needs",
 };
 

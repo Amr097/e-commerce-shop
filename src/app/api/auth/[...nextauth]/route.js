@@ -27,7 +27,6 @@ export const authOptions = {
           const email = credentials.email;
           const password = credentials.password;
           const user = await User.findOne({ email });
-          4;
 
           if (user) {
             if (!user.emailVerified) {

@@ -89,11 +89,13 @@ const submitHandler = async (
     ///////////////////////////////////////
     //////////////////////////////////////
     else if (type === "Reset") {
-      const { ResetPassword } = props.values;
-      const res = await axios.post(`/api/auth/reset`, {
+      const { ResetPassword, ResetEmail } = props.values;
+      const res = await axios.put(`/api/auth/reset`, {
         token: token,
         password: ResetPassword,
+        email: ResetEmail,
       });
+      console.log(res.data.message);
       setIsLoading({ state: true, message: "Success." });
       setTimeout(() => {
         setIsLoading({ state: false, message: "" });
@@ -101,6 +103,7 @@ const submitHandler = async (
           type: "success",
           message: res.data.message,
         });
+        router.push("/joinus");
       }, 1250);
     }
   } catch (err) {

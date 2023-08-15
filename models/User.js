@@ -33,6 +33,10 @@ let userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    resetToken: {
+      type: String,
+      default: "",
+    },
     address: [
       {
         firstName: {
@@ -66,6 +70,8 @@ userSchema.index(
   { verificationToken: 1 },
   { expireAfterSeconds: 48 * 60 * 60 }
 );
+
+userSchema.index({ resetToken: 1 }, { expireAfterSeconds: 25 * 60 });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);
 

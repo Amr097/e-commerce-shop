@@ -5,11 +5,11 @@ import jwt from "jsonwebtoken";
 
 const bcrypt = require("bcrypt");
 
-export async function POST(req) {
+export async function PUT(req) {
   try {
     connectDB();
     const body = await req.json();
-    const { token, password } = body;
+    const { token, password, email } = body;
     const user_id = jwt.verify(
       token,
       process.env.NEXT_PUBLIC_RESET_TOKEN_SECRET
@@ -17,12 +17,37 @@ export async function POST(req) {
 
     const encryptedPassword = await bcrypt.hash(password, 12);
 
-    const user = await User.findOneAndUpdate(
+    const user = await User.findOne({ _id: user_id });
+
+    if (email !== user.email) {
+      return NextResponse.json(
+        {
+          message: "Please enter your email correctly.",
+        },
+        {
+          status: 400,
+        }
+      );
+    }
+
+    const testPassword = await bcrypt.compare(password, user.password);
+
+    if (testPassword) {
+      return NextResponse.json(
+        {
+          message: "Please type a new password.",
+        },
+        {
+          status: 400,
+        }
+      );
+    }
+
+    const updateUserPassword = await User.findOneAndUpdate(
       { _id: user_id },
       { password: encryptedPassword }
     );
-    console.log(token);
-    console.log(jwt.verify(token, process.env.NEXT_PUBLIC_RESET_TOKEN_SECRET));
+
     disconnectDB();
     if (!user.email) {
       return NextResponse.json(
@@ -37,14 +62,17 @@ export async function POST(req) {
     }
 
     return NextResponse.json(
-      { message: "Your password has been successfully reset." },
+      {
+        message:
+          "Your password has been successfully reset try to sign in now.",
+      },
       {
         status: 200,
       }
     );
   } catch (err) {
     return NextResponse.json(
-      { message: "Internal server error" },
+      { message: err.message },
       {
         status: 500,
       }

@@ -21,15 +21,13 @@ export async function POST(req) {
         }
       );
 
-    const activationToken = createResetToken({
+    const resetToken = createResetToken({
       id: user._id.toString(),
     });
 
-    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/reset/${activationToken}`;
+    const url = `${process.env.NEXT_PUBLIC_BASE_URL}/reset/${resetToken}`;
 
     sendEmail(email, url, "Password reset.", resetPassword, user.name);
-
-    console.log(user.name, url);
 
     disconnectDB();
 
