@@ -8,6 +8,6 @@ export function createActivationToken(payload) {
 
 export function createResetToken(payload) {
   return jwt.sign(payload, process.env.NEXT_PUBLIC_RESET_TOKEN_SECRET, {
-    expiresIn: "6h",
+    expiresIn: "25m",
   });
 }

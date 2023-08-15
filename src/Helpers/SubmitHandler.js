@@ -7,7 +7,8 @@ const submitHandler = async (
   setIsLoading,
   setServerMessage,
   type,
-  router
+  router,
+  token
 ) => {
   setServerMessage({ type: null, message: "" });
   e.preventDefault();
@@ -27,7 +28,10 @@ const submitHandler = async (
         message: "Please correctly fill all the required fields.",
       });
       setIsLoading({ state: false });
-    } else if (type === "SignUp") {
+    }
+    ///////////////////////////////////////
+    //////////////////////////////////////
+    else if (type === "SignUp") {
       const { username, SignUpEmail, SignUpPassword } = props.values;
 
       const res = await axios.post("/api/auth/signup", {
@@ -43,7 +47,10 @@ const submitHandler = async (
         type: "success",
         message: res.data.message,
       });
-    } else if (type === "SignIn") {
+    }
+    ///////////////////////////////////////
+    //////////////////////////////////////
+    else if (type === "SignIn") {
       const { SignInEmail, SignInPassword } = props.values;
       let options = {
         redirect: false,
@@ -52,10 +59,7 @@ const submitHandler = async (
       };
       const res = await signIn("credentials", options);
       if (res.error) {
-        setServerMessage({
-          type: "error",
-          message: res.error,
-        });
+        setServerMessage({ type: "error", message: res.error });
         setIsLoading({ state: false, message: "" });
       } else {
         setIsLoading({ state: true, message: "Successfully signed in." });
@@ -65,12 +69,30 @@ const submitHandler = async (
         }, 1250);
       }
     }
-
-    if (type === "ForgotPassword") {
+    ///////////////////////////////////////
+    //////////////////////////////////////
+    else if (type === "ForgotPassword") {
       const { ForgotPasswordEmail } = props.values;
       console.log("works");
       const res = await axios.post("/api/auth/forget", {
         email: ForgotPasswordEmail,
+      });
+      setIsLoading({ state: true, message: "Success." });
+      setTimeout(() => {
+        setIsLoading({ state: false, message: "" });
+        setServerMessage({
+          type: "success",
+          message: res.data.message,
+        });
+      }, 1250);
+    }
+    ///////////////////////////////////////
+    //////////////////////////////////////
+    else if (type === "Reset") {
+      const { ResetPassword } = props.values;
+      const res = await axios.post(`/api/auth/reset`, {
+        token: token,
+        password: ResetPassword,
       });
       setIsLoading({ state: true, message: "Success." });
       setTimeout(() => {

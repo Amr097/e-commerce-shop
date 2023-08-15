@@ -139,7 +139,7 @@
       min-width: max-content;
       top: 3rem;
       left: 0;
-      padding: 1rem 1.3rem;
+      padding: 1rem 0.8rem;
       border: solid 1px $gray-light-2;
       border-radius: 0 5px 5px 5px;
       visibility: hidden;
@@ -153,7 +153,15 @@
         list-style: none;
         li {
           padding: 0.5rem 1rem;
-          border-radius: 5px;
+          border-radius: 0;
+          border-bottom: 1px solid $gray-light-2;
+          border-right: 1px solid $gray-light-2;
+          font-size: 1.3rem;
+
+          &:last-child {
+            border-radius: 0 0 5px 0;
+          }
+
           &:hover {
             background-color: $gray-light-2;
           }

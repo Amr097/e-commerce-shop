@@ -85,7 +85,7 @@ export async function POST(req) {
     );
   } catch (error) {
     return NextResponse.json(
-      { message: error.message },
+      { message: "Error, connection timed out." },
       {
         status: 500,
       }

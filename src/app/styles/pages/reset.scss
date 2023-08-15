@@ -1,0 +1,35 @@
+.reset-page-container {
+  height: 100dvh;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  .reset__back {
+    align-self: flex-start;
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    .arrow-in-circle {
+      &:hover {
+        background-color: $black;
+        cursor: pointer;
+        svg {
+          fill: $gray-light-1;
+        }
+      }
+    }
+
+    a {
+      margin-left: 0.9rem;
+      color: blue;
+
+      &:hover {
+        border-bottom: 1px solid blue;
+      }
+    }
+  }
+}

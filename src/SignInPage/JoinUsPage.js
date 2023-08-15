@@ -28,7 +28,6 @@ const JoinUsPage = () => {
       } else {
         router.push("/");
       }
-      setLoading(false);
     }
 
     async function fetchProviders() {

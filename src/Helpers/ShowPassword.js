@@ -3,13 +3,11 @@ export function ShowPassword(e, inputId, setInputType) {
 
   if (passwordInput.type === "password") {
     setInputType("text");
-    passwordInput.value !== ""
-      ? e.currentTarget.classList.toggle("reset-width")
-      : null;
+
+    e.currentTarget.classList.toggle("reset-width");
   } else {
     setInputType("password");
-    passwordInput.value !== ""
-      ? e.currentTarget.classList.toggle("reset-width")
-      : null;
+
+    e.currentTarget.classList.toggle("reset-width");
   }
 }

@@ -14,6 +14,7 @@ const JoinUsForm = ({
   validationSchema,
   forgotPasswordState,
   type,
+  token,
 }) => {
   const router = useRouter();
 
@@ -48,7 +49,8 @@ const JoinUsForm = ({
                 setIsLoading,
                 setServerMessage,
                 type,
-                router
+                router,
+                token
               );
             }}
           >
@@ -65,7 +67,7 @@ const JoinUsForm = ({
               />
             ))}
 
-            {
+            {!forgotPassword && (
               <a
                 onClick={() => {
                   setForgotPassword(true);
@@ -74,7 +76,7 @@ const JoinUsForm = ({
               >
                 Forgot password?
               </a>
-            }
+            )}
             <CircleIconBtn type={info.btnText} isLoading={isLoading.state} />
           </Form>
         )}

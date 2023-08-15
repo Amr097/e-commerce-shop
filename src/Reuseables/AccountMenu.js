@@ -2,6 +2,7 @@ import React from "react";
 import { RiArrowDropDownFill, RiAccountPinBoxLine } from "react-icons/ri";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { BsBalloonHeart } from "react-icons/bs";
+import { FiShoppingCart } from "react-icons/fi";
 import { BiLogOut } from "react-icons/bi";
 import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
@@ -12,14 +13,15 @@ const AccountMenu = () => {
   const { data: session } = useSession();
 
   const menuLinks = [
-    { name: "My Account", icon: RiAccountPinBoxLine, link: "/profile" },
+    { name: "Porfile", icon: RiAccountPinBoxLine, link: "/profile" },
+    { name: "Cart", icon: FiShoppingCart, link: "/profile" },
     {
-      name: "My orders",
+      name: "Orders",
       icon: HiOutlineShoppingBag,
       link: "/profile/orders",
     },
     {
-      name: "My wishlist",
+      name: "Wishlist",
       icon: BsBalloonHeart,
       link: "/profile/wishlist",
     },

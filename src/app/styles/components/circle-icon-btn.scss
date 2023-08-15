@@ -1,14 +1,15 @@
 .circle-icon-btn {
-  width: 50%;
+  width: 45%;
   color: $gray-light-1;
   background-color: $black;
   border-radius: 555555555555px;
   padding: 0.5rem 0 0.5rem 2rem;
   justify-content: center;
   margin-bottom: 2rem;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  margin-top: 2rem;
 
   &:disabled {
     opacity: 0.35;
@@ -30,8 +31,10 @@
 
   &:hover {
     transform: translateY(-2px);
+    width: 50%;
   }
   &:active {
     transform: translateY(2px);
+    width: 50%;
   }
 }

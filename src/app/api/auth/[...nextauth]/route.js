@@ -1,4 +1,5 @@
 import NextAuth from "next-auth";
+import { NextResponse } from "next/server";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from "@/lib/mongodb";
 import GoogleProvider from "next-auth/providers/google";
@@ -22,21 +23,30 @@ export const authOptions = {
       },
       async authorize(credentials, req) {
         connectDB();
-        const email = credentials.email;
-        const password = credentials.password;
-        const user = await User.findOne({ email });
-        console.log(user);
+        try {
+          const email = credentials.email;
+          const password = credentials.password;
+          const user = await User.findOne({ email });
+          4;
 
-        if (user) {
-          if (!user.emailVerified) {
-            throw new Error(
-              "Your email has not been verified, please check your inbox for verification link."
-            );
+          if (user) {
+            if (!user.emailVerified) {
+              throw new Error(
+                "Your email has not been verified, please check your inbox for verification link."
+              );
+            } else {
+              return SignInUser({ password, user }, disconnectDB);
+            }
           } else {
-            return SignInUser({ password, user }, disconnectDB);
+            throw new Error("False credentials.");
           }
-        } else {
-          throw new Error("False credentials.");
+        } catch (err) {
+          return NextResponse.json(
+            { message: "Error, connection timed out." },
+            {
+              status: 500,
+            }
+          );
         }
       },
     }),
