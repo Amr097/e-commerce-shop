@@ -9,3 +9,15 @@
     transform: rotate(-320deg);
   }
 }
+
+@keyframes rotateArrowLeft--before {
+  to {
+    transform: rotate(225deg);
+  }
+}
+
+@keyframes rotateArrowLeft--after {
+  to {
+    transform: rotate(-225deg);
+  }
+}

@@ -1,64 +1,43 @@
 @import "../../../app/styles/globals";
 
-.carousel {
-  width: 100%;
-  height: fit-content;
-  margin-top: 4rem;
+.swiper {
+  width: 100% !important;
+  margin-top: 4rem !important;
+  height: fit-content !important;
   position: relative;
   overflow-x: hidden;
 
-  &__list {
-    list-style: none;
+  &-wrapper {
     display: flex;
     width: 100%;
-
-    position: relative;
-    transition: all 0.2s ease-in-out;
   }
-  &__item {
+
+  &-slide {
     width: 100%;
     flex-shrink: 0;
     aspect-ratio: 10/4;
     border-radius: 7px;
     position: relative;
 
-    @media screen and (width < 50em) {
-      border-radius: 0;
-    }
+    &-active {
+      &::after {
+        content: "";
+        display: inline-block;
+        background-color: rgba(0, 0, 0, 0.218);
+        position: absolute;
+        border-radius: 7px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
 
-    &:first-child {
-      .carousel__arrow {
-        &--left {
-          pointer-events: none;
+        @media screen and (width < 50em) {
+          border-radius: 0;
         }
-      }
-    }
-
-    &:last-child {
-      .carousel__arrow {
-        &--right {
-          pointer-events: none;
-        }
-      }
-    }
-
-    &::after {
-      content: "";
-      display: inline-block;
-      background-color: rgba(0, 0, 0, 0.389);
-      position: absolute;
-      border-radius: 7px;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-
-      @media screen and (width < 50em) {
-        border-radius: 0;
       }
     }
   }
+
   &__image {
     display: block;
     width: 100%;
@@ -66,7 +45,6 @@
     object-fit: cover;
     border-radius: 7px;
     position: relative;
-    z-index: -2;
 
     @media screen and (width < 50em) {
       border-radius: 0;
@@ -80,7 +58,7 @@
     top: 37%;
     left: 50%;
     transform: translate(-50%, -50%);
-    // z-index: 2;
+    z-index: 2;
 
     @media screen and (width<109.375em) {
       font-size: 5.5rem !important;
@@ -96,7 +74,7 @@
     }
   }
 
-  a.carousel__btn {
+  a.swiper__btn {
     font-size: 1.9rem;
     width: fit-content;
     padding: 1.4rem 2rem;
@@ -104,178 +82,190 @@
     align-items: center;
     font-weight: bold;
     bottom: 30%;
-    // z-index: 2;
+    z-index: 2;
 
     @media screen and (width<93.75em) {
-      bottom: 20%;
+      bottom: 17%;
+      font-size: 1.5rem;
+      padding: 1.2rem 1.8rem;
     }
 
     span {
       margin-left: 1.4rem;
       font-size: 1.6rem;
-      // z-index: 2;
+      z-index: 2;
+      @media screen and (width<93.75em) {
+        font-size: 1.3rem;
+      }
     }
   }
 
-  &__dots {
-    display: flex;
-    gap: 0.3rem;
-    position: absolute;
-    bottom: 13%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: $gray-dark-1;
-    //z-index: 2;
-    span {
-      font-size: 5rem;
-      cursor: pointer;
-    }
+  &-pagination {
+    bottom: 18% !important;
 
-    &--active {
-      color: $gray-light-1;
+    &-bullet {
+      background: $gray-dark-1 !important;
+      opacity: 1 !important;
+      width: 10px !important;
+      height: 10px !important;
+      z-index: 2;
+
+      &-active {
+        background: white !important;
+      }
+
+      @media screen and (width<93.75em) {
+        width: 6px !important;
+        height: 6px !important;
+      }
     }
 
     @media screen and (width<93.75em) {
-      bottom: 2.5%;
+      bottom: 5% !important;
     }
   }
 
-  &__arrow {
-    width: 12rem;
-    height: 5rem;
-    background-color: $gray-light-1;
-    position: absolute;
-    top: 3.6rem;
-    right: 3.6rem;
-    border-radius: 7px;
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.133);
-    z-index: 2;
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 6rem !important;
+    height: 5rem !important;
+    background-color: $gray-light-1 !important;
+    position: absolute !important;
+    top: 3.6rem !important;
+    z-index: 2 !important;
+    color: $black !important;
+    display: block !important;
+    right: 3.6rem !important;
 
-    @media screen and (width< 75em) {
-      top: 2.4rem;
-      right: 2.4rem;
+    &::after {
+      content: "" !important;
+    }
+  }
+
+  .swiper-button-next {
+    right: 3.6rem !important;
+    border-radius: 0 7px 7px 0 !important;
+    border-left: 2px solid $gray-light-3;
+
+    &::after,
+    &::before {
+      content: "";
+      background-color: var(--custom-black-c);
+      transition: transform 0.2s ease-in-out;
+
+      @media screen and (width < 50em) {
+        width: 1.2px !important;
+        height: 1rem !important;
+      }
     }
 
-    @media screen and (width < 50em) {
-      width: 8rem;
-      height: 4rem;
-      border-radius: 4px;
-      top: 1.9rem;
-      right: 1.9rem;
-    }
-
-    &--right,
-    &--left {
-      width: 50%;
-      height: 100%;
+    &::before {
       display: inline-block;
-      cursor: pointer;
+      width: 1.4px;
+      height: 1.3rem;
+
+      position: absolute;
+      top: 31%;
+      left: 50%;
+      transform: rotate(-45deg);
     }
 
-    &--right {
-      border-left: solid 2px $gray-light-3;
-      position: relative;
+    &::after {
+      display: inline-block;
+      width: 1.4px;
+      height: 1.3rem;
 
-      &::after,
-      &::before {
-        content: "";
-        background-color: var(--custom-black-c);
+      position: absolute;
+      top: 49%;
+      left: 50%;
+      transform: rotate(45deg);
+    }
 
-        @media screen and (width < 50em) {
-          width: 1.2px !important;
-          height: 1rem !important;
-        }
-      }
+    // @media screen and (width< 75em) {
+    //   top: 2.4rem !important;
+    //   right: 2.4rem !important;
+    // }
 
-      &::before {
-        display: inline-block;
-        width: 1.4px;
-        height: 1.3rem;
+    // @media screen and (width < 50em) {
+    //   width: 8rem !important;
+    //   height: 4rem !important;
+    //   border-radius: 4px !important;
+    //   top: 1.9rem !important;
+    //   right: 1.9rem !important;
+    // }
+  }
 
-        position: absolute;
-        top: 31%;
-        left: 50%;
-        transform: rotate(-45deg);
-      }
+  .swiper-button-prev {
+    border-radius: 7px 0 0 7px !important;
+    left: calc(100% - 15.6rem) !important;
 
-      &::after {
-        display: inline-block;
-        width: 1.4px;
-        height: 1.3rem;
+    &::after,
+    &::before {
+      content: "";
+      background-color: var(--custom-black-c);
+      transition: transform 0.2s ease-in-out;
 
-        position: absolute;
-        top: 49%;
-        left: 50%;
-        transform: rotate(45deg);
-      }
-
-      &:checked::before {
-        animation-name: rotateArrowRight--before;
-        animation-timing-function: ease-in-out;
-        animation-duration: 0.4s;
-      }
-
-      &:checked::after {
-        animation-name: rotateArrowRight--after;
-        animation-timing-function: ease-in-out;
-        animation-duration: 0.4s;
+      @media screen and (width < 50em) {
+        width: 1.2px !important;
+        height: 1rem !important;
       }
     }
-    &--left {
-      position: relative;
-      pointer-events: none;
 
-      &::after,
-      &::before {
-        content: "";
-        background-color: var(--custom-gray-c);
+    &::before {
+      display: inline-block;
+      width: 1.4px;
+      height: 1.3rem;
 
-        @media screen and (width < 50em) {
-          width: 1.2px !important;
-          height: 1rem !important;
-        }
-      }
+      position: absolute;
+      top: 31%;
+      left: 50%;
+      transform: rotate(-135deg);
+    }
 
-      &::before {
-        display: inline-block;
-        width: 1.4px;
-        height: 1.3rem;
+    &::after {
+      display: inline-block;
+      width: 1.4px;
+      height: 1.3rem;
 
-        position: absolute;
-        top: 31%;
-        left: 50%;
-        transform: rotate(-135deg);
-      }
+      position: absolute;
+      top: 49%;
+      left: 50%;
+      transform: rotate(135deg);
+    }
+  }
 
-      &::after {
-        display: inline-block;
-        width: 1.4px;
-        height: 1.3rem;
-
-        position: absolute;
-        top: 49%;
-        left: 50%;
-        transform: rotate(135deg);
-      }
-
-      &:checked::before {
-        transform: rotate(225deg);
-
-        transition: all 0.4s ease-in-out;
-      }
-
-      &:checked::after {
-        transform: rotate(-225deg);
-
-        transition: all 0.4s ease-in-out;
-      }
+  &-button-disabled {
+    opacity: 1 !important;
+    &::before {
+      background-color: $gray-dark-1 !important;
+    }
+    &::after {
+      background-color: $gray-dark-1 !important;
     }
   }
 }
 
-input[type="radio"] {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
+.arrow-right-animation {
+  &::before {
+    animation-name: rotateArrowRight--before;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.4s;
+  }
+  &::after {
+    animation-name: rotateArrowRight--after;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.4s;
+  }
+}
+.arrow-left-animation {
+  &::before {
+    animation-name: rotateArrowLeft--before;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.4s;
+  }
+  &::after {
+    animation-name: rotateArrowLeft--after;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.4s;
+  }
 }
