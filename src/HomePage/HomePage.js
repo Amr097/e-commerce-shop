@@ -2,6 +2,7 @@ import React from "react";
 import CurratedPicks from "./Components/CurratedPicks/CurratedPicks";
 import FeaturedProducts from "./Components/FeaturedProducts/FeaturedProducts";
 import HomeCarousel from "./Components/HomeCarousel/HomeCarousel";
+import Brands from "./Components/Brands/Brands";
 import "./Home.scss";
 
 const HomePage = () => {
@@ -26,6 +27,7 @@ const HomePage = () => {
       }}
     >
       <HomeCarousel />
+      <Brands />
       <CurratedPicks />
       <FeaturedProducts />
     </section>

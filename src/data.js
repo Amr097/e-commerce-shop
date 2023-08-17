@@ -244,4 +244,45 @@ const featuredProducts = [
   },
 ];
 
-export { products, featuredProducts, featured, currated };
+const brands = [
+  "/images/chanel.2.png",
+  "/images/ck.png",
+  "/images/guess.png",
+  "/images/gucci.png",
+  "/images/d&g.png",
+  "/images/adidas.png",
+  "/images/levis.png",
+  "/images/versace.png",
+];
+
+const brandsServices = [
+  {
+    icon: "GiTakeMyMoney",
+    title: "Original Products",
+    content: "We provide money back guarantee if the product is not original.",
+  },
+  {
+    icon: "PiMaskHappyDuotone",
+    title: "Satisfaction guarantee",
+    content: "Exchange the product you've purchased if it doesn't fit on you.",
+  },
+  {
+    icon: "FaLuggageCart",
+    title: "New arrival everyday",
+    content: "We update our collections almost everyday.",
+  },
+  {
+    icon: "LiaShippingFastSolid",
+    title: "Fast and free shipping",
+    content: "We provide fast and free shipping fpr our amazing customers .",
+  },
+];
+
+export {
+  products,
+  featuredProducts,
+  featured,
+  currated,
+  brands,
+  brandsServices,
+};
