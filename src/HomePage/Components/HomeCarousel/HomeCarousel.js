@@ -1,12 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import "./HomeCarousel.scss";
-import { products } from "@/data";
+import { featured } from "@/data";
 import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
-import { FaArrowRight } from "react-icons/fa";
+import { BsArrowRight } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -22,73 +22,50 @@ const HomeCarousel = () => {
         pagination={{
           clickable: true,
         }}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
         navigation={true}
-        modules={[Pagination, Navigation]}
+        modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper"
       >
-        {products.map((product) => (
+        {featured.map((product) => (
           <SwiperSlide key={uuidv4()}>
             <Image
               className="swiper__image"
               width={3000}
               height={3000}
               src={product.image}
-              alt={product.type + "" + product.category}
+              placeholder="blur"
+              blurDataURL="data:images/blur.jpg"
+              alt={
+                product.headingStart +
+                " " +
+                product.season +
+                " " +
+                product.headingEnd +
+                " " +
+                product.btnText
+              }
             />
             <h1 className="swiper__title heading-huge">
-              Level up your style with our summer collections
+              {product.headingStart +
+                " " +
+                product.season +
+                " " +
+                product.headingEnd}
             </h1>
             <a className="swiper__btn btn-primary">
-              Shop now{" "}
+              {product.btnText}
               <span className="btn__arrow">
                 {" "}
-                <FaArrowRight />
+                <BsArrowRight />
               </span>
             </a>
           </SwiperSlide>
         ))}
       </Swiper>
-
-      {/* <div className="carousel">
-        <div className="carousel__arrow">
-          <input
-            type="radio"
-            name="arrow"
-            className="carousel__arrow--left"
-            onClick={() => validateAndSlide("left", index, setIndex)}
-          ></input>
-          <input
-            name="arrow"
-            type="radio"
-            className="carousel__arrow--right"
-            onClick={() => validateAndSlide("right", index, setIndex)}
-          ></input>
-        </div>
-        <ul className="carousel__list">
-          {products.map((product) => (
-            <CarouselSlide
-              product={product}
-              products={products}
-              index={index}
-              setIndex={setIndex}
-              key={uuidv4()}
-            />
-          ))}
-        </ul>
-        <div className="carousel__dots">
-          {products.map((dotIndex) => (
-            <span
-              key={uuidv4()}
-              className={index === dotIndex ? "carousel__dots--active" : ""}
-              onClick={() => {
-                validateAndSlide("dot", index, setIndex, dotIndex);
-              }}
-            >
-              •
-            </span>
-          ))}
-        </div>
-      </div> */}
     </>
   );
 };

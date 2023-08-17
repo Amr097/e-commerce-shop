@@ -7,43 +7,47 @@ import SearchBar from "@/Reuseables/SearchBar";
 import NavBar from "./Components/NavBar/NavBar";
 import AccountMenu from "../../Reuseables/AccountMenu";
 import { useSession } from "next-auth/react";
+import HeaderTape from "../HeaderTape/HeaderTape";
 
 const Header = ({ signIn }) => {
   const { data: session, status } = useSession();
 
   return (
-    <header className="header">
-      <a href="/" className="logo">
-        Proshop
-      </a>
-      <div className="navbar__container">
-        <NavBar />
+    <>
+      <HeaderTape />
+      <header className="header">
+        <a href="/" className="logo">
+          Proshop
+        </a>
+        <div className="navbar__container">
+          <NavBar />
 
-        <div className="header__services">
-          {session ? (
-            <AccountMenu />
-          ) : (
-            <a className="services-btn">
+          <div className="header__services">
+            {session ? (
+              <AccountMenu />
+            ) : (
+              <a className="services-btn">
+                {" "}
+                <FiUser /> &nbsp;
+                <p onClick={signIn}>Join us</p>
+              </a>
+            )}
+
+            <Link href="/cart">
               {" "}
-              <FiUser /> &nbsp;
-              <p onClick={signIn}>Join us</p>
-            </a>
-          )}
+              <FiHeart className="services-icon" />
+            </Link>
 
-          <Link href="/cart">
-            {" "}
-            <FiHeart className="services-icon" />
-          </Link>
+            <Link href="/cart">
+              {" "}
+              <FiShoppingCart className="services-icon" />
+            </Link>
 
-          <Link href="/cart">
-            {" "}
-            <FiShoppingCart className="services-icon" />
-          </Link>
-
-          <SearchBar />
+            <SearchBar />
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 };
 

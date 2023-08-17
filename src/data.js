@@ -52,41 +52,85 @@ const products = [
     rating: 4.5,
     numReviews: 12,
   },
-  //{
-  //   id: 1,
-  //   category: "Men",
-  //   type: "t-shirt",
-  //   price: 250,
-  //   colors: ["red", "grey"],
-  //   size: ["S", "M", "L"],
-  //   images: [
-  //     "/images/portrait-happy-handsome-young-man-posing-isolated-background.jpg",
-  //     "/images/portrait-happy-handsome-young-man-posing-isolated-background.jpg",
-  //     "/images/portrait-happy-handsome-young-man-posing-isolated-background.jpg",
-  //     "/images/portrait-happy-handsome-young-man-posing-isolated-background.jpg",
-  //   ],
-  //   stock: 1,
-  //   rating: 4.5,
-  //   numReviews: 12,
-  // },
-  // {
-  //   id: 1,
-  //   category: "Women",
-  //   type: "shirt",
-  //   price: 250,
-  //   colors: ["red", "grey"],
-  //   size: ["S", "M", "L"],
-  //   images: [
-  //     "/images/pexels-карина-каржавина-7945542.jpg",
-  //     "/images/pexels-карина-каржавина-7945542.jpg",
-  //     "/images/pexels-карина-каржавина-7945542.jpg",
-  //     "/images/pexels-карина-каржавина-7945542.jpg",
-  //   ],
-  //   stock: 1,
-  //   rating: 4.5,
-  //   numReviews: 12,
-  // },
 ];
+
+const featured = [
+  {
+    id: 1,
+    headingStart: "Level up your style with our",
+    season: "Summer",
+    headingEnd: "collections",
+    btnText: "Shop now",
+    image: "/images/swiper1.jpg",
+  },
+  {
+    id: 2,
+    headingStart: "Level up your style with our",
+    season: "Summer",
+    headingEnd: "collections",
+    btnText: "Shop now",
+    image: "/images/swiper2.jpg",
+  },
+  {
+    id: 3,
+    headingStart: "Level up your style with our",
+    season: "Summer",
+    headingEnd: "collections",
+    btnText: "Shop now",
+    image: "/images/swiper3a.jpg",
+  },
+  {
+    id: 4,
+    headingStart: "Level up your style with our",
+    season: "Summer",
+    headingEnd: "collections",
+    btnText: "Shop now",
+    image: "/images/swiper4a.jpg",
+  },
+
+  {
+    id: 5,
+    headingStart: "Level up your style with our",
+    season: "Summer",
+    headingEnd: "collections",
+    btnText: "Shop now",
+    image: "/images/swiper5b.jpg",
+  },
+];
+//{
+//   id: 1,
+//   category: "Men",
+//   type: "t-shirt",
+//   price: 250,
+//   colors: ["red", "grey"],
+//   size: ["S", "M", "L"],
+//   images: [
+//     "/images/portrait-happy-handsome-young-man-posing-isolated-background.jpg",
+//     "/images/portrait-happy-handsome-young-man-posing-isolated-background.jpg",
+//     "/images/portrait-happy-handsome-young-man-posing-isolated-background.jpg",
+//     "/images/portrait-happy-handsome-young-man-posing-isolated-background.jpg",
+//   ],
+//   stock: 1,
+//   rating: 4.5,
+//   numReviews: 12,
+// },
+// {
+//   id: 1,
+//   category: "Women",
+//   type: "shirt",
+//   price: 250,
+//   colors: ["red", "grey"],
+//   size: ["S", "M", "L"],
+//   images: [
+//     "/images/pexels-карина-каржавина-7945542.jpg",
+//     "/images/pexels-карина-каржавина-7945542.jpg",
+//     "/images/pexels-карина-каржавина-7945542.jpg",
+//     "/images/pexels-карина-каржавина-7945542.jpg",
+//   ],
+//   stock: 1,
+//   rating: 4.5,
+//   numReviews: 12,
+// },
 
 const featuredProducts = [
   {
@@ -174,4 +218,4 @@ const featuredProducts = [
   },
 ];
 
-export { products, featuredProducts };
+export { products, featuredProducts, featured };

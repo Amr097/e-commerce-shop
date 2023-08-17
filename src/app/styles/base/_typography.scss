@@ -4,10 +4,12 @@
 }
 
 .heading-huge {
-  color: $color-primary;
-  font-size: 7rem;
+  color: $white;
+  font-size: 7.2rem !important;
+  font-weight: 700 !important;
   text-align: center;
   font-weight: bolder;
+  line-height: 1.2 !important;
 }
 
 .heading-medium {
