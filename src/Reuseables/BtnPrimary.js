@@ -6,7 +6,8 @@ const BtnPrimary = ({ item }) => {
     <a className="btn-primary">
       <p className="btn__text">
         {" "}
-        {item.bestSeller ? "Best Seller" : "Shop " + item.category}{" "}
+        {/* {item.bestSeller ? "Best Seller" : "Shop " + item.category}{" "} */}
+        {item.btnText}
       </p>
       <span className="btn__arrow">
         {" "}

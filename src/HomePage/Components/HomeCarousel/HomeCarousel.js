@@ -39,6 +39,7 @@ const HomeCarousel = () => {
               src={product.image}
               placeholder="blur"
               blurDataURL="data:images/blur.jpg"
+              priority={true}
               alt={
                 product.headingStart +
                 " " +

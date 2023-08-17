@@ -1,24 +1,13 @@
 @mixin firstChild {
   .navbar__item:first-child {
-    transition: all 0.2s ease-in-out;
+    transition: all 0.1s ease-in-out;
 
     .navbar__link {
       position: relative;
       padding-left: 1rem;
       padding-right: 3rem;
 
-      &::before {
-        content: "";
-        display: inline-block;
-        width: 1.4px;
-        height: 0.8rem;
-        background-color: black;
-        position: absolute;
-        right: 1.5rem;
-        top: 3.5px;
-        transform: rotate(-50deg);
-      }
-
+      &::before,
       &::after {
         content: "";
         display: inline-block;
@@ -26,8 +15,16 @@
         height: 0.8rem;
         background-color: black;
         position: absolute;
+        top: 35%;
+      }
+
+      &::before {
+        right: 1.6rem;
+        transform: rotate(-50deg);
+      }
+
+      &::after {
         right: 1rem;
-        top: 3.5px;
         transform: rotate(50deg);
       }
     }
@@ -40,7 +37,7 @@
       visibility: visible;
       display: block;
       pointer-events: all;
-      top: 4rem;
+      top: 3.4rem;
       z-index: 99;
     }
   }
@@ -84,10 +81,10 @@
   a,
   .services-btn {
     font-size: inherit;
-    align-self: stretch;
+    font-weight: inherit;
     display: flex;
     align-items: center;
-    padding: 0.5rem 0.8rem;
+    padding: 0.6rem 0.8rem;
     border-radius: 5px;
     cursor: pointer;
 
@@ -106,6 +103,38 @@
       width: 2.5rem;
       height: 2.5rem;
       border-radius: 50%;
+    }
+  }
+
+  .services-btn {
+    isolation: isolate;
+    position: relative;
+    border: 2px solid $black;
+    box-shadow: rgba(99, 99, 99, 0.079) 0 2px 12px 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      background-color: $black;
+      inset: 0;
+      scale: 0 1;
+      transition: scale 450ms;
+      transform-origin: right;
+    }
+
+    &:hover::after,
+    &:focus-visible::after {
+      transform-origin: left;
+      scale: 1 1;
+    }
+
+    &:hover {
+      color: white;
+
+      svg {
+        fill: white;
+      }
     }
   }
 }
@@ -170,17 +199,17 @@
       }
     }
 
-    &:hover {
-      background-color: $gray-light-2;
-    }
+    // &:hover {
+    //   background-color: $gray-light-2;
+    // }
 
-    &:hover .services-btn--dropdown {
-      visibility: visible;
-      pointer-events: all;
-      top: 4rem;
-      z-index: 9999;
-      opacity: 1;
-    }
+    // &:hover .services-btn--dropdown {
+    //   visibility: visible;
+    //   pointer-events: all;
+    //   top: 4rem;
+    //   z-index: 9999;
+    //   opacity: 1;
+    // }
   }
 
   .services-btn--menu {
@@ -193,6 +222,7 @@
 @mixin product-item {
   position: relative;
   width: 25%;
+  height: 28rem;
 
   @media screen and (width < 50em) {
     width: 45%;
@@ -201,7 +231,7 @@
 
 @mixin product-image {
   width: 100%;
-  height: 23rem;
+  height: 100%;
   object-fit: cover;
   border-radius: 5px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;

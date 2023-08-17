@@ -4,6 +4,7 @@ import Header from "@/Partials/Header/Header";
 import HeaderRes from "@/Partials/HeaderResponsive/HeaderRes";
 import HomePage from "@/HomePage/HomePage";
 import { useSession, signIn } from "next-auth/react";
+import HeaderTape from "@/Partials/HeaderTape/HeaderTape";
 
 const Footer = lazy(() => import("@/Partials/Footer/Footer"));
 
@@ -27,6 +28,7 @@ const MyApp = () => {
       }}
     >
       {/* <Suspense fallback={<h1>Loading...</h1>}></Suspense> */}
+      <HeaderTape />
       <Header session={session} signIn={signIn} />
       <HeaderRes session={session} signIn={signIn} />
       <main>

@@ -97,6 +97,33 @@ const featured = [
     image: "/images/swiper5b.jpg",
   },
 ];
+
+const currated = [
+  {
+    id: 1,
+
+    btnText: "Best Seller",
+    image: "/images/currated1.2.jpg",
+  },
+  {
+    id: 2,
+
+    btnText: "Shop Men",
+    image: "/images/currated2.1.jpg",
+  },
+  {
+    id: 3,
+
+    btnText: "Shop Women",
+    image: "/images/currated3.jpg",
+  },
+  {
+    id: 4,
+
+    btnText: "Shop Women",
+    image: "/images/currated4.jpg",
+  },
+];
 //{
 //   id: 1,
 //   category: "Men",
@@ -140,7 +167,7 @@ const featuredProducts = [
     price: 250,
     colors: ["red", "grey"],
     size: ["S", "M", "L"],
-    image: "/images/amir-esrafili-mzBfIKuNBxI-unsplash.jpg",
+    image: "/images/featured1.1.jpg",
 
     stock: 1,
     rating: 4.5,
@@ -155,7 +182,7 @@ const featuredProducts = [
     price: 250,
     colors: ["red", "grey"],
     size: ["S", "M", "L", "XL"],
-    image: "/images/laura-chouette-Pv3DjB4Q7nk-unsplash.jpg",
+    image: "/images/featured2.1.jpg",
 
     stock: 3,
     rating: 4.5,
@@ -168,7 +195,7 @@ const featuredProducts = [
     price: 250,
     colors: ["red", "grey"],
     size: ["S", "M", "L"],
-    image: "/images/pexels-вальдемар-7643904.jpg",
+    image: "/images/featured3.jpg",
 
     stock: 21,
     rating: 4.5,
@@ -181,7 +208,7 @@ const featuredProducts = [
     price: 250,
     colors: ["red", "grey"],
     size: ["S", "M", "L"],
-    image: "/images/pexels-dziana-hasanbekava-7626613.jpg",
+    image: "/images/featured7.jpg",
 
     stock: 1,
     rating: 4.5,
@@ -195,8 +222,7 @@ const featuredProducts = [
     price: 250,
     colors: ["red", "grey"],
     size: ["S", "M", "L"],
-    image:
-      "/images/portrait-happy-handsome-young-man-posing-isolated-background.jpg",
+    image: "/images/featured5.5.jpg",
 
     stock: 1,
     rating: 4.5,
@@ -209,7 +235,7 @@ const featuredProducts = [
     price: 250,
     colors: ["red", "grey"],
     size: ["S", "M", "L"],
-    image: "/images/pexels-карина-каржавина-7945542.jpg",
+    image: "/images/featured4.2.jpg",
 
     stock: 1,
     rating: 4.5,
@@ -218,4 +244,4 @@ const featuredProducts = [
   },
 ];
 
-export { products, featuredProducts, featured };
+export { products, featuredProducts, featured, currated };

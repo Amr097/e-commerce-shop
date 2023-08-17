@@ -11,14 +11,16 @@
     align-items: center;
     color: $color-secondary;
     margin: 0 auto;
+    font-size: 1.85rem;
+    font-weight: 600;
 
     &__list {
       list-style: none;
-      font-size: 1.6rem;
       gap: 3.5rem;
       display: flex;
       justify-content: flex-end;
       align-self: stretch;
+      font-size: inherit;
 
       @media screen and (width< 79em) {
         font-size: 2rem;
@@ -33,7 +35,9 @@
     &__item {
       display: flex;
       align-items: center;
+      align-self: center;
       border-radius: 5px 5px 0px 0;
+      padding: 0.5rem 0;
       position: relative;
 
       &:not(.navbar__item:first-child)::before {

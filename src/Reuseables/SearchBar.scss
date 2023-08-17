@@ -7,7 +7,7 @@
   &__input {
     width: 90%;
     background-color: $gray-light-1;
-    border: solid 1px $gray-light-2;
+    border: solid 1.5px $gray-light-2;
     border-radius: 1rem;
     padding: 1rem 2rem;
     transition: all 0.25s ease-in-out;
@@ -37,7 +37,6 @@
     }
 
     &::placeholder {
-      font-weight: 100;
       font-size: inherit;
       color: $gray-dark-1;
     }
@@ -47,7 +46,7 @@
     border: none;
     cursor: pointer;
     background-color: $gray-light-1;
-    border: solid 1px $gray-light-2;
+    border: solid 1.5px $gray-light-2;
     border-radius: 0 1rem 1rem 0;
     padding: 0 0.5rem;
     transition: 0.2s linear;
@@ -76,7 +75,7 @@
     scale: 0;
     pointer-events: none;
     transform: translate(-9rem);
-    border: solid 1px $gray-light-2;
+    border: solid 1.5px $gray-light-2;
     border-left: 0;
     cursor: pointer;
 

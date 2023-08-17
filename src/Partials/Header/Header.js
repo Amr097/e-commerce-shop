@@ -7,17 +7,16 @@ import SearchBar from "@/Reuseables/SearchBar";
 import NavBar from "./Components/NavBar/NavBar";
 import AccountMenu from "../../Reuseables/AccountMenu";
 import { useSession } from "next-auth/react";
-import HeaderTape from "../HeaderTape/HeaderTape";
 
 const Header = ({ signIn }) => {
   const { data: session, status } = useSession();
 
   return (
     <>
-      <HeaderTape />
       <header className="header">
         <a href="/" className="logo">
-          Proshop
+          N<p>O</p>
+          STRA
         </a>
         <div className="navbar__container">
           <NavBar />
@@ -29,7 +28,7 @@ const Header = ({ signIn }) => {
               <a className="services-btn">
                 {" "}
                 <FiUser /> &nbsp;
-                <p onClick={signIn}>Join us</p>
+                <p onClick={signIn}>Join us?</p>
               </a>
             )}
 
