@@ -303,3 +303,12 @@
   transition: transform 0.2s, width 0.3s cubic-bezier(1, 0, 0, 1) 0.2s;
   z-index: 1;
 }
+
+////////////////////////////////////
+@mixin btn-hover {
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: $shadow-1;
+    transition: all 0.2s ease-in-out;
+  }
+}

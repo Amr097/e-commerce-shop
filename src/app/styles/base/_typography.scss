@@ -20,6 +20,21 @@
   }
 }
 
+.heading-medium-2 {
+  color: $black;
+  font-size: 3.6rem !important;
+  line-height: 1;
+  font-weight: 600;
+}
+
+.text-small {
+  font-size: 1.4rem;
+  font-weight: 500;
+  &--blue {
+    color: $blueish-gray-1;
+  }
+}
+
 .product-text {
   color: $gray-dark-3;
   font-size: 2rem;

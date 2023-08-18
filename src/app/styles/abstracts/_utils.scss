@@ -12,6 +12,22 @@
   }
 }
 
+.link-underline {
+  font-weight: 700;
+  position: relative;
+  color: $gray-dark-3;
+  &::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    bottom: 2px;
+    margin: auto;
+    background-color: $black;
+    width: 100%;
+    height: 0.5px;
+  }
+}
+
 .before-color-red {
   &::before {
     background-color: $red-1 !important;
