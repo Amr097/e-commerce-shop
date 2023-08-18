@@ -311,4 +311,8 @@
     box-shadow: $shadow-1;
     transition: all 0.2s ease-in-out;
   }
+
+  &:active {
+    transform: translateY(1px);
+  }
 }

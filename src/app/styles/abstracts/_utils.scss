@@ -26,6 +26,10 @@
     width: 100%;
     height: 0.5px;
   }
+
+  &:hover {
+    filter: brightness(1.5);
+  }
 }
 
 .before-color-red {
@@ -82,6 +86,21 @@
   }
 }
 
+.input-error-border {
+  transition: 0.2s all linear;
+  border: 1px solid $red-3 !important;
+  opacity: 0.8;
+
+  svg {
+    stroke: $red-3 !important;
+  }
+  input {
+    &::placeholder {
+      color: $red-3 !important;
+    }
+  }
+}
+
 .error-message {
   height: 5rem;
   padding: 0 2rem;
@@ -103,6 +122,32 @@
     border-top: 2rem solid $red-3;
     border-left: 2rem solid transparent;
     border-right: 2rem solid transparent;
+  }
+}
+
+.error-message-news {
+  grid-column: 1/-1;
+  margin-right: auto;
+  height: 4rem;
+  padding: 0 2rem;
+  width: max-content;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: $red-3;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  margin-bottom: 0.5rem !important;
+
+  span {
+    position: absolute;
+    top: -1rem;
+    left: 1rem;
+    border-bottom: 2rem solid $red-3;
+    border-left: 1.3rem solid transparent;
+    border-right: 1.3rem solid transparent;
   }
 }
 
