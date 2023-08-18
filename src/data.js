@@ -278,6 +278,12 @@ const brandsServices = [
   },
 ];
 
+const offerHome = {
+  text: "35% off this Friday and get special gift",
+  image: "/images/offer.jpg",
+  btnText: "Grab it now",
+};
+
 export {
   products,
   featuredProducts,
@@ -285,4 +291,5 @@ export {
   currated,
   brands,
   brandsServices,
+  offerHome,
 };

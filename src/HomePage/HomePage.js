@@ -4,6 +4,7 @@ import FeaturedProducts from "./Components/FeaturedProducts/FeaturedProducts";
 import HomeCarousel from "./Components/HomeCarousel/HomeCarousel";
 import Brands from "./Components/Brands/Brands";
 import "./Home.scss";
+import Subscribe from "./Components/Subscribe/Subscribe";
 
 const HomePage = () => {
   return (
@@ -30,6 +31,7 @@ const HomePage = () => {
       <Brands />
       <CurratedPicks />
       <FeaturedProducts />
+      <Subscribe />
     </section>
   );
 };
