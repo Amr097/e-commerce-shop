@@ -1,20 +1,34 @@
 "use client";
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useState, useRef } from "react";
 import { featuredProducts } from "@/data";
 import "./FeaturedProducts.scss";
 import { v4 as uuidv4 } from "uuid";
 import FeaturedItem from "./Components/FeaturedItem";
-import { changeArrowColor } from "./Functions/ChangeArrowColor";
-import { checkRadioBtn } from "./Functions/checkRadioBtn";
+
+import {
+  handleDrag,
+  handleStart,
+  handleMove,
+  handleEnd,
+  checkRadioBtn,
+  changeArrowColor,
+} from "./Functions/handleSwipe";
 
 const FeaturedProducts = () => {
   const [arrowLeft, setArrowLeft] = useState(false);
   const [arrowRight, setArrowRight] = useState(false);
+
   useEffect(() => {
     let swipeLeft = document.querySelector("#swipeLeft");
     setArrowLeft(true);
     swipeLeft.checked = true;
   }, []);
+
+  const swipeState = useRef({
+    isSwiping: false,
+    currentX: null,
+    draggedX: null,
+  });
 
   return (
     <div className="featured">
@@ -48,7 +62,30 @@ const FeaturedProducts = () => {
 
       <input type="radio" name="swipe-page" id="swipeRight"></input>
 
-      <ul className="featured__list">
+      <ul
+        className="featured__list"
+        onMouseDown={(e) => {
+          handleStart(e, swipeState);
+        }}
+        onTouchStart={(e) => {
+          handleStart(e, swipeState);
+        }}
+        onTouchMove={(e) => {
+          handleMove(e, swipeState);
+        }}
+        onDragEnd={(e) => {
+          handleDrag(e, swipeState, setArrowLeft, setArrowRight);
+        }}
+        onTouchEnd={(e) => {
+          handleEnd(e, swipeState, setArrowLeft, setArrowRight);
+        }}
+        onMouseUp={(e) => {
+          handleEnd(e, swipeState, setArrowLeft, setArrowRight);
+        }}
+        onMouseLeave={(e) => {
+          handleEnd(e, swipeState, setArrowLeft, setArrowRight);
+        }}
+      >
         {featuredProducts.map((item) => (
           <FeaturedItem item={item} key={uuidv4()} />
         ))}
