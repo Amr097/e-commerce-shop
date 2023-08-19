@@ -9,7 +9,7 @@ import HeaderTape from "@/Partials/HeaderTape/HeaderTape";
 const Footer = lazy(() => import("@/Partials/Footer/Footer"));
 
 const MyApp = () => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   return (
     <div
@@ -27,7 +27,7 @@ const MyApp = () => {
           : "";
       }}
     >
-      {/* <Suspense fallback={<h1>Loading...</h1>}></Suspense> */}
+      <Suspense fallback={<h1>Loading...</h1>}></Suspense>
       <HeaderTape />
       <Header session={session} signIn={signIn} />
       <HeaderRes session={session} signIn={signIn} />

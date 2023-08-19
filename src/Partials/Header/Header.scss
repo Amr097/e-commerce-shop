@@ -32,9 +32,9 @@
   font-size: 3.5rem;
   font-weight: 800;
   color: inherit;
-  align-self: flex-start;
+  align-self: flex-end;
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   font-family: "Big Shoulders Text", cursive;
   letter-spacing: 1.5px;
 
@@ -42,25 +42,29 @@
     font-size: 3.1rem;
     font-weight: 800;
     position: relative;
-    transform: translateY(-5px);
+    transform: translateY(-2px);
+
+    @media screen and (width< 61.125em) {
+      transform: translateY(-1px);
+    }
+
     &::after {
       content: "";
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      bottom: 14%;
+      bottom: 12%;
       background-color: $black;
       height: 3.5px;
       width: 80%;
+      @media screen and (width< 61.125em) {
+        bottom: 10%;
+      }
     }
   }
 
   @media screen and (width< 78em) {
     align-self: center;
     margin-left: 8rem;
-  }
-
-  @media screen and (width< 48.43em) {
-    display: none;
   }
 }

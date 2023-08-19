@@ -9,34 +9,35 @@ import AccountMenu from "../../Reuseables/AccountMenu";
 const HeaderRes = ({ session, signIn }) => {
   return (
     <div className="res__header">
-      <div className="res__nav">
-        <div className="res__left">
-          <NavMenu />
-          <p className="logo">Proshop</p>
-        </div>
-
-        <div className="res__services">
-          {session ? (
-            <AccountMenu />
-          ) : (
-            <a onClick={signIn}>
-              <FiUser className="services-icon " />
-            </a>
-          )}
-
-          <a href="/cart">
-            {" "}
-            <FiHeart className="services-icon " /> &nbsp;
-          </a>
-
-          <a href="/cart">
-            {" "}
-            <FiShoppingCart className="services-icon " /> &nbsp;
-          </a>
-        </div>
+      <div className="res__left">
+        <NavMenu />
+        <a href="/" className="logo">
+          N<p>O</p>
+          STRA
+        </a>
       </div>
 
       <SearchBar />
+
+      <div className="res__services">
+        {session ? (
+          <AccountMenu />
+        ) : (
+          <a onClick={signIn}>
+            <FiUser className="services-icon " />
+          </a>
+        )}
+
+        <a>
+          {" "}
+          <FiHeart className="services-icon " /> &nbsp;
+        </a>
+
+        <a>
+          {" "}
+          <FiShoppingCart className="services-icon " /> &nbsp;
+        </a>
+      </div>
     </div>
   );
 };

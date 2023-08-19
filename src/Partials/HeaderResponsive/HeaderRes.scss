@@ -2,20 +2,22 @@
 
 .res {
   &__header {
+    width: 100%;
     margin: 0 auto;
     font-size: 2.2rem;
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    align-items: center;
+    grid-row-gap: 3rem;
+    padding: 0 2rem;
 
     @media screen and (width>71.875em) {
       display: none;
     }
-  }
 
-  &__nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 3rem 0;
-    padding: 0 2rem;
+    @media screen and (width<=37.8125em) {
+      padding: 0;
+    }
   }
 
   &__left {
@@ -23,12 +25,26 @@
     align-items: center;
     gap: 2.5rem;
     z-index: 1;
+
+    @media screen and (width<=37.8125em) {
+      padding-left: 2rem;
+    }
   }
 
   &__services {
+    grid-row: 1;
+    grid-column: 3 / span 1;
     @include nav-services;
     @include nav-services--dropdown;
-    gap: 0.3rem;
+
+    @media screen and (width>71.875em) {
+      // grid-column: 4 / span 1;
+    }
+
+    @media screen and (width<=37.8125em) {
+      padding-right: 2rem;
+    }
+
     a {
       font-size: 2rem;
     }

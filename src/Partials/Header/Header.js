@@ -1,6 +1,5 @@
 "use client";
 import { React } from "react";
-import Link from "next/link";
 import "./Header.scss";
 import { FiHeart, FiShoppingCart, FiUser } from "react-icons/fi";
 import SearchBar from "@/Reuseables/SearchBar";
@@ -9,7 +8,7 @@ import AccountMenu from "../../Reuseables/AccountMenu";
 import { useSession } from "next-auth/react";
 
 const Header = ({ signIn }) => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   return (
     <>
@@ -32,15 +31,15 @@ const Header = ({ signIn }) => {
               </a>
             )}
 
-            <Link href="/cart">
+            <a>
               {" "}
               <FiHeart className="services-icon" />
-            </Link>
+            </a>
 
-            <Link href="/cart">
+            <a>
               {" "}
               <FiShoppingCart className="services-icon" />
-            </Link>
+            </a>
 
             <SearchBar />
           </div>

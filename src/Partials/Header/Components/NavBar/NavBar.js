@@ -13,7 +13,7 @@ const NavBar = () => {
             <ul>
               {["Men", "Women", "Children"].map((item) => (
                 <li key={uuidv4()}>
-                  <a href="">{item}</a>
+                  <a>{item}</a>
                 </li>
               ))}
             </ul>
@@ -21,9 +21,7 @@ const NavBar = () => {
         </li>
         {["Best sellers", "New arrivals", "Trending"].map((item) => (
           <li className="navbar__item" key={uuidv4()}>
-            <a className="navbar__link" href="">
-              {item}
-            </a>
+            <a className="navbar__link">{item}</a>
           </li>
         ))}
       </ul>
