@@ -1,33 +1,16 @@
-"use client";
 import React from "react";
-import Header from "@/Partials/Header/Header";
-import Footer from "@/Partials/Footer/Footer";
-import HeaderRes from "@/Partials/HeaderResponsive/HeaderRes";
-import JoinUsPage from "@/SignInPage/JoinUsPage";
+import JoinUsWrapper from "../JoinUsWrapper/JoinUsWrapper";
+
+export const metadata = {
+  title: "Join us | Nostra",
+  description: "Online shopping service for all your needs",
+  icons: {
+    icon: "/images/favicon.svg",
+  },
+};
 
 const page = () => {
-  return (
-    <div
-      className="joinus-page-container"
-      onClick={(e) => {
-        e.target !== document.querySelector(".menu") &&
-        e.target !== document.querySelector("#nav-toggle") &&
-        e.target !== document.querySelector("#hamMenu") &&
-        e.target.parentNode !== document.querySelector("#hamMenu") &&
-        e.target !== document.querySelector(".menu__btn") &&
-        e.target !== document.querySelector(".menu__icon") &&
-        e.target !== document.querySelector(".menu__shop") &&
-        e.target !== document.querySelector(".btn-wrapper")
-          ? (document.querySelector("#nav-toggle").checked = false)
-          : "";
-      }}
-    >
-      <Header />
-      <HeaderRes />
-      <JoinUsPage />
-      <Footer />
-    </div>
-  );
+  return <JoinUsWrapper />;
 };
 
 export default page;

@@ -24,7 +24,6 @@ const JoinUsPage = () => {
       setLoading(true);
       if (router.query) {
         const { callbackUrl } = router.query;
-        console.log(callbackUrl);
       } else {
         setTimeout(() => {
           router.push("/");
