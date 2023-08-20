@@ -1,0 +1,62 @@
+@import "../../app/styles/globals";
+
+.header__tape {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: $white;
+  background-color: #050910;
+  padding: 1.1rem 13rem;
+  font-weight: 400;
+  transition: all 0.15s ease-in-out;
+  margin-bottom: 4rem;
+
+  @media screen and (width< 29.375em) {
+    padding: 1.1rem 5rem;
+    font-size: 1.3rem;
+  }
+
+  &.disabled {
+    transform: scaleY(0);
+    height: 0;
+    z-index: -9999;
+    width: 100%;
+    pointer-events: none;
+    margin-bottom: 0;
+  }
+
+  &--text {
+    width: fit-content;
+    margin: 0 auto;
+    a {
+      position: relative;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        color: rgba(255, 255, 255, 0.725);
+      }
+
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 100%;
+        height: 0.2px;
+        background-color: rgba(255, 255, 255, 0.403);
+        position: absolute;
+        bottom: 0.3rem;
+      }
+    }
+  }
+
+  svg {
+    cursor: pointer;
+    fill: white;
+    align-self: center;
+    justify-self: flex-end;
+    transition: all 0.2s;
+
+    &:hover {
+      fill: $gray-dark-1;
+    }
+  }
+}

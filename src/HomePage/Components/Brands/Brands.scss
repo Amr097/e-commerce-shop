@@ -1,0 +1,112 @@
+@import "../../../app/styles/globals";
+
+.brands {
+  padding-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 3rem;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+
+  @media screen and (width < 50em) {
+    margin: 0 3rem 2rem 3rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__container {
+    grid-column: 1/-1;
+    margin-top: 1rem;
+    margin-bottom: 6.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__title {
+    grid-column: 1 / span 2;
+    width: 100%;
+
+    @media screen and (width < 50em) {
+      grid-column: 1 / span 1;
+      width: 100%;
+    }
+  }
+
+  .heading-medium-2 {
+    @media screen and (width < 34.375em) {
+      font-size: 3rem !important;
+    }
+  }
+
+  &__text {
+    grid-column: 3 / -1;
+    display: inline-block;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: $gray-dark-1;
+    border-left: solid 3px $black;
+    padding-left: 3rem;
+    margin-left: auto;
+
+    @media screen and (width < 50em) {
+      grid-column: 2 / span 1;
+      margin: 0;
+    }
+  }
+
+  &__logo {
+    width: 6.3rem;
+    height: 6.3rem;
+    object-fit: contain;
+
+    @media screen and (width < 34.375em) {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+
+  &__services {
+    grid-column: 1/-1;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 6rem;
+
+    @media screen and (width < 34.375em) {
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 4rem;
+    }
+
+    &--item {
+      flex-basis: 25%;
+
+      @media screen and (width < 34.375em) {
+        flex-basis: 40%;
+      }
+      div {
+        background-color: $gray-light-4;
+        width: fit-content;
+        padding: 0.8rem 1rem;
+        border-radius: 7px;
+        margin-bottom: 0.5rem;
+
+        .brands-icon {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+      }
+
+      h4 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        margin-top: 1rem;
+        font-size: 1.6rem;
+        color: $gray-dark-1;
+      }
+    }
+  }
+}

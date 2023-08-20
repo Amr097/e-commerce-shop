@@ -12,7 +12,7 @@ import {
   handleEnd,
   checkRadioBtn,
   changeArrowColor,
-} from "./functions/handleSwipe";
+} from "./Functions/HandleSwipe";
 
 const FeaturedProducts = () => {
   const [arrowLeft, setArrowLeft] = useState(false);
