@@ -55,17 +55,17 @@ export const authOptions = {
       allowDangerousEmailAccountLinking: true,
     }),
     GoogleProvider({
-      clientId: process.env.NEXT_PUBLIC_Google_AUTH_CLIENT_ID,
-      clientSecret: process.env.NEXT_PUBLIC_Google_AUTH_SECRET,
+      clientId: process.env.NEXT_PUBLIC_GOOGLE_AUTH_CLIENT_ID,
+      clientSecret: process.env.NEXT_PUBLIC_GOOGLE_AUTH_SECRET,
       allowDangerousEmailAccountLinking: true,
     }),
     FacebookProvider({
-      clientId: process.env.NEXT_PUBLIC_Facebook_AUTH_CLIENT_ID,
-      clientSecret: process.env.NEXT_PUBLIC_Facebook_AUTH_SECRET,
+      clientId: process.env.NEXT_PUBLIC_FACEBOOK_AUTH_CLIENT_ID,
+      clientSecret: process.env.NEXT_PUBLIC_FACEBOOK_AUTH_SECRET,
       allowDangerousEmailAccountLinking: true,
     }),
 
-    // ...add more providers here
+    // ...add more providers here.
   ],
   pages: {
     signIn: "/joinus",
