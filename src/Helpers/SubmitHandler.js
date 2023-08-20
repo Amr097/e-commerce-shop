@@ -56,6 +56,7 @@ const submitHandler = async (
         password: SignInPassword,
       };
       const res = await signIn("credentials", options);
+
       if (res.error) {
         setServerMessage({ type: "error", message: res.error });
         setIsLoading({ state: false, message: "" });

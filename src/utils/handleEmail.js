@@ -17,13 +17,6 @@ const oAuth2Client = new OAuth2(
   OAUTH_PLAYGROUND
 );
 
-console.log(
-  NEXT_PUBLIC_ACTIVATION_GOOGLE_CLIENT_ID,
-  NEXT_PUBLIC_ACTIVATION_GOOGLE_CLIENT_SECRET,
-  NEXT_PUBLIC_ACTIVATION_SENDER_EMAIL_ADDRESS,
-  NEXT_PUBLIC_ACTIVATION_CLIENT_REFRESH_TOKEN
-);
-
 export const sendEmail = (to, url, subject, template, name) => {
   oAuth2Client.setCredentials({
     refresh_token: NEXT_PUBLIC_ACTIVATION_CLIENT_REFRESH_TOKEN,
@@ -52,10 +45,10 @@ export const sendEmail = (to, url, subject, template, name) => {
 
   smtpTransport.sendMail(mailOptions, (err, info) => {
     if (err) {
-      console.log(err);
+      // console.log(err);
       return err;
     }
-    console.log(info);
+    //console.log(info);
     return info;
   });
 };

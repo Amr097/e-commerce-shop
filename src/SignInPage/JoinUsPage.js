@@ -20,7 +20,6 @@ const JoinUsPage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    console.log(session);
     if (session) {
       setLoading(true);
 
@@ -35,7 +34,7 @@ const JoinUsPage = () => {
     }
 
     fetchProviders();
-  }, [session]);
+  }, []);
 
   return (
     <>

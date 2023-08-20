@@ -23,29 +23,19 @@ export const authOptions = {
       },
       async authorize(credentials, req) {
         connectDB();
-        try {
-          const email = credentials.email;
-          const password = credentials.password;
-          const user = await User.findOne({ email });
 
-          if (user) {
-            if (!user.emailVerified) {
-              throw new Error(
-                "Your email has not been verified, please check your inbox for verification link."
-              );
-            } else {
-              return SignInUser({ password, user }, disconnectDB);
-            }
-          } else {
-            throw new Error("False credentials.");
-          }
-        } catch (err) {
-          return NextResponse.json(
-            { message: "Error, connection timed out." },
-            {
-              status: 500,
-            }
+        const email = credentials.email;
+        const password = credentials.password;
+        const user = await User.findOne({ email });
+
+        if (user && user.emailVerified) {
+          return SignInUser({ password, user }, disconnectDB);
+        } else if (user && !user.emailVerfied) {
+          throw new Error(
+            "Your email has not been verified, please check your inbox for verification link."
           );
+        } else {
+          throw new Error("False credentials.");
         }
       },
     }),
