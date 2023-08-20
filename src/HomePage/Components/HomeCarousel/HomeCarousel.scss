@@ -6,6 +6,7 @@
   height: fit-content !important;
   position: relative;
   overflow-x: hidden;
+  z-index: 0 !important;
 
   &-wrapper {
     display: flex;
@@ -60,17 +61,23 @@
     transform: translate(-50%, -50%);
     z-index: 2;
 
-    @media screen and (width<109.375em) {
-      font-size: 5.5rem !important;
-    }
-
     @media screen and (width<93.75em) {
       font-size: 4.5rem !important;
       top: 46%;
     }
+  }
 
-    @media screen and (width<50em) {
-      font-size: 3rem !important;
+  .heading-huge {
+    @media screen and (width<66.0625em) {
+      font-size: 6rem !important;
+    }
+
+    @media screen and (width<40.6255em) {
+      top: 43%;
+      font-size: 5.3rem !important;
+    }
+    @media screen and (width<30.6255em) {
+      font-size: 4rem !important;
     }
   }
 
@@ -92,6 +99,12 @@
       padding: 1.2rem 1.8rem;
     }
 
+    @media screen and (width<31.875em) {
+      font-size: 1.5rem;
+      bottom: 17%;
+      padding: 1rem 1.6rem;
+    }
+
     span {
       margin-left: 1.4rem !important;
       font-size: 1.6rem !important;
@@ -101,6 +114,11 @@
         width: 2rem !important;
         height: 2rem !important;
         stroke-width: 0.5px;
+
+        @media screen and (width<31.875em) {
+          width: 1.5rem !important;
+          height: 1.5rem !important;
+        }
       }
 
       @media screen and (width<93.75em) {
@@ -127,6 +145,12 @@
         width: 6px !important;
         height: 6px !important;
       }
+
+      @media screen and (width< 28.9375em) {
+        width: 4px !important;
+        height: 4px !important;
+        margin: 0 0.4rem !important;
+      }
     }
 
     @media screen and (width<93.75em) {
@@ -140,7 +164,7 @@
     height: 5rem !important;
     background-color: $gray-light-1 !important;
     position: absolute !important;
-    top: 3.6rem !important;
+    top: 5rem !important;
     z-index: 2 !important;
     color: $black !important;
     display: block !important;
@@ -148,6 +172,11 @@
 
     &::after {
       content: "" !important;
+    }
+
+    @media screen and (width < 35em) {
+      width: 5rem !important;
+      height: 4rem !important;
     }
   }
 
@@ -161,11 +190,6 @@
       content: "";
       background-color: var(--custom-black-c);
       transition: transform 0.2s ease-in-out;
-
-      @media screen and (width < 50em) {
-        width: 1.2px !important;
-        height: 1rem !important;
-      }
     }
 
     &::before {
@@ -177,6 +201,10 @@
       top: 31%;
       left: 50%;
       transform: rotate(-45deg);
+
+      @media screen and (width < 35em) {
+        top: 28%;
+      }
     }
 
     &::after {
@@ -188,19 +216,10 @@
       top: 49%;
       left: 50%;
       transform: rotate(45deg);
-    }
 
-    @media screen and (width< 75em) {
-      top: 2.4rem !important;
-      right: 2.4rem !important;
-    }
-
-    @media screen and (width < 50em) {
-      width: 8rem !important;
-      height: 4rem !important;
-      border-radius: 4px !important;
-      top: 1.9rem !important;
-      right: 1.9rem !important;
+      @media screen and (width < 60.625em) {
+        top: 46%;
+      }
     }
   }
 
@@ -208,16 +227,15 @@
     border-radius: 7px 0 0 7px !important;
     left: calc(100% - 15.6rem) !important;
 
+    @media screen and (width < 35em) {
+      left: calc(100% - 13.6rem) !important;
+    }
+
     &::after,
     &::before {
       content: "";
       background-color: var(--custom-black-c);
       transition: transform 0.2s ease-in-out;
-
-      @media screen and (width < 50em) {
-        width: 1.2px !important;
-        height: 1rem !important;
-      }
     }
 
     &::before {
@@ -229,6 +247,10 @@
       top: 31%;
       left: 50%;
       transform: rotate(-135deg);
+
+      @media screen and (width < 35em) {
+        top: 28%;
+      }
     }
 
     &::after {
@@ -240,6 +262,10 @@
       top: 49%;
       left: 50%;
       transform: rotate(135deg);
+
+      @media screen and (width < 60.625em) {
+        top: 46%;
+      }
     }
   }
 

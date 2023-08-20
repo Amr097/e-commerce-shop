@@ -22,6 +22,7 @@ const MyApp = () => {
         e.target !== document.querySelector(".menu__btn") &&
         e.target !== document.querySelector(".menu__icon") &&
         e.target !== document.querySelector(".menu__shop") &&
+        e.target !== document.querySelector(".menu__shop--list") &&
         e.target !== document.querySelector(".btn-wrapper")
           ? (document.querySelector("#nav-toggle").checked = false)
           : "";

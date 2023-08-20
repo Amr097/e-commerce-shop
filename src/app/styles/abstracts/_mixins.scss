@@ -224,8 +224,8 @@
   width: 25%;
   height: 28rem;
 
-  @media screen and (width < 50em) {
-    width: 45%;
+  @media screen and (width < 35em) {
+    width: 49%;
   }
 }
 
@@ -301,7 +301,7 @@
   border-right: none;
   transform: scaleY(0);
   transition: transform 0.2s, width 0.3s cubic-bezier(1, 0, 0, 1) 0.2s;
-  z-index: 1;
+  z-index: -1;
 }
 
 ////////////////////////////////////

@@ -46,6 +46,14 @@ html {
   @media screen and (width< 61.125em) {
     font-size: 40%;
   }
+
+  @media screen and (width< 25em) {
+    font-size: 35%;
+  }
+
+  @media screen and (width< 20em) {
+    font-size: 30%;
+  }
 }
 
 body {
