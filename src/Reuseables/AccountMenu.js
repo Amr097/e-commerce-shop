@@ -27,7 +27,7 @@ const AccountMenu = () => {
     },
   ];
   return (
-    <button className="services-btn services-btn--menu">
+    <button className="auth-services-btn services-btn--menu">
       {" "}
       <img
         src={session ? session.user.image : "/images/pngwing.com (2).png"}
