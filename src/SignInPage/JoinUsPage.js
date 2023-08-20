@@ -16,19 +16,17 @@ const JoinUsPage = () => {
   const [forgotPassword, setForgotPassword] = useState(false);
   const [providers, setProviders] = useState([]);
   const [loading, setLoading] = useState(false);
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const router = useRouter();
 
   useEffect(() => {
+    console.log(session);
     if (session) {
       setLoading(true);
-      if (router.query) {
-        const { callbackUrl } = router.query;
-      } else {
-        setTimeout(() => {
-          router.push("/");
-        }, 1250);
-      }
+
+      setTimeout(() => {
+        router.push("/");
+      }, 1250);
     }
 
     async function fetchProviders() {
@@ -37,7 +35,7 @@ const JoinUsPage = () => {
     }
 
     fetchProviders();
-  }, []);
+  }, [session]);
 
   return (
     <>
