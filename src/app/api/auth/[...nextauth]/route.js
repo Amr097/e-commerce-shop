@@ -30,12 +30,14 @@ export const authOptions = {
 
         if (user && user.emailVerified) {
           return SignInUser({ password, user }, disconnectDB);
+        } else if (user.password !== password) {
+          throw new Error("False credentials.");
         } else if (user && !user.emailVerfied) {
           throw new Error(
             "Your email has not been verified, please check your inbox for verification link."
           );
         } else {
-          throw new Error("False credentials.");
+          throw new Error("Server error, Please try again later.");
         }
       },
     }),

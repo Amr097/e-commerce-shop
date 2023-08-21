@@ -15,8 +15,6 @@ export async function POST(req) {
     const { name, password, email } = body;
     const user = await User.findOne({ email });
 
-    console.log(name, password, email);
-
     if (!email || !password || !name)
       return NextResponse.json(
         { message: "Please fill all the required fields" },
@@ -70,14 +68,21 @@ export async function POST(req) {
 
     const url = `${process.env.NEXT_PUBLIC_BASE_URL}/verify/${activationToken}`;
 
-    sendEmail(email, url, "Verify your account", confirmMail);
+    const mail = await sendEmail(
+      email,
+      url,
+      "Verify your account",
+      confirmMail
+    ).then((result) => {
+      const resultAsString = JSON.stringify(result); // Convert to JSON string or any other desired format
+      return resultAsString;
+    });
 
     disconnectDB();
 
     return NextResponse.json(
       {
-        message:
-          "Successfully registered, a verification link has been sent to your account.",
+        message: mail,
       },
       {
         status: 200,
@@ -85,7 +90,7 @@ export async function POST(req) {
     );
   } catch (error) {
     return NextResponse.json(
-      { message: "Error, connection timed out." },
+      { message: mail },
       {
         status: 500,
       }

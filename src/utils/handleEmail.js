@@ -17,7 +17,7 @@ const oAuth2Client = new OAuth2(
   OAUTH_PLAYGROUND
 );
 
-export const sendEmail = (to, url, subject, template, name) => {
+export const sendEmail = async (to, url, subject, template, name) => {
   oAuth2Client.setCredentials({
     refresh_token: NEXT_PUBLIC_ACTIVATION_CLIENT_REFRESH_TOKEN,
   });
@@ -43,12 +43,12 @@ export const sendEmail = (to, url, subject, template, name) => {
     html: template(to, url, name),
   };
 
-  smtpTransport.sendMail(mailOptions, (err, info) => {
-    if (err) {
-      // console.log(err);
-      return err;
-    }
-    //console.log(info);
-    return info;
-  });
+  try {
+    const smtp = await smtpTransport.sendMail(mailOptions);
+    console.log(smtp);
+    return smtp;
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
 };
