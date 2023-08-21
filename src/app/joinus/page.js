@@ -1,5 +1,5 @@
 import React from "react";
-import JoinUsWrapper from "../JoinUsWrapper/JoinUsWrapper";
+import JoinUsWrapper from "../../Wrappers/JoinUsWrapper/JoinUsWrapper";
 
 export const metadata = {
   title: "Join us | Nostra",

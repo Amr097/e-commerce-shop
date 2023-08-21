@@ -4,6 +4,14 @@ import { redirect } from "next/navigation";
 import { sendEmail } from "@/utils/handleEmail";
 import successfullyVerified from "../../../../emails/successfullyVerifiedTemplate";
 
+export const metadata = {
+  title: "Verify| Nostra",
+  description: "Online shopping service for all your needs",
+  icons: {
+    icon: "/images/favicon.svg",
+  },
+};
+
 export async function GET(req, { params }) {
   connectDB();
   try {

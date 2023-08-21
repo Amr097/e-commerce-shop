@@ -1,6 +1,6 @@
 import { React } from "react";
 
-import MyApp from "@/MyApp/MyApp";
+import MyApp from "@/Wrappers/MyApp/MyApp";
 
 export const metadata = {
   title: "Nostra",

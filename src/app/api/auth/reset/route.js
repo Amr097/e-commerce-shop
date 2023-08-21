@@ -2,6 +2,7 @@ import User from "../../../../../models/User";
 import { connectDB, disconnectDB } from "@/utils/mongo";
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
+import { redirect } from "next/navigation";
 
 const bcrypt = require("bcrypt");
 
@@ -72,7 +73,10 @@ export async function PUT(req) {
     );
   } catch (err) {
     return NextResponse.json(
-      { message: err.message },
+      {
+        message:
+          "Your password reset link might have expired or your request was invalidated due to server error please request a new link and try again.",
+      },
       {
         status: 500,
       }

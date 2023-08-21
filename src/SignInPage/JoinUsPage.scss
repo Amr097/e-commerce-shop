@@ -27,6 +27,7 @@
     align-self: flex-start;
 
     .arrow-in-circle {
+      color: $black !important;
       &:hover {
         background-color: $black;
         cursor: pointer;

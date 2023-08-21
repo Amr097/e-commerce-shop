@@ -71,11 +71,17 @@ const Reset = ({ params }) => {
   return (
     <div className="reset-page-container">
       <p className="reset__back">
-        <span className="arrow-in-circle">
+        <Link
+          href="https://nostra-shop.netlify.app/"
+          className="arrow-in-circle"
+        >
           {" "}
           <FaArrowLeft />{" "}
-        </span>
-        Reset your password ?<Link href="">Back to Sign in page</Link>
+        </Link>
+        Reset your password ?
+        <Link href="https://nostra-shop.netlify.app/joinus">
+          Back to Sign in page
+        </Link>
       </p>
       <div className="reset">
         <div className="sign-in">

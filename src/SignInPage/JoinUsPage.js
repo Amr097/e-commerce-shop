@@ -49,10 +49,10 @@ const JoinUsPage = ({ session }) => {
 
       <div className="joinus">
         <p className="joinus__back">
-          <span className="arrow-in-circle">
+          <Link className="arrow-in-circle" href="/">
             {" "}
             <FaArrowLeft />{" "}
-          </span>
+          </Link>
           We'd be happy if you join us !<Link href="">Go Store</Link>
         </p>
 

@@ -14,6 +14,7 @@
     font-weight: bold;
 
     .arrow-in-circle {
+      color: $black;
       &:hover {
         background-color: $black;
         cursor: pointer;

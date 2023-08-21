@@ -47,6 +47,9 @@
 
     &:focus ~ .search__exit {
       scale: 1;
+      opacity: 1;
+      pointer-events: all;
+      cursor: pointer;
       transform: translate(-2rem);
       transition-delay: 0.3s;
       @media screen and (width<=71.875em) {
@@ -75,7 +78,6 @@
     border: solid 1.5px $gray-light-2;
     border-radius: 0 1rem 1rem 0;
     padding: 0 0.5rem;
-    transition: 0.2s linear;
     display: flex;
     align-items: center;
     @media screen and (width<=71.875em) {
@@ -89,6 +91,7 @@
   }
 
   &__button {
+    transition: 0.2s linear;
     transition-delay: 0.2s;
     svg {
       fill: $gray-dark-1;
@@ -108,11 +111,13 @@
   }
 
   &__exit {
+    transition: 0.2s linear;
     scale: 0;
-    pointer-events: none;
     transform: translate(-9rem);
     border: solid 1.5px $gray-light-2;
     border-left: 0;
+    opacity: 0;
+    pointer-events: none;
     cursor: pointer;
 
     svg {

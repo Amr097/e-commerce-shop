@@ -60,7 +60,10 @@
       @media screen and (width< 61.125em) {
         bottom: 10%;
       }
-      @media screen and (width< 21.125em) {
+      @media screen and (width< 25.125em) {
+        height: 2.5px;
+      }
+      @media screen and (width< 20.125em) {
         height: 2px;
       }
     }

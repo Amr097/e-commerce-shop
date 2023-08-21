@@ -26,9 +26,11 @@ export const authOptions = {
 
         const email = credentials.email;
         const password = credentials.password;
-        const user = await User.findOne({ email });
 
-        if (user && user.emailVerified) {
+        const user = await User.findOne({ email });
+        if (!user) {
+          throw new Error("False credentials.");
+        } else if (user && user.emailVerified) {
           return SignInUser({ password, user }, disconnectDB);
         } else if (user.password !== password) {
           throw new Error("False credentials.");

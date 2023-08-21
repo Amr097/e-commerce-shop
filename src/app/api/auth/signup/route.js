@@ -25,7 +25,7 @@ export async function POST(req) {
 
     if (!validateEmail(email))
       return NextResponse.json(
-        { message: "Invalid email address" },
+        { message: "Invalid email address." },
         {
           status: 400,
         }
