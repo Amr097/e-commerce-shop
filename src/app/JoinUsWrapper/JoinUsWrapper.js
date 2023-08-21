@@ -4,8 +4,10 @@ import Header from "@/Partials/Header/Header";
 import Footer from "@/Partials/Footer/Footer";
 import HeaderRes from "@/Partials/HeaderResponsive/HeaderRes";
 import JoinUsPage from "@/SignInPage/JoinUsPage";
+import { useSession } from "next-auth/react";
 
 const JoinUsWrapper = () => {
+  const { data: session } = useSession();
   return (
     <div
       className="joinus-page-container"
@@ -24,7 +26,7 @@ const JoinUsWrapper = () => {
     >
       <Header />
       <HeaderRes />
-      <JoinUsPage />
+      <JoinUsPage session={session} />
       <Footer />
     </div>
   );

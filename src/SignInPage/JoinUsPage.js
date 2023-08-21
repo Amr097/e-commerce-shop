@@ -6,17 +6,16 @@ import Link from "next/link";
 import "./JoinUsPage.scss";
 import { getProviders } from "next-auth/react";
 import ContinueWith from "./Components/ContinueWith";
-import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Loader from "@/Reuseables/Loader";
 import ForgotPassword from "./Components/ForgotPassword";
 
-const JoinUsPage = () => {
+const JoinUsPage = ({ session }) => {
   const [signIn, setSignIn] = useState(true);
   const [forgotPassword, setForgotPassword] = useState(false);
   const [providers, setProviders] = useState([]);
   const [loading, setLoading] = useState(false);
-  const { data: session } = useSession();
+
   const router = useRouter();
 
   useEffect(() => {
@@ -34,13 +33,17 @@ const JoinUsPage = () => {
     }
 
     fetchProviders();
-  }, []);
+  }, [session]);
 
   return (
     <>
       {loading && (
         <Loader
-          loading={{ state: loading, message: "Unauthorized", type: "error" }}
+          loading={{
+            state: loading,
+            message: "Redirecting to main page.",
+            type: "",
+          }}
         />
       )}
 

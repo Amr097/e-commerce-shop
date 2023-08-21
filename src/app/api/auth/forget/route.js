@@ -27,7 +27,16 @@ export async function POST(req) {
 
     const url = `${process.env.NEXT_PUBLIC_BASE_URL}/reset/${resetToken}`;
 
-    sendEmail(email, url, "Password reset.", resetPassword, user.name);
+    const mail = await sendEmail(
+      email,
+      url,
+      "Password reset.",
+      resetPassword,
+      user.name
+    ).then((result) => {
+      const resultAsString = JSON.stringify(result);
+      return resultAsString;
+    });
 
     disconnectDB();
 

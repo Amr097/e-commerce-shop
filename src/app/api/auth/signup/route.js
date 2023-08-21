@@ -74,7 +74,7 @@ export async function POST(req) {
       "Verify your account",
       confirmMail
     ).then((result) => {
-      const resultAsString = JSON.stringify(result); // Convert to JSON string or any other desired format
+      const resultAsString = JSON.stringify(result);
       return resultAsString;
     });
 
@@ -82,7 +82,8 @@ export async function POST(req) {
 
     return NextResponse.json(
       {
-        message: mail,
+        message:
+          "Successfully registered, a verification link has been sent to your account.",
       },
       {
         status: 200,
@@ -90,7 +91,7 @@ export async function POST(req) {
     );
   } catch (error) {
     return NextResponse.json(
-      { message: mail },
+      { message: "Error, connection timed out." },
       {
         status: 500,
       }

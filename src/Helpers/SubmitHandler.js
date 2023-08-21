@@ -61,7 +61,7 @@ const submitHandler = async (
         setServerMessage({ type: "error", message: res.error });
         setIsLoading({ state: false, message: "" });
       } else {
-        setIsLoading({ state: true, message: "Successfully signed in." });
+        //setIsLoading({ state: true, message: "Successfully signed in." });
         router.push("/");
         setTimeout(() => {
           setIsLoading({ state: false, message: "" });
