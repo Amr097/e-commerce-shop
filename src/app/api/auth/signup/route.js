@@ -72,7 +72,8 @@ export async function POST(req) {
       email,
       url,
       "Verify your account",
-      confirmMail
+      confirmMail,
+      name
     ).then((result) => {
       const resultAsString = JSON.stringify(result);
       return resultAsString;

@@ -29,7 +29,7 @@ export async function GET(req, { params }) {
     if (updateUser) {
       sendEmail(
         user.email,
-        "http://localhost:3000/joinus",
+        "https://nostra-shop.netlify.app/joinus",
         "Successfully verified email.",
         successfullyVerified,
         user.name

@@ -1,4 +1,4 @@
-const successfullyVerified = (name, url) => {
+const successfullyVerified = (to, url, name) => {
   return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" style="font-family:arial, 'helvetica neue', helvetica, sans-serif">
   <head>
@@ -69,7 +69,7 @@ const successfullyVerified = (name, url) => {
   <td align="left" class="es-m-p20b" style="padding:0;Margin:0;width:241px">
   <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
   <tr>
-  <td align="left" class="es-m-txt-c" style="padding:0;Margin:0;font-size:0px"><a target="_blank" href="${url}" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#3B8026;font-size:14px"><img src="https://xuxiqh.stripocdn.email/content/guids/CABINET_30e3fb91027055e764deb1b2e68b26fb7e6a48c60d892774c22f93ce90bc50a2/images/pngegg_2.png" alt="Logo" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" title="Logo" width="127.594"></a></td>
+  <td align="left" class="es-m-txt-c" style="padding:0;Margin:0;font-size:0px"><a target="_blank" href="${url}" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#3B8026;font-size:14px"><img src="https://xuxiqh.stripocdn.email/content/guids/CABINET_30e3fb91027055e764deb1b2e68b26fb7e6a48c60d892774c22f93ce90bc50a2/images/pngegg_2.png" alt="Nostra" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" title="Nostra" width="127.594"></a></td>
   </tr>
   </table></td>
   </tr>

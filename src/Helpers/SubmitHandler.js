@@ -40,11 +40,11 @@ const submitHandler = async (
       setIsLoading({ state: true, message: res.data.message });
       setTimeout(() => {
         setIsLoading({ state: false, message: "" });
+        setServerMessage({
+          type: "success",
+          message: res.data.message,
+        });
       }, 1250);
-      setServerMessage({
-        type: "success",
-        message: res.data.message,
-      });
     }
     ///////////////////////////////////////
     //////////////////////////////////////

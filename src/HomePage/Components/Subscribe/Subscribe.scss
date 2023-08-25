@@ -135,6 +135,11 @@
     margin: 0 auto;
     gap: 0.5rem;
     width: 70%;
+
+    @media screen and (width < 31.875em) {
+      width: 100%;
+      grid-template-columns: 75% 35%;
+    }
   }
 
   &__inputbox {

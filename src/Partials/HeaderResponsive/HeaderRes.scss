@@ -4,7 +4,7 @@
   &__header {
     width: 100%;
     margin: 1.5rem auto 0;
-    font-size: 2.2rem;
+    font-size: 2.8rem;
     display: grid;
     grid-template-columns: max-content 1fr max-content;
     align-items: center;
@@ -34,6 +34,7 @@
   &__services {
     grid-row: 1;
     grid-column: 3 / span 1;
+
     @include nav-services;
     @include nav-services--dropdown;
 
