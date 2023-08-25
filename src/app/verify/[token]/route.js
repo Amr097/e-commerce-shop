@@ -27,13 +27,16 @@ export async function GET(req, { params }) {
     });
 
     if (updateUser) {
-      sendEmail(
+      const mail = await sendEmail(
         user.email,
         "https://nostra-shop.netlify.app/joinus",
         "Successfully verified email.",
         successfullyVerified,
         user.name
-      );
+      ).then((result) => {
+        const resultAsString = JSON.stringify(result);
+        return resultAsString;
+      });
     }
 
     disconnectDB();

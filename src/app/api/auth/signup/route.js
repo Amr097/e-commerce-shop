@@ -91,6 +91,8 @@ export async function POST(req) {
       }
     );
   } catch (error) {
+    await User.deleteOne({ _id: addUser._id });
+
     return NextResponse.json(
       { message: "Error, connection timed out." },
       {
