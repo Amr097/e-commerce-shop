@@ -84,7 +84,7 @@ export async function POST(req) {
     return NextResponse.json(
       {
         message:
-          "Successfully registered, a verification link has been sent to your account.",
+          "Successfully registered, a verification link has been sent to your mail inbox/spam. ",
       },
       {
         status: 200,
