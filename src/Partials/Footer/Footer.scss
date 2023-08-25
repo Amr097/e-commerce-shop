@@ -50,6 +50,49 @@
     color: $gray-dark-1;
     text-transform: capitalize;
 
+    .logo-small {
+      font-size: 3rem;
+      font-weight: 800;
+      color: inherit;
+      display: flex;
+      align-items: flex-end;
+      align-self: flex-end;
+      font-family: "Big Shoulders Text", cursive;
+      letter-spacing: 1.5px;
+
+      p {
+        font-size: 2.6rem;
+        font-weight: 800;
+        position: relative;
+        transform: translateY(-3px);
+
+        @media screen and (width< 61.125em) {
+          transform: translateY(-1.5px);
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: 12%;
+          background-color: $black;
+          height: 3.5px;
+          width: 80%;
+          @media screen and (width< 61.125em) {
+            bottom: 10%;
+            height: 2.5px;
+          }
+          @media screen and (width< 25.125em) {
+            height: 2px;
+          }
+          @media screen and (width< 20.125em) {
+            height: 1.5px;
+          }
+        }
+      }
+    }
+
     a {
       transition: all 0.2s;
       display: inline-block;

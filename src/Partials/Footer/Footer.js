@@ -8,7 +8,13 @@ const Footer = () => {
   return (
     <footer className="footer">
       <ul className="footer__list">
-        <li className="footer__item"> Proshop</li>
+        <li className="footer__item">
+          {" "}
+          <a href="/" className="logo-small">
+            N<p>O</p>
+            STRA
+          </a>
+        </li>
         <li className="footer__item footer__text">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit.
         </li>
@@ -51,7 +57,7 @@ const Footer = () => {
       </ul>
 
       <div className="footer__copyright">
-        <p>Copyright&copy;{currentYear} Proshop. All right reserved.</p>
+        <p>Copyright&copy;{currentYear}. All right reserved.</p>
       </div>
     </footer>
   );
