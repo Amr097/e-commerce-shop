@@ -165,10 +165,14 @@
   max-width: 35rem;
   margin-left: auto;
   transition: 0.2s ease-in-out;
+  background-color: transparent;
+  font-size: 1.5rem !important;
+  font-weight: 500;
 }
 
 .utils-show-success-server {
-  background-color: $green-1;
+  border: solid 1.5px $green-1;
+  color: $green-1 !important;
 
   .joinus__message--server-close {
     border: solid 2px $green-1 !important;
@@ -177,7 +181,8 @@
 }
 
 .utils-show-error-server {
-  background-color: $red-3;
+  border: solid 1.5px $red-3;
+  color: $red-3 !important;
 
   .joinus__message--server-close {
     border: solid 2px $red-3 !important;
