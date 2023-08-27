@@ -20,17 +20,17 @@ This is my first project to work on independently and is meant to put everything
 
 - Built customized image swipers with React swiper, scss & vanilla js.
 
-- Implemented complex authentication server side logic using next auth covering both providers and credentials methods.
+- Implemented authentication server side logic using next auth covering both providers and credentials methods.
 
-- Designed user schema model and deployed it to mongodb atlas crowd service.
+- Designed mongoose schema model for users and deployed the database to a Mongodb Atlas cluster.
 
-- Implemented complex form validations using Formik & Yup covering most edge cases with custom pop-up messages on the client side.
+- Implemented client side form validations using Formik & Yup covering most edge cases with custom pop-up messages showing on the client side to guide users.
 
 - Implemented loading spinners between client requests to server response with custom & informational messages on server response for enhanced user experience.
 
 - Implemented server side data validation covering most edge cases, error handling and informational response messages which are displayed to the user on the client side.
 
-- Implemented verification by email functionality using Oauth 2, nodemailer, and JWT Additionally walked the extra mile and grabbed customized attractive looking email templates for better user experience.
+- Implemented email verification functionality using Oauth2, nodemailer, and JWT Additionally walked the extra mile and used customized attractive looking email templates for better user experience.
 
 - Implemented reset password functionality Oauth 2, nodemailer, and JWT and applied server side validation to ensure the user doesn't insert wrong credentials.
 
