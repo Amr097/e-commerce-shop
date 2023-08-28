@@ -103,7 +103,7 @@ Nostra an under development e-commerce Full-Stack web application Built with Rea
 
 - Always use async await when calling functions that communicates with an external api, even if it is not needed and works fine on your local host, it is another story in production. example: this function located in the utils directory `const mail = sendEmail(args)` will once called in the server dev mode it worked alright bit in prod `await` must be used.
 
-## Getting started
+## 🐢 Getting started
 
 ### Requirements
 
