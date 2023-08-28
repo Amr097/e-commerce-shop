@@ -97,6 +97,8 @@ Nostra an under development e-commerce Full-Stack web application Built with Rea
 
 - Using Oauth 2, nodemailer, free email templates services to send customized verification emails.
 
+- Unsupported CSS properties doesn't override supported CSS properties. example: `.foobar{height: 100vh; height:100dvh;}` if `height:100dvh;` is not supported the browser will ignore it and apply `height: 100vh;` normally.
+
 ### Production wise
 
 - In development cycle Next.js applications does not complain about case senstivity when it comes to environment variables. example: if you have an env var like this one `NEXT_PUBLIC_GOOGLE_AUTH_CLIENT_ID  = foobar` and it was used like this `clientId: process.env.NEXT_PUBLIC_Google_AUTH_CLIENT_ID` notice how **GOOGLE** casing is obviously different in both snippets, this works completely fine in dev mode but it can make you question your life in production.
