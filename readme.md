@@ -45,7 +45,7 @@ Nostra an under development e-commerce Full-Stack web application Built with Rea
 - [JWT]()
 - [Postman]()
 
-## Features
+## 📜 Features
 
 - Responsive & Attractive on all screen sizes.
 
@@ -75,7 +75,7 @@ Nostra an under development e-commerce Full-Stack web application Built with Rea
 
 - Hosted default user image on amazon S3 cloud storage.
 
-## What I Learned
+## ✍🏻 What I Learned
 
 ### Development wise
 
@@ -128,25 +128,3 @@ $ npm install
 # Run the web app
 $ npx next dev
 ```
-
-## 🤔 How to contribute
-
-**Follow the steps below**
-
-```bash
-# Clone your fork
-$ git clone https://github.com/Amr097/e-commerce-shop.git
-
-$ cd e-commerce-shop
-
-# Create a branch with your feature
-$ git checkout -b your-feature
-
-# Make the commit with your changes
-$ git commit -m 'feat: Your new feature'
-
-# Send the code to your remote branch
-$ git push origin your-feature
-```
-
-After your pull request is merged, you can delete your branch
