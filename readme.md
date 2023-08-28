@@ -20,7 +20,7 @@
   <a href="#-about-the-project">About The Project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
    <a href="#-features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;
-   <a href="#-what-ilearned">What I Leanred</a>&nbsp;&nbsp;&nbsp;|&nbsp;
+   <a href="#-what-i-learned">What I Leanred</a>&nbsp;&nbsp;&nbsp;|&nbsp;
   <a href="#-getting-started">Getting Started</a>
   
 </p>
