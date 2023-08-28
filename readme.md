@@ -28,7 +28,7 @@
 ## 👨🏻‍💻 About the project
 
 <p align="center">
-  <button><a href="https://nostra-shop.netlify.app/"><img alt="Demo" src="![netlify](https://github.com/Amr097/e-commerce-shop/assets/127849429/a7ae5d37-b8b8-458f-bbc3-bfeefe7ffdbf)" target="_blank"></img></a></button>
+  <button><a href="https://nostra-shop.netlify.app/"><img alt="Demo" src="![file_type_netlify_icon_130354](https://github.com/Amr097/e-commerce-shop/assets/127849429/c76427ed-1ae4-42e7-9e12-98b17899cf48" target="_blank"/><</a></button>
 
 Nostra an under development e-commerce Full-Stack web application Built with React/Nextjs for the client and server side logic, Mongodb for the database and styled with Scss, This project is meant to put everything i have learnt so far to a good use and challenge my problem solving, creativity and looking up information skills to their limits. I picked up a random design on dribble and decided to animate it. [Design link](https://dribbble.com/shots/20743352-Fashion-E-commerce-Landing-Page).
 
