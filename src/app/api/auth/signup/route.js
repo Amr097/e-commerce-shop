@@ -78,7 +78,6 @@ export async function POST(req) {
       const resultAsString = JSON.stringify(result);
       return resultAsString;
     });
-
     disconnectDB();
 
     return NextResponse.json(

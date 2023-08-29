@@ -1,12 +1,16 @@
 "use client";
-import { React, lazy, Suspense } from "react";
+import { React, useState } from "react";
 import Header from "@/Partials/Header/Header";
 import HeaderRes from "@/Partials/HeaderResponsive/HeaderRes";
 import HomePage from "@/HomePage/HomePage";
 import { useSession, signIn } from "next-auth/react";
 import HeaderTape from "@/Partials/HeaderTape/HeaderTape";
+import dynamic from "next/dynamic";
 
-const Footer = lazy(() => import("@/Partials/Footer/Footer"));
+const DynamicFooterComponent = dynamic(
+  () => import("@/Partials/Footer/Footer"),
+  { ssr: false }
+);
 
 const MyApp = () => {
   const { data: session } = useSession();
@@ -28,16 +32,14 @@ const MyApp = () => {
           : "";
       }}
     >
-      <Suspense fallback={<h1>Loading...</h1>}></Suspense>
       <HeaderTape />
       <Header session={session} signIn={signIn} />
       <HeaderRes session={session} signIn={signIn} />
       <main>
         <HomePage />
       </main>
-      <Suspense>
-        <Footer />
-      </Suspense>
+
+      {<DynamicFooterComponent />}
     </div>
   );
 };

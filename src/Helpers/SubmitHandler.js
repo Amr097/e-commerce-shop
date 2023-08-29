@@ -110,6 +110,8 @@ const submitHandler = async (
     const errorMessage = err.response.data.message
       ? err.response.data.message
       : "An error occured.";
+
+    console.log(err);
     setIsLoading({ state: false, message: "" });
 
     setServerMessage({ type: "error", message: errorMessage });
