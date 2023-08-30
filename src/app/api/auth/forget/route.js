@@ -6,7 +6,7 @@ import { sendEmail } from "@/utils/handleEmail";
 import resetPassword from "../../../../../emails/resetPasswordTemplate";
 
 export async function POST(req) {
-  connectDB();
+  await connectDB();
 
   try {
     const body = await req.json();

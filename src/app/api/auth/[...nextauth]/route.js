@@ -22,7 +22,7 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        connectDB();
+        await connectDB();
 
         const email = credentials.email;
         const password = credentials.password;

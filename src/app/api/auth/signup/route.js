@@ -9,7 +9,7 @@ import confirmMail from "../../../../../emails/confirmMailTemplate";
 const bcrypt = require("bcrypt");
 
 export async function POST(req) {
-  connectDB();
+  await connectDB();
   try {
     const body = await req.json();
     const { name, password, email } = body;

@@ -8,7 +8,7 @@ const bcrypt = require("bcrypt");
 
 export async function PUT(req) {
   try {
-    connectDB();
+    await connectDB();
     const body = await req.json();
     const { token, password, email } = body;
     const user_id = jwt.verify(
