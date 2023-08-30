@@ -32,11 +32,14 @@ const submitHandler = async (
     else if (type === "SignUp") {
       const { username, SignUpEmail, SignUpPassword } = props.values;
 
-      const res = await axios.post("/api/auth/signup", {
-        name: username,
-        email: SignUpEmail,
-        password: SignUpPassword,
-      });
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_NEXTATUH_URL}/api/auth/signup`,
+        {
+          name: username,
+          email: SignUpEmail,
+          password: SignUpPassword,
+        }
+      );
       setIsLoading({ state: true, message: res.data.message });
       setTimeout(() => {
         setIsLoading({ state: false, message: "" });
@@ -74,9 +77,12 @@ const submitHandler = async (
     else if (type === "ForgotPassword") {
       const { ForgotPasswordEmail } = props.values;
 
-      const res = await axios.post("/api/auth/forget", {
-        email: ForgotPasswordEmail,
-      });
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_NEXTATUH_URL}/api/auth/forget`,
+        {
+          email: ForgotPasswordEmail,
+        }
+      );
       setIsLoading({ state: true, message: "Success." });
       setTimeout(() => {
         setIsLoading({ state: false, message: "" });
@@ -90,11 +96,14 @@ const submitHandler = async (
     //////////////////////////////////////
     else if (type === "Reset") {
       const { ResetPassword, ResetEmail } = props.values;
-      const res = await axios.put(`/api/auth/reset`, {
-        token: token,
-        password: ResetPassword,
-        email: ResetEmail,
-      });
+      const res = await axios.put(
+        `${process.env.NEXT_PUBLIC_NEXTATUH_URL}/api/auth/reset`,
+        {
+          token: token,
+          password: ResetPassword,
+          email: ResetEmail,
+        }
+      );
 
       setIsLoading({ state: true, message: "Success." });
       setTimeout(() => {
