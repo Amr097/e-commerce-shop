@@ -7,6 +7,7 @@ import { sendEmail } from "@/utils/handleEmail";
 import confirmMail from "../../../../../emails/confirmMailTemplate";
 
 const bcrypt = require("bcrypt");
+let addUser;
 
 export async function POST(req) {
   await connectDB();
@@ -14,6 +15,8 @@ export async function POST(req) {
     const body = await req.json();
     const { name, password, email } = body;
     const user = await User.findOne({ email });
+
+    console.log(user);
 
     if (!email || !password || !name)
       return NextResponse.json(
@@ -49,13 +52,13 @@ export async function POST(req) {
 
     const encryptedPassword = await bcrypt.hash(password, 12);
 
-    const newUser = new User({
+    const newUser = await new User({
       name,
       password: encryptedPassword,
       email,
     });
 
-    const addUser = await newUser.save();
+    addUser = await newUser.save();
 
     const activationToken = createActivationToken({
       id: addUser._id.toString(),
@@ -68,16 +71,30 @@ export async function POST(req) {
 
     const url = `${process.env.NEXT_PUBLIC_BASE_URL}/verify/${activationToken}`;
 
-    const mail = await sendEmail(
-      email,
-      url,
-      "Verify your account",
-      confirmMail,
-      name
-    ).then((result) => {
-      const resultAsString = JSON.stringify(result);
-      return resultAsString;
-    });
+    try {
+      const mail = await sendEmail(
+        email,
+        url,
+        "Verify your account",
+        confirmMail,
+        name
+      ).then((result) => {
+        const resultAsString = JSON.stringify(result);
+        return resultAsString;
+      });
+    } catch (err) {
+      await User.deleteOne({ _id: addUser._id });
+      return NextResponse.json(
+        {
+          message:
+            "Error, failed to send verification e-mail due to google mailing service malfunction, please contact the developer to fix this problem. ",
+        },
+        {
+          status: 500,
+        }
+      );
+    }
+
     disconnectDB();
 
     return NextResponse.json(

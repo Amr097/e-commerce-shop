@@ -48,7 +48,7 @@ export const sendEmail = async (to, url, subject, template, name) => {
     console.log(smtp);
     return smtp;
   } catch (err) {
-    console.error(err);
+    console.error(err + "EMAIL ERR");
     throw err;
   }
 };

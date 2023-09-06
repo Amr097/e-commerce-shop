@@ -54,6 +54,9 @@ const products = [
   },
 ];
 
+/////////////////////////////////////////////
+/////////////////////////////////////////////
+
 const featured = [
   {
     id: 1,
@@ -98,6 +101,9 @@ const featured = [
   },
 ];
 
+/////////////////////////////////////////////
+/////////////////////////////////////////////
+
 const currated = [
   {
     id: 1,
@@ -124,41 +130,9 @@ const currated = [
     image: "/images/currated4.jpg",
   },
 ];
-//{
-//   id: 1,
-//   category: "Men",
-//   type: "t-shirt",
-//   price: 250,
-//   colors: ["red", "grey"],
-//   size: ["S", "M", "L"],
-//   images: [
-//     "/images/portrait-happy-handsome-young-man-posing-isolated-background.jpg",
-//     "/images/portrait-happy-handsome-young-man-posing-isolated-background.jpg",
-//     "/images/portrait-happy-handsome-young-man-posing-isolated-background.jpg",
-//     "/images/portrait-happy-handsome-young-man-posing-isolated-background.jpg",
-//   ],
-//   stock: 1,
-//   rating: 4.5,
-//   numReviews: 12,
-// },
-// {
-//   id: 1,
-//   category: "Women",
-//   type: "shirt",
-//   price: 250,
-//   colors: ["red", "grey"],
-//   size: ["S", "M", "L"],
-//   images: [
-//     "/images/pexels-карина-каржавина-7945542.jpg",
-//     "/images/pexels-карина-каржавина-7945542.jpg",
-//     "/images/pexels-карина-каржавина-7945542.jpg",
-//     "/images/pexels-карина-каржавина-7945542.jpg",
-//   ],
-//   stock: 1,
-//   rating: 4.5,
-//   numReviews: 12,
-// },
 
+/////////////////////////////////////////////
+/////////////////////////////////////////////
 const featuredProducts = [
   {
     id: 1,
@@ -244,6 +218,9 @@ const featuredProducts = [
   },
 ];
 
+/////////////////////////////////////////////
+/////////////////////////////////////////////
+
 const brands = [
   "/images/chanel.2.png",
   "/images/ck.png",
@@ -254,6 +231,9 @@ const brands = [
   "/images/levis.png",
   "/images/versace.png",
 ];
+
+/////////////////////////////////////////////
+/////////////////////////////////////////////
 
 const brandsServices = [
   {
@@ -277,6 +257,9 @@ const brandsServices = [
     content: "We provide fast and free shipping fpr our amazing customers .",
   },
 ];
+
+/////////////////////////////////////////////
+/////////////////////////////////////////////
 
 const offerHome = {
   text: "35% off this Friday and get special gift",

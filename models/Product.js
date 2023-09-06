@@ -57,6 +57,12 @@ let productSchema = new mongoose.Schema(
       required: true,
     },
 
+    images: [
+      {
+        image: String,
+      },
+    ],
+
     price: {
       type: String,
       required: true,
