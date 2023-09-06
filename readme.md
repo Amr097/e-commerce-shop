@@ -79,17 +79,17 @@ Nostra an under development e-commerce Full-Stack web application Built with Rea
 
 ### Development wise
 
-- Styling tricks such as creating custom animated elements with css before and after pseudo classes, also learnt how to manipulate their properties with javaScript, since pseudo classes are not part of the DOM we have to assign their properties dynamic css `--var()` values which are available to be manipulated by JavaScript.
+- Styling tricks such as creating custom animated elements with CSS ::before and ::after pseudo classes, also learnt how to manipulate their properties with javaScript, since pseudo classes are not part of the DOM we have to use CSS variables `--var()` as values for the poperty we wish to change and change it with JavaScript using `setProperty()` method. 
 
-- Styling React swiper carousels to perfectly match the design, additionally how to use the more complex event listeners to create custom swiper which listens and respond to drag and touch events.
+- Styling React swiper carousels to match the design, additionally how to use the more complex event listeners to create custom swiper which listens and respond to drag and touch events.
 
-- Creating more complex forms with strict client side validation using Formik and Yup libraries, also learned what are regexs and how to use them to validate user input.
+- Creating more complex forms with strict client side validation using Formik and Yup libraries, also learned how to implement JavaScript RegExs to validate user input.
 
 - How to switch between server and client rendering in Nextjs depending on the component's purpose.
 
 - How to use Nextjs api endpoints.
 
-- Error handling and sending accurate error responses dependent on the met edge case.
+- Error handling and sending accurate server side error responses determined by which edge case has been met by the request body data.
 
 - How to implement next auth providers and credentials authentication.
 
