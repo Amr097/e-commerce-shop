@@ -87,7 +87,7 @@ export async function POST(req) {
       return NextResponse.json(
         {
           message:
-            "Error, failed to send verification e-mail due to google mailing service malfunction, please contact the developer to fix this problem. ",
+            "Error, failed to send verification email due to google service malfunction, try again if the error presists please contact the developer to fix this problem. ",
         },
         {
           status: 500,

@@ -22,7 +22,7 @@ export const sendEmail = async (to, url, subject, template, name) => {
     refresh_token: NEXT_PUBLIC_ACTIVATION_CLIENT_REFRESH_TOKEN,
   });
 
-  const accessToken = oAuth2Client.getAccessToken();
+  const accessToken = await oAuth2Client.getAccessToken();
 
   const smtpTransport = nodemailer.createTransport({
     service: "gmail",
