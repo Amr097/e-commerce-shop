@@ -84,6 +84,7 @@ export async function POST(req) {
       });
     } catch (err) {
       await User.deleteOne({ _id: addUser._id });
+      console.log(err.message);
       return NextResponse.json(
         {
           message:
@@ -110,7 +111,7 @@ export async function POST(req) {
     await User.deleteOne({ _id: addUser._id });
 
     return NextResponse.json(
-      { message: "Error, connection timed out." },
+      { message: "Server Error, connection timed out." },
       {
         status: 500,
       }

@@ -118,7 +118,7 @@ const submitHandler = async (
   } catch (err) {
     const errorMessage = err.response.data.message
       ? err.response.data.message
-      : "An error occured.";
+      : "Common server error. Try again and it will work, In case the error presists please contact the developer to perform essential fixes.";
 
     console.log(err);
     setIsLoading({ state: false, message: "" });
