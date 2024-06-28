@@ -34,7 +34,7 @@ Nostra an under development e-commerce Full-Stack web application Built with Rea
 
 ## 🚀 Technologies
 
-- [ [Next.js](), [NextAuth](), [MetaData API]() ]
+- [ [Next.js](), [NextAuth](), [Metadata API]() ]
 - [ [React Hooks](), [React-Icons](), [React-Swiper](), [React-Spinners]() ]
 - [Scss]()
 - [[Formik](), [Yup]()]
