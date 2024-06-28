@@ -11,7 +11,7 @@ const FeaturedItem = ({ item }) => {
         width={2000}
         height={2000}
         placeholder="blur"
-        blurDataURL="data:images/blur.jpg"
+        blurDataURL="data:images/blur.webp"
         className="featured__img"
       />
       <div className="featured__price">

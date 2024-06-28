@@ -69,7 +69,7 @@ const successfullyVerified = (to, url, name) => {
   <td align="left" class="es-m-p20b" style="padding:0;Margin:0;width:241px">
   <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
   <tr>
-  <td align="left" class="es-m-txt-c" style="padding:0;Margin:0;font-size:0px"><a target="_blank" href="${url}" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#3B8026;font-size:14px"><img src="https://xuxiqh.stripocdn.email/content/guids/CABINET_30e3fb91027055e764deb1b2e68b26fb7e6a48c60d892774c22f93ce90bc50a2/images/pngegg_2.png" alt="Nostra" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" title="Nostra" width="127.594"></a></td>
+  <td align="left" class="es-m-txt-c" style="padding:0;Margin:0;font-size:0px"><a target="_blank" href="${url}" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#3B8026;font-size:14px"><img src="https://xuxiqh.stripocdn.email/content/guids/CABINET_30e3fb91027055e764deb1b2e68b26fb7e6a48c60d892774c22f93ce90bc50a2/images/pngegg_2.webp" alt="Nostra" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" title="Nostra" width="127.594"></a></td>
   </tr>
   </table></td>
   </tr>
@@ -82,7 +82,7 @@ const successfullyVerified = (to, url, name) => {
   <td style="padding:0;Margin:0">
   <table cellpadding="0" cellspacing="0" width="100%" class="es-menu" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
   <tr class="links-images-right">
-  <td align="center" valign="top" width="100%" style="Margin:0;padding-left:5px;padding-right:5px;padding-top:10px;padding-bottom:0px;border:0" id="esd-menu-id-0"><a target="_blank" href=${url} style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;display:block;font-family:'Josefin Sans', helvetica, arial, sans-serif;color:#ffffff;font-size:18px">The Only Wardrobe You Need.<img src="https://xuxiqh.stripocdn.email/content/guids/CABINET_30e3fb91027055e764deb1b2e68b26fb7e6a48c60d892774c22f93ce90bc50a2/images/hanger.png" alt="The Only Wardrobe You Need." title="The Only Wardrobe You Need." align="absmiddle" width="42" style="display:inline-block !important;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;padding-left:15px;vertical-align:middle"></a></td>
+  <td align="center" valign="top" width="100%" style="Margin:0;padding-left:5px;padding-right:5px;padding-top:10px;padding-bottom:0px;border:0" id="esd-menu-id-0"><a target="_blank" href=${url} style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;display:block;font-family:'Josefin Sans', helvetica, arial, sans-serif;color:#ffffff;font-size:18px">The Only Wardrobe You Need.<img src="https://xuxiqh.stripocdn.email/content/guids/CABINET_30e3fb91027055e764deb1b2e68b26fb7e6a48c60d892774c22f93ce90bc50a2/images/hanger.webp" alt="The Only Wardrobe You Need." title="The Only Wardrobe You Need." align="absmiddle" width="42" style="display:inline-block !important;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;padding-left:15px;vertical-align:middle"></a></td>
   </tr>
   </table></td>
   </tr>
@@ -146,7 +146,7 @@ const successfullyVerified = (to, url, name) => {
   <td align="left" style="padding:0;Margin:0;width:560px">
   <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
   <tr>
-  <td align="center" class="made_with" style="padding:0;Margin:0;font-size:0"><a target="_blank" href="https://viewstripo.email/?utm_source=templates&utm_medium=email&utm_campaign=delivery_1&utm_content=thank_you_for_choosing_us" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#FFFFFF;font-size:12px"><img src="https://xuxiqh.stripocdn.email/content/guids/CABINET_09023af45624943febfa123c229a060b/images/7911561025989373.png" alt width="125" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></a></td>
+  <td align="center" class="made_with" style="padding:0;Margin:0;font-size:0"><a target="_blank" href="https://viewstripo.email/?utm_source=templates&utm_medium=email&utm_campaign=delivery_1&utm_content=thank_you_for_choosing_us" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#FFFFFF;font-size:12px"><img src="https://xuxiqh.stripocdn.email/content/guids/CABINET_09023af45624943febfa123c229a060b/images/7911561025989373.webp" alt width="125" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></a></td>
   </tr>
   </table></td>
   </tr>

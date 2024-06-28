@@ -6,7 +6,7 @@ const products = [
     price: 250,
     colors: ["red", "grey"],
     size: ["S", "M", "L"],
-    image: "/images/amir-esrafili-mzBfIKuNBxI-unsplash.jpg",
+    image: "/images/amir-esrafili-mzBfIKuNBxI-unsplash.webp",
 
     stock: 1,
     rating: 4.5,
@@ -20,7 +20,7 @@ const products = [
     price: 250,
     colors: ["red", "grey"],
     size: ["S", "M", "L", "XL"],
-    image: "/images/laura-chouette-Pv3DjB4Q7nk-unsplash.jpg",
+    image: "/images/laura-chouette-Pv3DjB4Q7nk-unsplash.webp",
 
     stock: 3,
     rating: 4.5,
@@ -33,7 +33,7 @@ const products = [
     price: 250,
     colors: ["red", "grey"],
     size: ["S", "M", "L"],
-    image: "/images/pexels-вальдемар-7643904.jpg",
+    image: "/images/pexels-вальдемар-7643904.webp",
 
     stock: 21,
     rating: 4.5,
@@ -46,7 +46,7 @@ const products = [
     price: 250,
     colors: ["red", "grey"],
     size: ["S", "M", "L"],
-    image: "/images/pexels-dziana-hasanbekava-7626613.jpg",
+    image: "/images/pexels-dziana-hasanbekava-7626613.webp",
 
     stock: 1,
     rating: 4.5,
@@ -64,7 +64,7 @@ const featured = [
     season: "Summer",
     headingEnd: "collections",
     btnText: "Shop now",
-    image: "/images/swiper1.jpg",
+    image: "/images/swiper1.webp",
   },
   {
     id: 2,
@@ -72,7 +72,7 @@ const featured = [
     season: "Summer",
     headingEnd: "collections",
     btnText: "Shop now",
-    image: "/images/swiper2.jpg",
+    image: "/images/swiper2.webp",
   },
   {
     id: 3,
@@ -80,7 +80,7 @@ const featured = [
     season: "Summer",
     headingEnd: "collections",
     btnText: "Shop now",
-    image: "/images/swiper3a.jpg",
+    image: "/images/swiper3a.webp",
   },
   {
     id: 4,
@@ -88,7 +88,7 @@ const featured = [
     season: "Summer",
     headingEnd: "collections",
     btnText: "Shop now",
-    image: "/images/swiper4a.jpg",
+    image: "/images/swiper4a.webp",
   },
 
   {
@@ -97,7 +97,7 @@ const featured = [
     season: "Summer",
     headingEnd: "collections",
     btnText: "Shop now",
-    image: "/images/swiper5b.jpg",
+    image: "/images/swiper5b.webp",
   },
 ];
 
@@ -109,25 +109,25 @@ const currated = [
     id: 1,
 
     btnText: "Best Seller",
-    image: "/images/currated1.2.jpg",
+    image: "/images/currated1.2.webp",
   },
   {
     id: 2,
 
     btnText: "Shop Men",
-    image: "/images/currated2.1.jpg",
+    image: "/images/currated2.1.webp",
   },
   {
     id: 3,
 
     btnText: "Shop Women",
-    image: "/images/currated3.jpg",
+    image: "/images/currated3.webp",
   },
   {
     id: 4,
 
     btnText: "Shop Women",
-    image: "/images/currated4.jpg",
+    image: "/images/currated4.webp",
   },
 ];
 
@@ -141,7 +141,7 @@ const featuredProducts = [
     price: 250,
     colors: ["red", "grey"],
     size: ["S", "M", "L"],
-    image: "/images/featured1.1.jpg",
+    image: "/images/featured1.1.webp",
 
     stock: 1,
     rating: 4.5,
@@ -156,7 +156,7 @@ const featuredProducts = [
     price: 250,
     colors: ["red", "grey"],
     size: ["S", "M", "L", "XL"],
-    image: "/images/featured2.1.jpg",
+    image: "/images/featured2.1.webp",
 
     stock: 3,
     rating: 4.5,
@@ -169,7 +169,7 @@ const featuredProducts = [
     price: 250,
     colors: ["red", "grey"],
     size: ["S", "M", "L"],
-    image: "/images/featured3.jpg",
+    image: "/images/featured3.webp",
 
     stock: 21,
     rating: 4.5,
@@ -182,7 +182,7 @@ const featuredProducts = [
     price: 250,
     colors: ["red", "grey"],
     size: ["S", "M", "L"],
-    image: "/images/featured7.jpg",
+    image: "/images/featured7.webp",
 
     stock: 1,
     rating: 4.5,
@@ -196,7 +196,7 @@ const featuredProducts = [
     price: 250,
     colors: ["red", "grey"],
     size: ["S", "M", "L"],
-    image: "/images/featured5.5.jpg",
+    image: "/images/featured5.5.webp",
 
     stock: 1,
     rating: 4.5,
@@ -209,7 +209,7 @@ const featuredProducts = [
     price: 250,
     colors: ["red", "grey"],
     size: ["S", "M", "L"],
-    image: "/images/featured4.2.jpg",
+    image: "/images/featured4.2.webp",
 
     stock: 1,
     rating: 4.5,
@@ -222,14 +222,14 @@ const featuredProducts = [
 /////////////////////////////////////////////
 
 const brands = [
-  "/images/chanel.2.png",
-  "/images/ck.png",
-  "/images/guess.png",
-  "/images/gucci.png",
-  "/images/d&g.png",
-  "/images/adidas.png",
-  "/images/levis.png",
-  "/images/versace.png",
+  "/images/chanel.2.webp",
+  "/images/ck.webp",
+  "/images/guess.webp",
+  "/images/gucci.webp",
+  "/images/d&g.webp",
+  "/images/adidas.webp",
+  "/images/levis.webp",
+  "/images/versace.webp",
 ];
 
 /////////////////////////////////////////////
@@ -263,7 +263,7 @@ const brandsServices = [
 
 const offerHome = {
   text: "35% off this Friday and get special gift",
-  image: "/images/offer.jpg",
+  image: "/images/offer.webp",
   btnText: "Grab it now",
 };
 

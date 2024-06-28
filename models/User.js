@@ -19,7 +19,7 @@ let userSchema = new mongoose.Schema(
     image: {
       type: String,
       default:
-        "https://amr-blogging-app.s3.eu-central-1.amazonaws.com/pngegg.png",
+        "https://amr-blogging-app.s3.eu-central-1.amazonaws.com/pngegg.webp",
     },
     emailVerified: {
       type: Boolean,

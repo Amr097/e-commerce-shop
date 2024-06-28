@@ -28,7 +28,7 @@
 ## 👨🏻‍💻 About the project
 
 <p align="center">
-  <button><a href="https://nostra-shop.netlify.app/"><img alt="Demo" src="https://amr-blogging-app.s3.eu-central-1.amazonaws.com/demo.png" target="_blank"></img></a></button>
+  <button><a href="https://nostra-shop.netlify.app/"><img alt="Demo" src="https://amr-blogging-app.s3.eu-central-1.amazonaws.com/demo.webp" target="_blank"></img></a></button>
     
 Nostra an under development e-commerce Full-Stack web application Built with React/Nextjs for the client and server side logic, Mongodb for the database and styled with Scss, This project is meant to put everything i have learnt so far to a good use and challenge my problem solving, creativity and looking up information skills to their limits. I picked up a random design on dribble and decided to animate it. [Design link](https://dribbble.com/shots/20743352-Fashion-E-commerce-Landing-Page).
 
@@ -79,7 +79,7 @@ Nostra an under development e-commerce Full-Stack web application Built with Rea
 
 ### Development wise
 
-- Styling tricks such as creating custom animated elements with CSS ::before and ::after pseudo classes, also learnt how to manipulate their properties with javaScript, since pseudo classes are not part of the DOM we have to use CSS variables `--var()` as values for the poperty we wish to change and change it with JavaScript using `setProperty()` method. 
+- Styling tricks such as creating custom animated elements with CSS ::before and ::after pseudo classes, also learnt how to manipulate their properties with javaScript, since pseudo classes are not part of the DOM we have to use CSS variables `--var()` as values for the poperty we wish to change and change it with JavaScript using `setProperty()` method.
 
 - Styling React swiper carousels to match the design, additionally how to use the more complex event listeners to create custom swiper which listens and respond to drag and touch events.
 

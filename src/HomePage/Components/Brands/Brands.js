@@ -23,7 +23,7 @@ const Brands = () => {
             width={1500}
             height={1500}
             placeholder="blur"
-            blurDataURL="data:images/blur.jpg"
+            blurDataURL="data:images/blur.webp"
             className="brands__logo"
           />
         ))}

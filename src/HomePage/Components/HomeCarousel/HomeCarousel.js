@@ -38,8 +38,7 @@ const HomeCarousel = () => {
               height={3000}
               src={product.image}
               placeholder="blur"
-              blurDataURL="data:images/blur.jpg"
-              priority={true}
+              blurDataURL="data:images/blur.webp"
               alt={
                 product.headingStart +
                 " " +
@@ -49,6 +48,7 @@ const HomeCarousel = () => {
                 " " +
                 product.btnText
               }
+              loading="lazy" // Deferring offscreen images
             />
             <h1 className="swiper__title heading-huge">
               {product.headingStart +

@@ -69,7 +69,7 @@ const confirmMail = (to, url, name) => {
   <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
   <tr>
   <td align="center" style="padding:0;Margin:0;font-size:0px"><a target="_blank" href="https://nostra-shop.netlify.app/" style="-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:underline;color:#134F5C;font-size:14px"><img class="adapt-img" 
-  src="/images/NostraMail.png" alt="Nostra" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" height="34" title="Nostra"></a></td>
+  src="/images/NostraMail.webp" alt="Nostra" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" height="34" title="Nostra"></a></td>
   </tr>
   <tr>
   <td align="center" style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px;font-size:0">
@@ -116,7 +116,7 @@ const confirmMail = (to, url, name) => {
   <td align="center" valign="top" style="padding:0;Margin:0;width:660px">
   <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
   <tr>
-  <td align="center" style="padding:0;Margin:0;font-size:0px"><img src="https://xuxiqh.stripocdn.email/content/guids/CABINET_2663efe83689b9bda1312f85374f56d2/images/10381620386430630.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="100"></td>
+  <td align="center" style="padding:0;Margin:0;font-size:0px"><img src="https://xuxiqh.stripocdn.email/content/guids/CABINET_2663efe83689b9bda1312f85374f56d2/images/10381620386430630.webp" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="100"></td>
   </tr>
   <tr>
   <td align="center" style="padding:0;Margin:0"><h2 style="Margin:0;line-height:43px;mso-line-height-rule:exactly;font-family:Montserrat, sans-serif;font-size:36px;font-style:normal;font-weight:normal;color:#333333">Verify your email to finish signing up</h2></td>

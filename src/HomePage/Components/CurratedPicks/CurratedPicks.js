@@ -19,7 +19,7 @@ const CurratedPicks = () => {
               width={1000}
               height={1000}
               placeholder="blur"
-              blurDataURL="data:images/blur.jpg"
+              blurDataURL="data:images/blur.webp"
               className="currated__img"
             />
 

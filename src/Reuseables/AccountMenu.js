@@ -30,7 +30,7 @@ const AccountMenu = () => {
     <button className="auth-services-btn services-btn--menu">
       {" "}
       <img
-        src={session ? session.user.image : "/images/pngwing.com (2).png"}
+        src={session ? session.user.image : "/images/pngwing.com (2).webp"}
         alt=""
       />{" "}
       &nbsp;
